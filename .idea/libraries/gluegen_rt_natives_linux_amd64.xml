@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="gluegen-rt-natives-linux-amd64">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/gluegen-rt-natives-linux-amd64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/gluegen-rt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/jogl-all-natives-linux-amd64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/jogl-all.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/joml-1.8.5-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/PNGDecoder.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/libsrc" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/libsrc" recursive="false" type="SOURCES" />
+  </library>
+</component>
