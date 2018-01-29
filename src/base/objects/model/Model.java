@@ -15,7 +15,7 @@ public abstract class Model extends ModelBase {
 		public static final int    transformLength = 16;
 	}
 	
-	private int vertexArrayObjectID;
+	private int   vertexArrayObjectID;
 	private float transform[];
 	
 	public Model(String name, Loader ...loaders) {

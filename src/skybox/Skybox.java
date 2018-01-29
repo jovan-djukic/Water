@@ -16,13 +16,13 @@ import java.nio.IntBuffer;
 
 public class Skybox extends Renderer {
 	private static class Constants {
-		public static final String cubeMapTexture         = "-cubeMapTexture";
-		public static final String box         = "-box";
-		public static final String skybox         = "skybox-";
-		public static final String initTag        = Constants.skybox + "init";
-		public static final String preRenderTag   = Constants.skybox + "preRender";
-		public static final String postRenderTag = Constants.skybox + "postRender";
-		public static final int transformArraylength = 16;
+		public static final String cubeMapTexture       = "-cubeMapTexture";
+		public static final String box                  = "-box";
+		public static final String skybox               = "skybox-";
+		public static final String initTag              = Constants.skybox + "init";
+		public static final String preRenderTag         = Constants.skybox + "preRender";
+		public static final String postRenderTag        = Constants.skybox + "postRender";
+		public static final int    transformArrayLength = 16;
 	}
 	
 	private Camera camera;
@@ -68,7 +68,7 @@ public class Skybox extends Renderer {
 		this.cullFace = IntBuffer.allocate(1);
 		
 		this.transform = new Matrix4f();
-		this.transformArray = new float[Constants.transformArraylength];
+		this.transformArray = new float[Constants.transformArrayLength];
 	}
 	
 	public Skybox(

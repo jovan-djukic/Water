@@ -14,6 +14,6 @@ public class OrthographicCamera extends Camera {
 	
 	@Override
 	protected void setProjection() {
-		super.projection.identity().ortho(this.left, this.right, this.bottom, this.top, super.nearClippingPlane, super.farClippingPlane);
+		super.getProjection().identity().ortho(this.left, this.right, this.bottom, this.top, super.getNearClippingPlane(), super.getFarClippingPlane());
 	}
 }

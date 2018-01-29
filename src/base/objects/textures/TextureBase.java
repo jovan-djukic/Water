@@ -8,12 +8,12 @@ import java.nio.IntBuffer;
 
 public abstract class TextureBase extends OpenGLObject {
 	private static class Constants {
-		public static final String textureBase = "textureBase-";
-		public static final String initTag = Constants.textureBase + "init";
-		public static final String destroyTag = Constants.textureBase + "destroy";
-		public static final String bindTag = Constants.textureBase + "bind";
-		public static final String setParameterTag = Constants.textureBase + "setParameter";
-		public static final String texImage2DTag = Constants.textureBase + "texImage2D";
+		public static final String textureBase     = "textureBase";
+		public static final String initTag         = Constants.textureBase + "-init";
+		public static final String destroyTag      = Constants.textureBase + "-destroy";
+		public static final String bindTag         = Constants.textureBase + "-bind";
+		public static final String setParameterTag = Constants.textureBase + "-setParameter";
+		public static final String texImage2DTag   = Constants.textureBase + "-texImage2D";
 	}
 	
 	
@@ -35,6 +35,7 @@ public abstract class TextureBase extends OpenGLObject {
 	
 	@Override
 	public void init(GL4 gl) {
+		super.init(gl);
 		IntBuffer intBuffer = IntBuffer.allocate(1);
 		gl.glGenTextures(1, intBuffer);
 		this.textureID = intBuffer.get(0);
@@ -44,6 +45,7 @@ public abstract class TextureBase extends OpenGLObject {
 	
 	@Override
 	public void destroy(GL4 gl) {
+		super.destroy(gl);
 		IntBuffer intBuffer = IntBuffer.allocate(1);
 		intBuffer.put(this.textureID);
 		intBuffer.rewind();

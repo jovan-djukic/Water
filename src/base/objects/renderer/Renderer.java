@@ -1,4 +1,4 @@
-package base.objects.renderer;
+package base.objects.renderer;;
 
 import base.glsl.ShaderProgram;
 import base.objects.CompositeOpenGLObject;

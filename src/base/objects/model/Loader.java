@@ -24,6 +24,7 @@ public abstract class Loader extends OpenGLObject {
 	
 	@Override
 	public void init(GL4 gl) {
+		super.init(gl);
 		IntBuffer intBuffer = IntBuffer.allocate(1);
 		
 		gl.glGenBuffers(1, intBuffer);
@@ -34,6 +35,7 @@ public abstract class Loader extends OpenGLObject {
 	
 	@Override
 	public void destroy(GL4 gl) {
+		super.destroy(gl);
 		IntBuffer intBuffer = IntBuffer.allocate(1);
 		intBuffer.put(this.bufferID);
 		intBuffer.rewind();

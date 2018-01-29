@@ -89,6 +89,10 @@ public class Mesh extends Model {
 			this.columns = columns;
 		}
 		
+		public int getIndicesCount() {
+			return rows * columns;
+		}
+		
 		@Override
 		protected int[] getIndicesData() {
 			int triangleCount = this.rows * this.columns * 2;

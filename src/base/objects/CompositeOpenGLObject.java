@@ -19,15 +19,21 @@ public class CompositeOpenGLObject extends OpenGLObject {
 	
 	@Override
 	public void init(GL4 gl) {
+		super.init(gl);
 		for (OpenGLObject childObject : this.childObjects) {
-			childObject.init(gl);
+			if (!childObject.isInitialized()) {
+				childObject.init(gl);
+			}
 		}
 	}
 	
 	@Override
 	public void destroy(GL4 gl) {
+		super.destroy(gl);
 		for (OpenGLObject childObject : this.childObjects) {
-			childObject.destroy(gl);
+			if (!childObject.isDestroyed()) {
+				childObject.destroy(gl);
+			}
 		}
 	}
 }

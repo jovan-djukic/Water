@@ -57,7 +57,7 @@ public abstract class GLView implements GLEventListener {
 		GLCapabilities glCapabilities = new GLCapabilities(glProfile);
 		glCapabilities.setAlphaBits(alphaBits);
 		glCapabilities.setDepthBits(depthBits);
-		glCapabilities.setDoubleBuffered(true);
+		glCapabilities.setDoubleBuffered(doubleBuffer);
 		
 		this.glWindow = GLWindow.create(glCapabilities);
 		this.fpsAnimator = new FPSAnimator(this.glWindow, fps, true);

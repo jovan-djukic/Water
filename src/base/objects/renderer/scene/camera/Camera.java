@@ -4,9 +4,9 @@ import org.joml.Matrix4f;
 import org.joml.Vector3f;
 
 public abstract class Camera {
-	protected Vector3f	position;
-	protected Matrix4f	view, projection;
-	protected float nearClippingPlane, farClippingPlane;
+	private Vector3f position;
+	private Matrix4f view, projection;
+	private float nearClippingPlane, farClippingPlane;
 	
 	public Camera(Vector3f position, float nearClippingPlane, float farClippingPlane) {
 		this.position = position;
@@ -18,6 +18,18 @@ public abstract class Camera {
 	
 	public Camera(float x, float y, float z, float nearClippingPlane, float farClippingPlane) {
 		this(new Vector3f(x, y, z), nearClippingPlane, farClippingPlane);
+	}
+	
+	protected float getNearClippingPlane() {
+		return nearClippingPlane;
+	}
+	
+	protected float getFarClippingPlane() {
+		return this.farClippingPlane;
+	}
+	
+	protected Vector3f getPosition() {
+		return position;
 	}
 	
 	protected void setView() {

@@ -15,7 +15,9 @@ public class FrameBuffer extends OpenGLObject {
 		public static final String frameBuffer                            = "frameBuffer-";
 		public static final String initTag                                = Constants.frameBuffer + "init";
 		public static final String destroyTag                             = Constants.frameBuffer + "destroy";
-		public static final String addColorAttachmentTag                  = Constants.frameBuffer + "addColorAttachment";
+		public static final String addTextureColorAttachmentTag           = Constants.frameBuffer + "addTextureColorAttachment";
+		public static final String addTextureDepthAttachmentTag           = Constants.frameBuffer + "addTextureDepthAttachment";
+		public static final String addRenderBufferDepthAttachmentTag      = Constants.frameBuffer + "addColorAttachment";
 		public static final String drawBuffersTag                         = Constants.frameBuffer + "drawBuffers";
 	}
 	
@@ -23,7 +25,7 @@ public class FrameBuffer extends OpenGLObject {
 		public static final String frameBufferComplete = "Frame buffer named %s is complete";
 	}
 	
-	protected int frameBufferID;
+	private int frameBufferID;
 	
 	public FrameBuffer(String name) {
 		super(name);
@@ -31,6 +33,7 @@ public class FrameBuffer extends OpenGLObject {
 	
 	@Override
 	public void init(GL4 gl) {
+		super.init(gl);
 		IntBuffer intBuffer = IntBuffer.allocate(1);
 		gl.glGenFramebuffers(1, intBuffer);
 		
@@ -41,6 +44,7 @@ public class FrameBuffer extends OpenGLObject {
 	
 	@Override
 	public void destroy(GL4 gl) {
+		super.destroy(gl);
 		IntBuffer intBuffer = IntBuffer.allocate(1);
 		intBuffer.put(this.frameBufferID);
 		intBuffer.rewind();
@@ -59,9 +63,21 @@ public class FrameBuffer extends OpenGLObject {
 		return this;
 	}
 	
-	public FrameBuffer addColorAttachment(GL4 gl, int colorAtachment, TextureBase textureBase, int level) {
-		gl.glFramebufferTexture2D(GL4.GL_FRAMEBUFFER, GL4.GL_COLOR_ATTACHMENT0 + colorAtachment, textureBase.getTarget(), textureBase.getTextureID(), level);
-		this.checkForErrors(gl, Constants.addColorAttachmentTag);
+	public FrameBuffer addTextureColorAttachment(GL4 gl, int colorAttachment, TextureBase textureBase, int level) {
+		gl.glFramebufferTexture2D(GL4.GL_FRAMEBUFFER, GL4.GL_COLOR_ATTACHMENT0 + colorAttachment, textureBase.getTarget(), textureBase.getTextureID(), level);
+		this.checkForErrors(gl, Constants.addTextureColorAttachmentTag);
+		return this;
+	}
+	
+	public FrameBuffer addTextureDepthAttachment(GL4 gl, TextureBase textureBase, int level) {
+		gl.glFramebufferTexture2D(GL4.GL_FRAMEBUFFER, GL4.GL_DEPTH_ATTACHMENT, textureBase.getTarget(), textureBase.getTextureID(), level);
+		this.checkForErrors(gl, Constants.addTextureDepthAttachmentTag);
+		return this;
+	}
+	
+	public FrameBuffer addRenderBufferDepthAttachment(GL4 gl, RenderBuffer renderBuffer, int level) {
+		gl.glFramebufferRenderbuffer(GL4.GL_FRAMEBUFFER, GL4.GL_DEPTH_ATTACHMENT, GL4.GL_RENDERBUFFER, renderBuffer.getRenderBufferID());
+		this.checkForErrors(gl, Constants.addRenderBufferDepthAttachmentTag);
 		return this;
 	}
 	

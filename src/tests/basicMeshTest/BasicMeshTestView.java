@@ -1,12 +1,12 @@
-package tests.basicSurfaceMeshTest;
+package tests.basicMeshTest;
 import base.objects.OpenGLObject;
 import base.objects.model.ModelBase;
 import base.objects.renderer.scene.Scene;
 import base.objects.renderer.scene.SceneShaderProgram;
 import base.objects.renderer.scene.camera.Camera;
-import basic.basicSceneShaderProgram.BasicSceneShaderProgram;
-import basic.BasicCamera;
-import basic.BasicView;
+import tests.basic.basicSceneShaderProgram.BasicSceneShaderProgram;
+import tests.basic.BasicCamera;
+import tests.basic.BasicView;
 import com.jogamp.opengl.GL4;
 import shapes.Mesh;
 

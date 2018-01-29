@@ -6,8 +6,8 @@ import shapes.Mesh;
 public class PerlinNoiseTerrain extends Mesh {
 	
 	private static class Constants {
-		public static final String perlinNoiseTerrainVertexPositionLoader = "-perlinNoiseTerrainVertexPositionLoader";
-		public static final String perlinNoiseTerrainIndicesLoader = "-perlinNoiseTerrainIndicesLoader";
+		public static final String perlinNoiseTerrainVertexPositionLoader     = "-perlinNoiseTerrainVertexPositionLoader";
+		public static final String perlinNoiseTerrainIndicesLoader            = "-perlinNoiseTerrainIndicesLoader";
 		public static final String perlinNoiseTerrainTextureCoordinatesLoader = "-textureCoordinatesLoader";
 	}
 	
@@ -46,13 +46,32 @@ public class PerlinNoiseTerrain extends Mesh {
 				rows * columns * 6,
 				new PerlinNoiseTerrainVertexPositionLoader(
 						name + Constants.perlinNoiseTerrainVertexPositionLoader,
-						x, z, vertexPositionAttributeLocation, width, height, rows, columns,
-						numberOfOctaves, persistence, scaleX, scaleY, amplitude, power
+						x,
+						z,
+						vertexPositionAttributeLocation,
+						width,
+						height,
+						rows,
+						columns,
+						numberOfOctaves,
+						persistence,
+						scaleX,
+						scaleY,
+						amplitude,
+						power
 				),
-				new MeshIndicesLoader(Constants.perlinNoiseTerrainIndicesLoader, rows, columns),
+				new MeshIndicesLoader(
+						Constants.perlinNoiseTerrainIndicesLoader,
+						rows,
+						columns
+				),
 				new MeshTextureCoordinatesLoader(
 						name + Constants.perlinNoiseTerrainTextureCoordinatesLoader,
-						textureCoordinatesAttributeLocation, rows, columns, 1, 1
+						textureCoordinatesAttributeLocation,
+						rows,
+						columns,
+						1,
+						1
 				)
 		);
 	}

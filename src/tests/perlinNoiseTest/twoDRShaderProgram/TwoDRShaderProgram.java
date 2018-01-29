@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class TwoDRShaderProgram extends ShaderProgram {
 	private static class Constants {
-		public static final String	shaderProgramName			= "twoDRShaderProgram";
+		public static final String	shaderProgramName			= "texturePreviewShaderProgram";
 		public static final String	vertexShaderName			= "twoDRVertexShader";
 		public static final String	fragmentShaderName			= "twoDRFragmentShader";
 		

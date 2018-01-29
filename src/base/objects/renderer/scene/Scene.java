@@ -9,9 +9,9 @@ import com.jogamp.opengl.GL4;
 
 public class Scene extends Renderer {
 	private static class Constants {
-		public static final int transformArrayLength = 16;
-		public static final String scene = "scene-";
-		public static final String preRenderTag = Constants.scene + "preRender";
+		public static final int    transformArrayLength = 16;
+		public static final String scene                = "scene-";
+		public static final String preRenderTag         = Constants.scene + "preRender";
 	}
 	
 	private Camera   camera;
@@ -27,6 +27,7 @@ public class Scene extends Renderer {
 	}
 	
 	public void update() {
+		super.update();
 		camera.update();
 	}
 	

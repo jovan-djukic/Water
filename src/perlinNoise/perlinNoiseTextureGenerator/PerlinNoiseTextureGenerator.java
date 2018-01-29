@@ -25,7 +25,7 @@ public class PerlinNoiseTextureGenerator extends CompositeRenderer {
 	}
 	
 	private int     textureWidth, textureHeight;
-	private IntBuffer oldViewportBuffer, oldPolygonMode, drawBuffers;
+	private IntBuffer oldViewportBuffer, oldPolygonMode;
 	private boolean isDepthTestEnabled, isBlendEnabled;
 	private Texture perlinNoiseTexture;
 	private FrameBuffer perlinNoiseFrameBuffer;
@@ -67,7 +67,8 @@ public class PerlinNoiseTextureGenerator extends CompositeRenderer {
 			.texParameteri(gl, GL4.GL_TEXTURE_WRAP_S, GL4.GL_MIRRORED_REPEAT);
 		
 		this.perlinNoiseFrameBuffer.bind(gl)
-				.addColorAttachment(gl, 0, this.perlinNoiseTexture, 0)
+				.addTextureColorAttachment(gl, 0, this.perlinNoiseTexture, 0)
+				.drawBuffers(gl, 0)
 				.unbind(gl);
 		
 		this.perlinNoiseFrameBuffer.status(gl);
@@ -87,8 +88,7 @@ public class PerlinNoiseTextureGenerator extends CompositeRenderer {
 		gl.glDisable(GL4.GL_DEPTH_TEST);
 		gl.glDisable(GL4.GL_BLEND);
 		
-		this.perlinNoiseFrameBuffer.bind(gl)
-				.drawBuffers(gl, 0);
+		this.perlinNoiseFrameBuffer.bind(gl);
 		
 		gl.glClearColor(0, 0, 0, 0);
 		gl.glClear(GL4.GL_COLOR_BUFFER_BIT);

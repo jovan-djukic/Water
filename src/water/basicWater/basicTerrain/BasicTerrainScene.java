@@ -7,6 +7,7 @@ import base.objects.textures.Texture;
 import base.objects.textures.TextureData;
 import com.jogamp.opengl.GL4;
 import de.matthiasmann.twl.utils.PNGDecoder;
+import shapes.Mesh;
 import terrain.perlinNoiseTerrain.PerlinNoiseTerrain;
 import water.basicWater.basicTerrain.basicTerrainShaderProgram.BasicTerrainShaderProgram;
 
@@ -14,31 +15,26 @@ import java.nio.IntBuffer;
 
 public class BasicTerrainScene extends Scene {
 	private static class Constants {
-		public static final String png                  = ".png";
-		public static final String grassTexture         = "grass";
-		public static final String sandTexture          = "sand";
-		public static final String grassTextureFileName = Constants.grassTexture + Constants.png;
-		public static final String sandTextureFileName  = Constants.sandTexture + Constants.png;
-		public static final String basicTerrain         = "basicTerrain";
-		public static final String initTag              = Constants.basicTerrain + "init";
-		public static final String preRenderTag         = Constants.basicTerrain + "preRender";
+		public static final String grassTexture = "grass";
+		public static final String sandTexture  = "sand";
+		public static final String basicTerrain = "basicTerrain";
+		public static final String initTag      = Constants.basicTerrain + "init";
+		public static final String preRenderTag = Constants.basicTerrain + "preRender";
 	}
 	
 	private BasicTerrainShaderProgram shaderProgram;
 	private Texture                   sandTexture, grassTexture;
+	private String sandTextureFileName, grassTextureFileName;
+	private Class scope;
 	private boolean isCullFaceEnabled, isDepthTestEnabled;
 	private IntBuffer cullFace, polygonMode;
 	
-	private BasicTerrainScene(String name, BasicTerrainShaderProgram shaderProgram, Camera camera, float x, float z, float width, float height, int rows, int columns, int numberOfOctaves, float persistence, float scaleX, float scaleY, float amplitude, float power, Texture grassTexture, Texture sandTexture) {
+	private BasicTerrainScene(String name, BasicTerrainShaderProgram shaderProgram, Camera camera, Mesh terrain, Texture grassTexture, Texture sandTexture, Class scope, String grassTextureFileName, String sandTextureFileName) {
 		super(
 				name,
 				shaderProgram,
 				new ModelBase[] {
-						new PerlinNoiseTerrain(
-								name, x, z, shaderProgram.getVertexPositionAttributeLocation(),
-								width, height, rows, columns, numberOfOctaves, persistence, scaleX,
-								scaleY, amplitude, power, shaderProgram.getTextureCoordinateAttributeLocation()
-						)
+						terrain
 				},
 				camera, sandTexture, grassTexture
 		);
@@ -46,13 +42,16 @@ public class BasicTerrainScene extends Scene {
 		this.shaderProgram = shaderProgram;
 		this.grassTexture = grassTexture;
 		this.sandTexture = sandTexture;
+		this.sandTextureFileName = sandTextureFileName;
+		this.grassTextureFileName = grassTextureFileName;
+		this.scope = scope;
 		
 		this.cullFace = IntBuffer.allocate(1);
 		this.polygonMode = IntBuffer.allocate(1);
 	}
 	
-	public BasicTerrainScene(String name, Camera camera, float x, float z, float width, float height, int rows, int columns, int numberOfOctaves, float persistence, float scaleX, float scaleY, float amplitude, float power) {
-		this(name, new BasicTerrainShaderProgram(), camera, x, z, width, height, rows, columns, numberOfOctaves, persistence, scaleX, scaleY, amplitude, power, new Texture(Constants.grassTexture), new Texture(Constants.sandTexture));
+	public BasicTerrainScene(String name, Camera camera, BasicTerrainShaderProgram basicTerrainShaderProgram, Mesh terrain, Class scope, String grassTextureFileName, String sandTextureFileName) {
+		this(name, basicTerrainShaderProgram, camera, terrain, new Texture(Constants.grassTexture), new Texture(Constants.sandTexture), scope, grassTextureFileName, sandTextureFileName);
 	}
 	
 	@Override
@@ -60,14 +59,14 @@ public class BasicTerrainScene extends Scene {
 		super.init(gl);
 		
 		this.grassTexture.bind(gl)
-				.texImage2D(gl, GL4.GL_TEXTURE_2D, 0, GL4.GL_RGBA, GL4.GL_RGBA, TextureData.decodePngImage(this.getClass(), Constants.grassTextureFileName, PNGDecoder.Format.RGBA))
+				.texImage2D(gl, GL4.GL_TEXTURE_2D, 0, GL4.GL_RGBA, GL4.GL_RGBA, TextureData.decodePngImage(this.scope, this.grassTextureFileName, PNGDecoder.Format.RGBA))
 				.texParameteri(gl, GL4.GL_TEXTURE_MAG_FILTER, GL4.GL_LINEAR)
 				.texParameteri(gl, GL4.GL_TEXTURE_MIN_FILTER, GL4.GL_LINEAR)
 				.texParameteri(gl, GL4.GL_TEXTURE_WRAP_S, GL4.GL_MIRRORED_REPEAT)
 				.texParameteri(gl, GL4.GL_TEXTURE_WRAP_T, GL4.GL_MIRRORED_REPEAT);
 		
 		this.sandTexture.bind(gl)
-				.texImage2D(gl, GL4.GL_TEXTURE_2D, 0, GL4.GL_RGBA, GL4.GL_RGBA, TextureData.decodePngImage(this.getClass(), Constants.sandTextureFileName, PNGDecoder.Format.RGBA))
+				.texImage2D(gl, GL4.GL_TEXTURE_2D, 0, GL4.GL_RGBA, GL4.GL_RGBA, TextureData.decodePngImage(this.scope, this.sandTextureFileName, PNGDecoder.Format.RGBA))
 				.texParameteri(gl, GL4.GL_TEXTURE_MAG_FILTER, GL4.GL_LINEAR)
 				.texParameteri(gl, GL4.GL_TEXTURE_MIN_FILTER, GL4.GL_LINEAR)
 				.texParameteri(gl, GL4.GL_TEXTURE_WRAP_S, GL4.GL_MIRRORED_REPEAT)

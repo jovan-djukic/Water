@@ -22,7 +22,7 @@ public abstract class ShaderProgram extends CompositeOpenGLObject {
 	}
 	
 	public enum Status {
-		PROGRAM_NOT_COMPLETE, PROGRAM_COMPLETE, ACTIVATED, DEACTIVATED
+		PROGRAM_NOT_COMPLETE, PROGRAM_COMPLETE
 	};
 	
 	private Dictionary<String, Integer>	uniformLocations;

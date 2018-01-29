@@ -32,12 +32,12 @@ public abstract class Shader extends OpenGLObject {
 		
 		return returnString;
 	}
-
-	private int				shaderObjectID;
-	private int				shaderType;
-	private String[]		shaderSource;
-	private StringBuffer	compilationLog;
-	private Status			compilationStatus;
+	
+	private int          shaderObjectID;
+	private int          shaderType;
+	private String[]     shaderSource;
+	private StringBuffer compilationLog;
+	private Status       compilationStatus;
 
 	protected Shader(String shaderName, int shaderType, String[] shaderSource) {
 		super(shaderName);
@@ -77,6 +77,7 @@ public abstract class Shader extends OpenGLObject {
 	}
 
 	public void init(GL4 gl) {
+		super.init(gl);
 		if (!Status.UNCOMPILED.equals(this.compilationStatus)) {
 			return;
 		}
@@ -122,6 +123,7 @@ public abstract class Shader extends OpenGLObject {
 
 	@Override
 	public void destroy(GL4 gl) {
+		super.init(gl);
 		gl.glDeleteShader(this.shaderObjectID);
 		this.shaderObjectID = 0;
 		this.compilationStatus = Status.UNCOMPILED;

@@ -1,4 +1,4 @@
-package basic.basicSceneShaderProgram;
+package tests.basic.basicSceneShaderProgram;
 
 import base.glsl.Shader;
 import base.glsl.shaders.FragmentShader;
@@ -16,8 +16,8 @@ public class BasicSceneShaderProgram extends SceneShaderProgram {
 	}
 	
 	public static class Uniforms {
-		public static final String projection  = "projection";
-		public static final String view  = "view";
+		public static final String projection = "projection";
+		public static final String view       = "view";
 		public static final String uniforms[] = {
 				Uniforms.projection,
 				Uniforms.view
