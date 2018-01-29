@@ -1,9 +1,7 @@
 package tests.perlinNoiseTest;
 
+import base.objects.renderer.RendererBase;
 import base.views.GLView;
-import base.objects.IRenderable;
-import base.objects.IUpdateable;
-import base.objects.OpenGLObject;
 import com.jogamp.newt.opengl.GLWindow;
 
 import java.util.ArrayList;
@@ -11,11 +9,12 @@ import java.util.ArrayList;
 public class PerlinNoiseTestView extends GLView {
 	
 	@Override
-	protected void fill(ArrayList<OpenGLObject> openGLObjects, ArrayList<IRenderable> renderables, ArrayList<IUpdateable> updateables) {
-		PerlinNoiseTestFrameBuffer perlinNoiseTestFrameBuffer = new PerlinNoiseTestFrameBuffer();
+	protected ArrayList<RendererBase> getRenderers() {
+		ArrayList<RendererBase> rendererBases =  super.getRenderers();
 		
-		openGLObjects.add(perlinNoiseTestFrameBuffer);
-		renderables.add(perlinNoiseTestFrameBuffer);
+		rendererBases.add(new PerlinNoiseTestRenderer());
+		
+		return rendererBases;
 	}
 	
 	@Override

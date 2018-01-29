@@ -28,7 +28,7 @@ public class Texture extends TextureBase {
 	}
 	
 	@Override
-	protected Texture texImage2D(GL4 gl, int target, int level, int internalFormat, int format, TextureData textureData) {
+	public Texture texImage2D(GL4 gl, int target, int level, int internalFormat, int format, TextureData textureData) {
 		return (Texture) super.texImage2D(gl, target, level, internalFormat, format, textureData);
 	}
 	

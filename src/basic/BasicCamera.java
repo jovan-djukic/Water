@@ -3,7 +3,7 @@ package basic;
 import com.jogamp.newt.event.MouseEvent;
 import com.jogamp.newt.event.MouseListener;
 
-import base.objects.scene.camera.PerspectiveCamera;
+import base.objects.renderer.scene.camera.PerspectiveCamera;
 
 public class BasicCamera extends PerspectiveCamera implements MouseListener {
 	

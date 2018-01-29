@@ -44,6 +44,7 @@ public abstract class Shader extends OpenGLObject {
 		this.shaderType = shaderType;
 		this.shaderSource = shaderSource;
 		this.compilationStatus = Status.UNCOMPILED;
+		this.compilationLog = new StringBuffer();
 	}
 	
 	protected Shader(String shaderName, int shaderType, String shaderSource) {

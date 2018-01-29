@@ -1,35 +1,60 @@
 package terrain.perlinNoiseTerrain;
 
-import base.objects.scene.SceneShaderProgram;
 import perlinNoise.perliNoiseGenerator.PerlinNoiseGenerator;
-import shapes.basicShapes.Mesh;
+import shapes.Mesh;
 
 public class PerlinNoiseTerrain extends Mesh {
 	
-	private int numberOfOctaves;
-	private float amplitude, power, persistence, scaleX, scaleY;
-	
-	public PerlinNoiseTerrain(String name, SceneShaderProgram shaderProgram, float x, float z, float width, float height, int rows, int columns, int numberOfOctaves, float persistence, float scaleX, float scaleY, float amplitude, float power) {
-		super(name, shaderProgram, x, z, width, height, rows, columns);
-		
-		this.numberOfOctaves = numberOfOctaves;
-		this.persistence = persistence;
-		this.scaleX = scaleX;
-		this.scaleY = scaleY;
-		this.amplitude = amplitude;
-		this.power = power;
+	private static class Constants {
+		public static final String perlinNoiseTerrainVertexPositionLoader = "-perlinNoiseTerrainVertexPositionLoader";
+		public static final String perlinNoiseTerrainIndicesLoader = "-perlinNoiseTerrainIndicesLoader";
+		public static final String perlinNoiseTerrainTextureCoordinatesLoader = "-textureCoordinatesLoader";
 	}
 	
-	@Override
-	protected float getY(int row, int column) {
-		float x = this.width * this.scaleX / (this.columns - 1) * column;
-		float z = this.height * this.scaleY / (this.rows - 1) * row;
+	protected static class PerlinNoiseTerrainVertexPositionLoader extends MeshVertexPositionLoader {
+		private int numberOfOctaves;
+		private float amplitude, power, persistence, scaleX, scaleY;
 		
-		float noise = PerlinNoiseGenerator.getInstance().perlinNoise(x, z, this.numberOfOctaves, this.persistence);
+		public PerlinNoiseTerrainVertexPositionLoader(String name, float x, float z, int vertexPositionAttributeLocation, float width, float height, int rows, int columns, int numberOfOctaves, float persistence, float scaleX, float scaleY, float amplitude, float power) {
+			super(name, x, z, vertexPositionAttributeLocation, width, height, rows, columns);
+			
+			this.numberOfOctaves = numberOfOctaves;
+			this.amplitude = amplitude;
+			this.power = power;
+			this.persistence = persistence;
+			this.scaleX = scaleX;
+			this.scaleY = scaleY;
+		}
 		
-		noise = (float) Math.pow(noise, this.power);
-		
-		return (2 * noise - 1) * amplitude;
+		@Override
+		protected float getY(int row, int column) {
+			float x = super.getWidth() * this.scaleX / (super.getColumns() - 1) * column;
+			float z = super.getHeight() * this.scaleY / (super.getRows() - 1) * row;
+			
+			float noise = PerlinNoiseGenerator.getInstance().perlinNoise(x, z, this.numberOfOctaves, this.persistence);
+			
+			noise = (float) Math.pow(noise, this.power);
+			
+			return (2 * noise - 1) * amplitude;
+		}
+	}
+	
+	
+	public PerlinNoiseTerrain(String name, float x, float z, int vertexPositionAttributeLocation, float width, float height, int rows, int columns, int numberOfOctaves, float persistence, float scaleX, float scaleY, float amplitude, float power, int textureCoordinatesAttributeLocation) {
+		super(
+				name,
+				rows * columns * 6,
+				new PerlinNoiseTerrainVertexPositionLoader(
+						name + Constants.perlinNoiseTerrainVertexPositionLoader,
+						x, z, vertexPositionAttributeLocation, width, height, rows, columns,
+						numberOfOctaves, persistence, scaleX, scaleY, amplitude, power
+				),
+				new MeshIndicesLoader(Constants.perlinNoiseTerrainIndicesLoader, rows, columns),
+				new MeshTextureCoordinatesLoader(
+						name + Constants.perlinNoiseTerrainTextureCoordinatesLoader,
+						textureCoordinatesAttributeLocation, rows, columns, 1, 1
+				)
+		);
 	}
 }
 

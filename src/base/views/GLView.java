@@ -1,8 +1,6 @@
 package base.views;
 
-import base.objects.IRenderable;
-import base.objects.IUpdateable;
-import base.objects.OpenGLObject;
+import base.objects.renderer.RendererBase;
 import com.jogamp.newt.opengl.GLWindow;
 import com.jogamp.opengl.*;
 import com.jogamp.opengl.util.FPSAnimator;
@@ -18,7 +16,6 @@ public abstract class GLView implements GLEventListener {
 		public static final int     fps            = 60;
 		public static final int     windowWidth    = 800;
 		public static final int     windowHeight   = 800;
-		public static final String  shaderProgram  = "shaderProgram";
 	}
 	
 	protected static class FPSAnimatorStopper implements Runnable {
@@ -36,24 +33,19 @@ public abstract class GLView implements GLEventListener {
 		}
 	}
 	
-	protected GLWindow                glWindow;
-	protected FPSAnimator             fpsAnimator;
-	protected ArrayList<OpenGLObject> openGLObjects;
-	protected ArrayList<IRenderable>  renderables;
-	protected ArrayList<IUpdateable>  updateables;
+	private GLWindow                glWindow;
+	private FPSAnimator             fpsAnimator;
+	private ArrayList<RendererBase> rendererBases;
 	
 	
-	protected abstract void fill(ArrayList<OpenGLObject> openGLObjects, ArrayList<IRenderable> renderables, ArrayList<IUpdateable> updateables);
+	protected ArrayList<RendererBase> getRenderers() {
+		return new ArrayList<>();
+	}
 	
 	protected abstract void setListeners(GLWindow window);
 	
 	protected GLView(String windowTitle, int alphaBits, int depthBits, boolean doubleBuffer, int fps, int windowWidth, int windowHeight) {
-		
-		this.openGLObjects = new ArrayList<OpenGLObject>();
-		this.renderables = new ArrayList<IRenderable>();
-		this.updateables = new ArrayList<IUpdateable>();
-		
-		this.fill(this.openGLObjects, this.renderables, this.updateables);
+		this.rendererBases = this.getRenderers();
 		
 		GLProfile glProfile = GLProfile.getMaximum(true);
 		System.out.println(glProfile.toString());
@@ -91,14 +83,14 @@ public abstract class GLView implements GLEventListener {
 		
 		gl.glClear(GL4.GL_COLOR_BUFFER_BIT | GL4.GL_STENCIL_BUFFER_BIT | GL4.GL_DEPTH_BUFFER_BIT);
 		
-		for (IRenderable renderable : this.renderables) {
-			renderable.render(gl);
+		for (RendererBase rendererBase : this.rendererBases) {
+			rendererBase.render(gl);
 		}
 	}
 	
 	protected void update() {
-		for (IUpdateable updateable : this.updateables)	{
-			updateable.update();
+		for (RendererBase rendererBase : this.rendererBases) {
+			rendererBase.update();
 		}
 	}
 	
@@ -106,8 +98,8 @@ public abstract class GLView implements GLEventListener {
 	public void dispose(GLAutoDrawable drawable) {
 		GL4 gl = drawable.getGL().getGL4bc();
 		
-		for (OpenGLObject openGLObject : this.openGLObjects) {
-			openGLObject.destroy(gl);
+		for (RendererBase rendererBase : this.rendererBases) {
+			rendererBase.destroy(gl);
 		}
 	}
 	
@@ -132,8 +124,8 @@ public abstract class GLView implements GLEventListener {
 	public void init(GLAutoDrawable glAutoDrawable) {
 		GL4 gl = glAutoDrawable.getGL().getGL4();
 		
-		for (OpenGLObject openGLObject : this.openGLObjects) {
-			openGLObject.init(gl);
+		for (RendererBase rendererBase : this.rendererBases) {
+			rendererBase.init(gl);
 		}
 	}
 }

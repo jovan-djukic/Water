@@ -4,10 +4,10 @@
 
 layout (location = 0) out float outColor;
 
-uniform int permutation[512];
 uniform int numberOfOctaves;
 uniform float persistence;
 uniform float scaleX, scaleY;
+uniform int permutation[512];
 
 const vec2[] gradients = {
     vec2( 0, +1),

@@ -2,7 +2,6 @@ package base.objects.textures;
 
 import base.objects.OpenGLObject;
 import com.jogamp.opengl.GL4;
-import de.matthiasmann.twl.utils.PNGDecoder;
 
 import java.nio.Buffer;
 import java.nio.IntBuffer;
@@ -30,6 +29,10 @@ public abstract class TextureBase extends OpenGLObject {
 		return textureID;
 	}
 	
+	public int getTarget() {
+		return target;
+	}
+	
 	@Override
 	public void init(GL4 gl) {
 		IntBuffer intBuffer = IntBuffer.allocate(1);
@@ -55,7 +58,7 @@ public abstract class TextureBase extends OpenGLObject {
 		return this;
 	}
 	
-	public TextureBase setTextureParameter(GL4 gl, int parameterName, int parameterValue) {
+	public TextureBase texParameteri(GL4 gl, int parameterName, int parameterValue) {
 		gl.glTexParameteri(this.target, parameterName, parameterValue);
 		this.checkForErrors(gl, Constants.setParameterTag);
 		return this;

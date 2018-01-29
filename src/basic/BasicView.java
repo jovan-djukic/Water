@@ -2,32 +2,27 @@ package basic;
 
 import java.util.ArrayList;
 
-import base.objects.IRenderable;
-import base.objects.IUpdateable;
-import base.objects.OpenGLObject;
+import base.objects.renderer.RendererBase;
 import base.views.GLView;
 import com.jogamp.newt.opengl.GLWindow;
 
-import base.objects.scene.Scene;
+import base.objects.renderer.scene.Scene;
 
 public abstract class BasicView extends GLView {
 	
-	protected BasicCamera basicCamera;
-	protected Scene       scene;
+	private BasicCamera basicCamera;
 	
-	protected Scene getScene(BasicCamera basicCamera) {
-		return new Scene(basicCamera);
-	}
+	protected abstract Scene getScene(BasicCamera basicCamera);
 	
 	@Override
-	protected void fill(ArrayList<OpenGLObject> openGLObjects, ArrayList<IRenderable> renderables, ArrayList<IUpdateable> updateables) {
+	protected ArrayList<RendererBase> getRenderers() {
+		ArrayList<RendererBase> rendererBases =  super.getRenderers();
+		
 		this.basicCamera = new BasicCamera();
 		
-		this.scene = this.getScene(this.basicCamera);
+		rendererBases.add(this.getScene(basicCamera));
 		
-		openGLObjects.add(this.scene);
-		renderables.add(this.scene);
-		updateables.add(this.scene);
+		return rendererBases;
 	}
 	
 	@Override

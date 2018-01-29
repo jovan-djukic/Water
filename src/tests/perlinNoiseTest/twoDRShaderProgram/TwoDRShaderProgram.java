@@ -1,10 +1,13 @@
 package tests.perlinNoiseTest.twoDRShaderProgram;
 
-import base.glsl.ShaderProgramWrapper;
+import base.glsl.Shader;
+import base.glsl.ShaderProgram;
+import base.glsl.shaders.FragmentShader;
+import base.glsl.shaders.VertexShader;
 
 import java.util.ArrayList;
 
-public class TwoDRShaderProgram extends ShaderProgramWrapper {
+public class TwoDRShaderProgram extends ShaderProgram {
 	private static class Constants {
 		public static final String	shaderProgramName			= "twoDRShaderProgram";
 		public static final String	vertexShaderName			= "twoDRVertexShader";
@@ -15,39 +18,22 @@ public class TwoDRShaderProgram extends ShaderProgramWrapper {
 	}
 	
 	public static class Uniforms {
-		public static final String	sampler	= "sampler";
+		public static final String sampler    = "sampler";
+		public static final String uniforms[] = {
+				Uniforms.sampler
+		};
 	}
 	
 	public TwoDRShaderProgram() {
-		super(Constants.shaderProgramName);
+		super(
+			Constants.shaderProgramName,
+			Uniforms.uniforms,
+			new VertexShader(Constants.vertexShaderName, Shader.getShaderSource(TwoDRShaderProgram.class, Constants.vertexShaderSourceFile)),
+			new FragmentShader(Constants.fragmentShaderName, Shader.getShaderSource(TwoDRShaderProgram.class, Constants.fragmentShaderSourceFile))
+		);
 	}
 	
-	@Override
-	protected String getVertexShaderSource() throws Exception {
-		return new String(this.getClass().getResourceAsStream(Constants.vertexShaderSourceFile).readAllBytes());
-	}
-	
-	@Override
-	protected String getVertexShaderName() throws Exception {
-		return Constants.vertexShaderName;
-	}
-	
-	@Override
-	protected String getFragmentShaderSource() throws Exception {
-		return new String(this.getClass().getResourceAsStream(Constants.fragmentShaderSourceFile).readAllBytes());
-	}
-	
-	@Override
-	protected String getFragmentShaderName() throws Exception {
-		return Constants.fragmentShaderName;
-	}
-	
-	@Override
-	protected ArrayList<String> getUniforms() {
-		ArrayList<String> uniforms = super.getUniforms();
-		
-		uniforms.add(Uniforms.sampler);
-		
-		return uniforms;
+	public int getSampleUniformLocation() {
+		return super.getUniformLocation(Uniforms.sampler);
 	}
 }
