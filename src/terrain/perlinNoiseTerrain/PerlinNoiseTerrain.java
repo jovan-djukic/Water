@@ -1,5 +1,6 @@
 package terrain.perlinNoiseTerrain;
 
+import org.joml.Vector3f;
 import perlinNoise.perliNoiseGenerator.PerlinNoiseGenerator;
 import shapes.Mesh;
 
@@ -14,9 +15,22 @@ public class PerlinNoiseTerrain extends Mesh {
 	protected static class PerlinNoiseTerrainVertexPositionLoader extends MeshVertexPositionLoader {
 		private int numberOfOctaves;
 		private float amplitude, power, persistence, scaleX, scaleY;
+		private float width, height;
 		
 		public PerlinNoiseTerrainVertexPositionLoader(String name, float x, float z, int vertexPositionAttributeLocation, float width, float height, int rows, int columns, int numberOfOctaves, float persistence, float scaleX, float scaleY, float amplitude, float power) {
-			super(name, x, z, vertexPositionAttributeLocation, width, height, rows, columns);
+			super(
+					name,
+					new Vector3f(x, 0, z - height),
+					new Vector3f(x + width, 0, z - height),
+					new Vector3f(x, 0, z),
+					new Vector3f(x + width, 0, z),
+					rows,
+					columns,
+					vertexPositionAttributeLocation
+			);
+			
+			this.width = width;
+			this.height = height;
 			
 			this.numberOfOctaves = numberOfOctaves;
 			this.amplitude = amplitude;
@@ -28,8 +42,8 @@ public class PerlinNoiseTerrain extends Mesh {
 		
 		@Override
 		protected float getY(int row, int column) {
-			float x = super.getWidth() * this.scaleX / (super.getColumns() - 1) * column;
-			float z = super.getHeight() * this.scaleY / (super.getRows() - 1) * row;
+			float x = this.width * this.scaleX / (super.getColumns() - 1) * column;
+			float z = this.height * this.scaleY / (super.getRows() - 1) * row;
 			
 			float noise = PerlinNoiseGenerator.getInstance().perlinNoise(x, z, this.numberOfOctaves, this.persistence);
 			

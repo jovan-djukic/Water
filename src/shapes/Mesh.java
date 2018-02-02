@@ -21,24 +21,22 @@ public class Mesh extends Model {
 	
 	protected static class MeshVertexPositionLoader extends VertexPositionLoader {
 		
-		private float width, height;
+		private Vector3f topLeft, topRight, bottomLeft, bottomRight;
 		private int rows, columns;
 		
-		public MeshVertexPositionLoader(String name, float x, float z, int vertexPositionAttributeLocation, float width, float height, int rows, int columns) {
-			super(name, new Vector3f(x, 0, z), vertexPositionAttributeLocation);
+		public MeshVertexPositionLoader(String name, Vector3f topLeft, Vector3f topRight, Vector3f bottomLeft, Vector3f bottomRight,  int rows, int columns, int vertexPositionAttributeLocation) {
+			super(name, bottomLeft, vertexPositionAttributeLocation);
 			
-			this.width = width;
-			this.height = height;
+			this.topLeft = topLeft;
+			this.topRight = topRight;
+			this.bottomLeft = bottomLeft;
+			this.bottomRight = bottomRight;
 			this.rows = rows + 1;
 			this.columns = columns + 1;
 		}
 		
-		public float getWidth() {
-			return width;
-		}
-		
-		public float getHeight() {
-			return height;
+		private float lerp(float v0, float v1, float t) {
+			return v0 + (v1 - v0) * t;
 		}
 		
 		public int getRows() {
@@ -50,15 +48,21 @@ public class Mesh extends Model {
 		}
 		
 		protected float getX(int row, int column) {
-			return super.getPosition().x + this.width / (this.columns - 1) * column;
+			float x0 = this.lerp(bottomLeft.x, topLeft.x, (float) column / (this.columns - 1));
+			float x1 = this.lerp(bottomRight.x, topRight.x, (float) column / (this.columns - 1));
+			return this.lerp(x0, x1, (float)row / (this.rows - 1));
 		}
 		
 		protected float getY(int row, int column) {
-			return 0;
+			float y0 = this.lerp(bottomLeft.y, topLeft.y, (float) column / (this.columns - 1));
+			float y1 = this.lerp(bottomRight.y, topRight.y, (float)column / (this.columns - 1));
+			return this.lerp(y0, y1, (float)row / (this.rows - 1));
 		}
 		
 		protected float getZ(int row, int column) {
-			return super.getPosition().z - this.height / (this.rows - 1) * row;
+			float z0 = this.lerp(bottomLeft.z, topLeft.z, (float) column / (this.columns - 1));
+			float z1 = this.lerp(bottomRight.z, topRight.z, (float) column / (this.columns - 1));
+			return this.lerp(z0, z1, (float) row / (this.rows - 1));
 		}
 		
 		@Override
@@ -111,20 +115,20 @@ public class Mesh extends Model {
 					
 					if (topDown == true) {
 						indices[indicesIndex++] = v0;
-						indices[indicesIndex++] = v1;
 						indices[indicesIndex++] = v3;
+						indices[indicesIndex++] = v1;
 						
 						indices[indicesIndex++] = v0;
-						indices[indicesIndex++] = v3;
 						indices[indicesIndex++] = v2;
+						indices[indicesIndex++] = v3;
 					} else {
 						indices[indicesIndex++] = v0;
-						indices[indicesIndex++] = v1;
 						indices[indicesIndex++] = v2;
+						indices[indicesIndex++] = v1;
 						
 						indices[indicesIndex++] = v1;
-						indices[indicesIndex++] = v3;
 						indices[indicesIndex++] = v2;
+						indices[indicesIndex++] = v3;
 					}
 					
 					topDown = !topDown;
@@ -176,10 +180,10 @@ public class Mesh extends Model {
 		this.indicesCount = indicesCount;
 	}
 	
-	public Mesh(String name, float x, float z, float width, float height, int rows, int columns, float scaleU, float scaleV, int vertexPositionAttributeLocation, int textureCoordinatesAttributeLocation) {
+	public Mesh(String name, Vector3f bottomLeft, Vector3f bottomRight, Vector3f topLeft, Vector3f topRight, int rows, int columns, float scaleU, float scaleV, int vertexPositionAttributeLocation, int textureCoordinatesAttributeLocation) {
 		super(
 				name,
-				new MeshVertexPositionLoader(name + Constants.vertexPositionLoader, x, z, vertexPositionAttributeLocation, width, height, rows, columns),
+				new MeshVertexPositionLoader(name + Constants.vertexPositionLoader, bottomLeft, bottomRight, topLeft, topRight, rows, columns, vertexPositionAttributeLocation),
 				new MeshIndicesLoader(name + Constants.indicesLoader, rows, columns),
 				new MeshTextureCoordinatesLoader(name + Constants.textureCoordinatesLoader, textureCoordinatesAttributeLocation, rows, columns, scaleU, scaleV)
 		);
@@ -187,10 +191,10 @@ public class Mesh extends Model {
 		this.indicesCount = rows * columns * 6;
 	}
 	
-	public Mesh(String name, float x, float z, float width, float height, int rows, int columns, int vertexPositionAttributeLocation) {
+	public Mesh(String name, Vector3f bottomLeft, Vector3f bottomRight, Vector3f topLeft, Vector3f topRight, int rows, int columns, int vertexPositionAttributeLocation) {
 		super(
 				name,
-				new MeshVertexPositionLoader(name + Constants.vertexPositionLoader, x, z, vertexPositionAttributeLocation, width, height, rows, columns),
+				new MeshVertexPositionLoader(name + Constants.vertexPositionLoader, bottomLeft, bottomRight, topLeft, topRight, rows, columns, vertexPositionAttributeLocation),
 				new MeshIndicesLoader(name + Constants.indicesLoader, rows, columns)
 		);
 		

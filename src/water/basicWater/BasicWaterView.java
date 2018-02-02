@@ -11,6 +11,9 @@ import tests.texturePreviewRenderer.rgbaTexturePreviewRenderer.RGBATexturePrevie
 import water.basicWater.basicTerrain.BasicTerrainScene;
 import water.basicWater.basicTerrain.basicTerrainShaderProgram.BasicTerrainShaderProgram;
 import water.basicWater.textureRenderer.ReflectionTextureRenderer;
+import water.basicWater.waterTile.WaterTileModel;
+import water.basicWater.waterTile.WaterTileRenderer;
+import water.basicWater.waterTile.waterTileShaderProgram.WaterTileShaderProgram;
 
 import java.util.ArrayList;
 
@@ -68,6 +71,23 @@ public class BasicWaterView extends GLView {
 			public static final String grassTexture    = BasicTerrainConstants.imagesDirectory + "grass.png";
 		}
 		
+		public static class WaterTileConstants {
+			public static final String waterTile = "waterTile";
+			public static final String waterTileRenderer = "waterTileRenderer";
+			public static final float  x                  = -5;
+			public static final float  z                  = 5;
+			public static final float  width              = 10;
+			public static final float  height             = 10;
+			public static final int    rows               = 400;
+			public static final int    columns            = 400;
+			public static final int    numberOfOctaves    = 4;
+			public static final float  persistence        = 0.5f;
+			public static final float  scaleX             = 2.0f / PerlinNoiseTerrainConstants.width;
+			public static final float  scaleY             = 2.0f / PerlinNoiseTerrainConstants.height;
+			public static final float  amplitude          = 5;
+			public static final float  power              = 1;
+		}
+		
 		public static class ReflectionTextureRendererConstants {
 			public static final String reflecionTextureRenderer = "reflectionTextureRenderer";
 			public static final int    width                    = 800;
@@ -80,6 +100,10 @@ public class BasicWaterView extends GLView {
 	private BasicWaterCamera          basicWaterCamera;
 	private Skybox                    skybox;
 	private ReflectionTextureRenderer reflectionTextureRenderer;
+	
+	private WaterTileShaderProgram waterTileShaderProgram;
+	private WaterTileModel         waterTileModel;
+	private WaterTileRenderer      waterTileRenderer;
 	
 	@Override
 	protected ArrayList<RendererBase> getRenderers() {
@@ -142,11 +166,28 @@ public class BasicWaterView extends GLView {
 				Constants.BasicTerrainConstants.sandTexture
 		);
 		
+		this.waterTileShaderProgram = new WaterTileShaderProgram();
+		this.waterTileModel = new WaterTileModel(
+				Constants.WaterTileConstants.waterTile,
+				Constants.WaterTileConstants.x,
+				0,
+				Constants.WaterTileConstants.z,
+				Constants.WaterTileConstants.width,
+				Constants.WaterTileConstants.height,
+				this.waterTileShaderProgram.getVertexPositionAttributeLocation()
+		);
+		this.waterTileRenderer = new WaterTileRenderer(
+				Constants.WaterTileConstants.waterTileRenderer,
+				this.waterTileShaderProgram,
+				this.waterTileModel,
+				this.basicWaterCamera
+		);
+		
 		this.reflectionTextureRenderer = new ReflectionTextureRenderer(
 				Constants.ReflectionTextureRendererConstants.reflecionTextureRenderer,
 				new RendererBase[] {
 						this.skybox,
-						this.basicTerrain
+						this.basicTerrain,
 				},
 				Constants.ReflectionTextureRendererConstants.width,
 				Constants.ReflectionTextureRendererConstants.height
@@ -154,8 +195,8 @@ public class BasicWaterView extends GLView {
 		
 		rendererBases.add(this.reflectionTextureRenderer);
 		
-		//TexturePreviewRenderer texturePreviewRenderer = new RGBATexturePreviewRenderer(this.reflectionTextureRenderer.getColorAttachment());
-		TexturePreviewRenderer texturePreviewRenderer = new DepthTexturePreviewRenderer(this.reflectionTextureRenderer.getDepthAttachment(), Constants.BasicWaterCameraConstants.nearClippingPlane, Constants.BasicWaterCameraConstants.farClippingPlane);
+		TexturePreviewRenderer texturePreviewRenderer = new RGBATexturePreviewRenderer(this.reflectionTextureRenderer.getColorAttachment());
+		//TexturePreviewRenderer texturePreviewRenderer = new DepthTexturePreviewRenderer(this.reflectionTextureRenderer.getDepthAttachment(), Constants.BasicWaterCameraConstants.nearClippingPlane, Constants.BasicWaterCameraConstants.farClippingPlane);
 		
 		rendererBases.add(texturePreviewRenderer);
 		
