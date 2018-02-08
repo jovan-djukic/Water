@@ -12,12 +12,12 @@ public class PerlinNoiseTerrain extends Mesh {
 		public static final String perlinNoiseTerrainTextureCoordinatesLoader = "-textureCoordinatesLoader";
 	}
 	
-	protected static class PerlinNoiseTerrainVertexPositionLoader extends MeshVertexPositionLoader {
+	protected static class PerlinNoiseTerrainVerticesLoader extends MeshVerticesLoader {
 		private int numberOfOctaves;
 		private float amplitude, power, persistence, scaleX, scaleY;
 		private float width, height;
 		
-		public PerlinNoiseTerrainVertexPositionLoader(String name, float x, float z, int vertexPositionAttributeLocation, float width, float height, int rows, int columns, int numberOfOctaves, float persistence, float scaleX, float scaleY, float amplitude, float power) {
+		public PerlinNoiseTerrainVerticesLoader(String name, float x, float z, int vertexPositionAttributeLocation, float width, float height, int rows, int columns, int numberOfOctaves, float persistence, float scaleX, float scaleY, float amplitude, float power) {
 			super(
 					name,
 					new Vector3f(x, 0, z - height),
@@ -58,7 +58,7 @@ public class PerlinNoiseTerrain extends Mesh {
 		super(
 				name,
 				rows * columns * 6,
-				new PerlinNoiseTerrainVertexPositionLoader(
+				new PerlinNoiseTerrainVerticesLoader(
 						name + Constants.perlinNoiseTerrainVertexPositionLoader,
 						x,
 						z,
@@ -74,12 +74,7 @@ public class PerlinNoiseTerrain extends Mesh {
 						amplitude,
 						power
 				),
-				new MeshIndicesLoader(
-						Constants.perlinNoiseTerrainIndicesLoader,
-						rows,
-						columns
-				),
-				new MeshTextureCoordinatesLoader(
+				new MeshTexelsLoader(
 						name + Constants.perlinNoiseTerrainTextureCoordinatesLoader,
 						textureCoordinatesAttributeLocation,
 						rows,

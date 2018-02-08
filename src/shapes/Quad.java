@@ -1,8 +1,8 @@
 package shapes;
 
-import base.objects.model.Loader;
+import base.objects.model.loaders.Loader;
 import base.objects.model.Model;
-import base.objects.model.loaders.VertexPositionLoader;
+import base.objects.model.loaders.VerticesLoader;
 import com.jogamp.opengl.GL4;
 import org.joml.Vector3f;
 
@@ -12,12 +12,16 @@ public class Quad extends Model {
 		public final static String vertexPositionLoader = Constants.quad + "vertexPositionLoader";
 		public final static String drawCommandTag = Constants.quad + "drawCommand";
 	}
-	protected static class QuadVertexPositionLoader extends VertexPositionLoader {
+	
+	protected static class QuadVerticesLoader extends VerticesLoader {
+		private static class Constants {
+			public static final int numberOfBuffers = 1;
+		}
 		
 		private Vector3f bottomLeft, bottomRight, topLeft, topRight;
 		
-		protected QuadVertexPositionLoader(String name, Vector3f bottomLeft, Vector3f bottomRight, Vector3f topLeft, Vector3f topRight, int vertexPositionAttributeLocation) {
-			super(name, bottomLeft, vertexPositionAttributeLocation);
+		protected QuadVerticesLoader(String name, Vector3f bottomLeft, Vector3f bottomRight, Vector3f topLeft, Vector3f topRight, int vertexPositionAttributeLocation) {
+			super(name, Constants.numberOfBuffers, bottomLeft, vertexPositionAttributeLocation);
 			
 			this.bottomLeft = bottomLeft;
 			this.bottomRight = bottomRight;
@@ -44,7 +48,7 @@ public class Quad extends Model {
 	public Quad(String name, Vector3f bottomLeft, Vector3f bottomRight, Vector3f topLeft, Vector3f topRight, int vertexPositionAttributeLocation) {
 		super(
 				name,
-				new QuadVertexPositionLoader(Constants.vertexPositionLoader, bottomLeft, bottomRight, topLeft, topRight, vertexPositionAttributeLocation)
+				new QuadVerticesLoader(Constants.vertexPositionLoader, bottomLeft, bottomRight, topLeft, topRight, vertexPositionAttributeLocation)
 		);
 	}
 	

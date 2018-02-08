@@ -1,11 +1,9 @@
 package shapes;
 
-import base.objects.model.Loader;
+import base.objects.model.loaders.Loader;
 import base.objects.model.Model;
 import base.objects.model.loaders.IndicesLoader;
-import base.objects.model.loaders.VertexPositionLoader;
-import base.objects.renderer.scene.SceneShaderProgram;
-import com.jogamp.opengl.GL;
+import base.objects.model.loaders.VerticesLoader;
 import com.jogamp.opengl.GL4;
 import org.joml.Vector3f;
 
@@ -16,19 +14,21 @@ public class Box extends Model {
 	private static class Constants {
 		public static final String box                  = "box-";
 		public static final String drawCommandTag       = Constants.box + "drawCommand";
-		public static final String vertexPositionLoader = "-vertexPositionLoader";
+		public static final String verticesLoader = "-verticesLoader";
 		public static final String indicesLoader        = "-indicesLoader";
 	}
 	
-	protected static class BoxVertexPositionLoader extends VertexPositionLoader {
+	protected static class BoxVerticesLoader extends IndicesLoader {
 		private static class Constants {
-			public static final int NUMBER_OF_VERTICES = 8;
+			public static final int numberOfVertices      = 8;
+			public static final int numberOfBuffers       = 2;
+			public static final int indexBufferIDPosition = 1;
 		}
 		
 		private float width, height, depth;
 		
-		protected BoxVertexPositionLoader(String name, Vector3f position, int vertexPositionAttributeLocation, float width, float height, float depth) {
-			super(name, position, vertexPositionAttributeLocation);
+		protected BoxVerticesLoader(String name, Vector3f position, int vertexPositionAttributeLocation, float width, float height, float depth) {
+			super(name, Constants.numberOfBuffers, Constants.indexBufferIDPosition, position, vertexPositionAttributeLocation);
 			
 			this.width = width;
 			this.height = height;
@@ -37,7 +37,7 @@ public class Box extends Model {
 		
 		@Override
 		protected float[] getVertexData() {
-			float vertexData[]  = new float[Constants.NUMBER_OF_VERTICES * 3];
+			float vertexData[]  = new float[Constants.numberOfVertices * 3];
 			int   verticesIndex = 0;
 			
 			float x = super.getPosition().x;
@@ -78,13 +78,6 @@ public class Box extends Model {
 			
 			return vertexData;
 		}
-	}
-	
-	protected static class BoxIndicesLoader extends IndicesLoader {
-		
-		public BoxIndicesLoader(String name) {
-			super(name);
-		}
 		
 		@Override
 		protected int[] getIndicesData() {
@@ -105,6 +98,7 @@ public class Box extends Model {
 			
 			return indexData;
 		}
+		
 	}
 	
 	private float width, height, depth;
@@ -118,8 +112,7 @@ public class Box extends Model {
 	public Box(String name, Vector3f position, float width, float height, float depth, int vertexPositionAttributeLocation) {
 		super(
 				name,
-				new BoxVertexPositionLoader(name + Constants.vertexPositionLoader, position, vertexPositionAttributeLocation, width, height, depth),
-				new BoxIndicesLoader(name + Constants.indicesLoader)
+				new BoxVerticesLoader(name + Constants.verticesLoader, position, vertexPositionAttributeLocation, width, height, depth)
 		);
 	}
 	

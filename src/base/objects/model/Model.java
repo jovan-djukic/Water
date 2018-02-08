@@ -1,5 +1,6 @@
 package base.objects.model;
 
+import base.objects.model.loaders.Loader;
 import com.jogamp.opengl.GL4;
 import org.joml.Matrix4f;
 
@@ -18,7 +19,7 @@ public abstract class Model extends ModelBase {
 	private int   vertexArrayObjectID;
 	private float transform[];
 	
-	public Model(String name, Loader ...loaders) {
+	public Model(String name, Loader...loaders) {
 		super(name, loaders);
 		
 		this.transform = new float[Constants.transformLength];

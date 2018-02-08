@@ -1,12 +1,11 @@
 package base.objects.model.loaders;
 
-import base.objects.model.Loader;
 import com.jogamp.common.nio.Buffers;
 import com.jogamp.opengl.GL4;
 
 import java.nio.FloatBuffer;
 
-public abstract class TextureCoordinatesLoader extends Loader {
+public abstract class TexelsLoader extends Loader {
 	protected static class Constants {
 		public static final String textureCoordinatesLoader = "vertexPositionLoader-";
 		public static final String initTag                  = Constants.textureCoordinatesLoader + "init";
@@ -14,8 +13,8 @@ public abstract class TextureCoordinatesLoader extends Loader {
 	
 	private int textureCoordinatesAttributeLocation;
 	
-	public TextureCoordinatesLoader(String name, int textureCoordinatesAttributeLocation) {
-		super(name);
+	public TexelsLoader(String name, int textureCoordinatesAttributeLocation) {
+		super(name, 1);
 		
 		this.textureCoordinatesAttributeLocation = textureCoordinatesAttributeLocation;
 	}
