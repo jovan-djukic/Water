@@ -1,6 +1,7 @@
 package perlinNoise.perlinNoiseTextureGenerator;
 
-import base.objects.model.ModelBase;
+import base.Utilities;
+import base.objects.model.Model;
 import base.objects.renderer.Renderer;
 import com.jogamp.opengl.GL4;
 import perlinNoise.perlinNoiseTextureGenerator.shaderProgram.PerlinNoiseShaderProgram;
@@ -31,11 +32,11 @@ public class PerlinNoiseRenderer extends Renderer {
 	private int permutation[];
 	private int numberOfOctaves;
 	private float persistence, scaleX, scaleY;
-	private int permutationLocation, numberOfOctavesLocation, persistenceLocation, scaleXLocation, scaleYLocation;
 	private PerlinNoiseShaderProgram perlinNoiseShaderProgram;
+	private PerlinNoiseModel perlinNoiseModel;
 	
-	private PerlinNoiseRenderer(String name, int numberOfOctaves, float persistence, float scaleX, float scaleY, PerlinNoiseShaderProgram perlinNoiseShaderProgram, ModelBase modelBases[]) {
-		super(name, perlinNoiseShaderProgram, modelBases);
+	private PerlinNoiseRenderer(String name, int numberOfOctaves, float persistence, float scaleX, float scaleY, PerlinNoiseShaderProgram perlinNoiseShaderProgram, PerlinNoiseModel perlinNoiseModel) {
+		super(name, perlinNoiseShaderProgram, Utilities.getInstance().concatenate(Model.class, perlinNoiseModel));
 		this.numberOfOctaves = numberOfOctaves;
 		this.persistence = persistence;
 		
@@ -43,10 +44,11 @@ public class PerlinNoiseRenderer extends Renderer {
 		this.scaleY = scaleY;
 		
 		this.perlinNoiseShaderProgram = perlinNoiseShaderProgram;
+		this.perlinNoiseModel = perlinNoiseModel;
 	}
 	
 	public PerlinNoiseRenderer(String name, int numberOfOctaves, float persistence, float scaleX, float scaleY) {
-		this(name, numberOfOctaves, persistence, scaleX, scaleY, new PerlinNoiseShaderProgram(), new ModelBase[] {new PerlinNoiseModel()});
+		this(name, numberOfOctaves, persistence, scaleX, scaleY, new PerlinNoiseShaderProgram(), new PerlinNoiseModel());
 	}
 	
 	@Override
@@ -60,13 +62,6 @@ public class PerlinNoiseRenderer extends Renderer {
 			this.permutation[Constatns.permutation.length + i] = Constatns.permutation[i];
 		}
 		
-		this.permutationLocation = this.perlinNoiseShaderProgram.getPermutationLocation();
-		this.numberOfOctavesLocation = this.perlinNoiseShaderProgram.getNumberOfOctavesLocation();
-		this.persistenceLocation = this.perlinNoiseShaderProgram.getPersistenceLocation();
-		this.scaleXLocation = this.perlinNoiseShaderProgram.getScaleXLocation();
-		this.scaleXLocation = this.perlinNoiseShaderProgram.getScaleXLocation();
-		this.scaleYLocation = this.perlinNoiseShaderProgram.getScaleYLocation();
-		
 		this.checkForErrors(gl, Constatns.initTag);
 	}
 	
@@ -74,12 +69,17 @@ public class PerlinNoiseRenderer extends Renderer {
 	protected void preRender(GL4 gl) {
 		super.preRender(gl);
 		
-		gl.glUniform1iv(this.permutationLocation, PerlinNoiseShaderProgram.Uniforms.permutationLength, this.permutation, 0);
-		gl.glUniform1i(this.numberOfOctavesLocation, this.numberOfOctaves);
-		gl.glUniform1f(this.persistenceLocation, this.persistence);
-		gl.glUniform1f(this.scaleXLocation, this.scaleX);
-		gl.glUniform1f(this.scaleYLocation, this.scaleY);
+		this.perlinNoiseShaderProgram.setPermutationUniform(gl, this.permutation);
+		this.perlinNoiseShaderProgram.setNumberOfOctavesUniform(gl, this.numberOfOctaves);
+		this.perlinNoiseShaderProgram.setPersistenceUniform(gl, this.persistence);
+		this.perlinNoiseShaderProgram.setScaleXUniform(gl, this.scaleX);
+		this.perlinNoiseShaderProgram.setScaleYUniform(gl, this.scaleY);
 		
 		this.checkForErrors(gl, Constatns.preRenderTag);
+	}
+	
+	@Override
+	public void update() {
+	
 	}
 }

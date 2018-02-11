@@ -3,10 +3,11 @@ package shapes;
 import base.objects.model.loaders.Loader;
 import base.objects.model.Model;
 import base.objects.model.loaders.VerticesLoader;
+import base.objects.renderer.scene.sceneModel.SceneModel;
 import com.jogamp.opengl.GL4;
 import org.joml.Vector3f;
 
-public class Quad extends Model {
+public class Quad extends SceneModel {
 	private static class Constants {
 		public final static String quad = "quad";
 		public final static String vertexPositionLoader = Constants.quad + "vertexPositionLoader";
@@ -41,8 +42,8 @@ public class Quad extends Model {
 		
 	}
 	
-	protected Quad(String name, Loader... loaders) {
-		super(name, loaders);
+	protected Quad(String name, QuadVerticesLoader quadVerticesLoader, Loader... loaders) {
+		super(name, quadVerticesLoader, loaders);
 	}
 	
 	public Quad(String name, Vector3f bottomLeft, Vector3f bottomRight, Vector3f topLeft, Vector3f topRight, int vertexPositionAttributeLocation) {

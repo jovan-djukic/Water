@@ -4,6 +4,8 @@ import base.glsl.Shader;
 import base.glsl.ShaderProgram;
 import base.glsl.shaders.FragmentShader;
 import base.glsl.shaders.VertexShader;
+import base.glsl.uniformSetter.Uniform1i;
+import com.jogamp.opengl.GL4;
 
 import java.util.ArrayList;
 
@@ -33,7 +35,7 @@ public class TwoDRShaderProgram extends ShaderProgram {
 		);
 	}
 	
-	public int getSampleUniformLocation() {
-		return super.getUniformLocation(Uniforms.sampler);
+	public void setSamplerUniform(GL4 gl, int textureUnit) {
+		super.setUniform(gl, new Uniform1i(super.getUniformLocation(Uniforms.sampler), textureUnit));
 	}
 }

@@ -3,10 +3,12 @@ package base.objects;
 import com.jogamp.opengl.GL4;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CompositeOpenGLObject extends OpenGLObject {
 	
-	private ArrayList<OpenGLObject> childObjects;
+	private List<OpenGLObject> childObjects;
+	
 	public CompositeOpenGLObject(String name, OpenGLObject ...childObjects) {
 		super(name);
 		

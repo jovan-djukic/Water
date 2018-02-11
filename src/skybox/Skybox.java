@@ -1,31 +1,28 @@
 package skybox;
 
-import base.objects.model.ModelBase;
-import base.objects.renderer.Renderer;
+import base.objects.renderer.scene.Scene;
 import base.objects.renderer.scene.camera.Camera;
+import base.objects.renderer.scene.sceneModel.SceneModel;
 import base.objects.textures.CubeMapTexture;
 import base.objects.textures.TextureData;
 import com.jogamp.opengl.GL4;
 import de.matthiasmann.twl.utils.PNGDecoder;
-import org.joml.Matrix4f;
 import shapes.Box;
 import skybox.shaderProgram.SkyboxShaderProgram;
 
 import java.nio.IntBuffer;
 
 
-public class Skybox extends Renderer {
+public class Skybox extends Scene {
 	private static class Constants {
+		public static final String skybox               = "skybox-";
 		public static final String cubeMapTexture       = "-cubeMapTexture";
 		public static final String box                  = "-box";
-		public static final String skybox               = "skybox-";
 		public static final String initTag              = Constants.skybox + "init";
 		public static final String preRenderTag         = Constants.skybox + "preRender";
 		public static final String postRenderTag        = Constants.skybox + "postRender";
-		public static final int    transformArrayLength = 16;
 	}
 	
-	private Camera camera;
 	private CubeMapTexture cubeMapTexture;
 	private SkyboxShaderProgram skyboxShaderProgram;
 	private Class scope;
@@ -34,8 +31,6 @@ public class Skybox extends Renderer {
 	private String zPositiveFileName, zNegativeFileName;
 	private boolean isCullFaceEnabled;
 	private IntBuffer cullFace;
-	private Matrix4f transform;
-	private float transformArray[];
 	
 	protected Skybox(
 			String name, Camera camera, SkyboxShaderProgram shaderProgram,
@@ -47,13 +42,13 @@ public class Skybox extends Renderer {
 		super(
 			name,
 			shaderProgram,
-			new ModelBase[] {
-					new Box(name + Constants.box, size, size, size, shaderProgram.getVertexPositionAttributeLocation())
+			camera,
+			new SceneModel[] {
+					new Box(name + Constants.box, size, size, size, shaderProgram.getVertexAttributeLocation())
 			},
 			cubeMapTexture
 		);
 		
-		this.camera = camera;
 		this.cubeMapTexture = cubeMapTexture;
 		this.skyboxShaderProgram = shaderProgram;
 		this.scope = scope;
@@ -66,9 +61,6 @@ public class Skybox extends Renderer {
 		this.zNegativeFileName = zNegativeFileName;
 		
 		this.cullFace = IntBuffer.allocate(1);
-		
-		this.transform = new Matrix4f();
-		this.transformArray = new float[Constants.transformArrayLength];
 	}
 	
 	public Skybox(
@@ -114,19 +106,7 @@ public class Skybox extends Renderer {
 		
 		gl.glActiveTexture(GL4.GL_TEXTURE0);
 		this.cubeMapTexture.bind(gl);
-		gl.glUniform1i(this.skyboxShaderProgram.getCubeMapUniformLocation(), 0);
-		
-		int projectionLocation = this.skyboxShaderProgram.getProjectionUniformLocation();
-		this.camera.getProjection().get(this.transformArray);
-		gl.glUniformMatrix4fv(projectionLocation, 1, false, this.transformArray, 0);
-		
-		camera.getView().get(this.transform);
-		this.transform.m30(0)
-				.m31(0)
-				.m32(0)
-				.get(this.transformArray);
-		int viewLocation = this.skyboxShaderProgram.getViewUniformLocation();
-		gl.glUniformMatrix4fv(viewLocation, 1, false, this.transformArray, 0);
+		this.skyboxShaderProgram.setCubeMapTextureUniform(gl, 0);
 		
 		this.isCullFaceEnabled = gl.glIsEnabled(GL4.GL_CULL_FACE);
 		

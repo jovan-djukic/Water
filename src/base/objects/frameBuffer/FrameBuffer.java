@@ -17,7 +17,7 @@ public class FrameBuffer extends OpenGLObject {
 		public static final String destroyTag                             = Constants.frameBuffer + "destroy";
 		public static final String addTextureColorAttachmentTag           = Constants.frameBuffer + "addTextureColorAttachment";
 		public static final String addTextureDepthAttachmentTag           = Constants.frameBuffer + "addTextureDepthAttachment";
-		public static final String addRenderBufferDepthAttachmentTag      = Constants.frameBuffer + "addColorAttachment";
+		public static final String addRenderBufferDepthAttachmentTag      = Constants.frameBuffer + "addDepthAttachment";
 		public static final String drawBuffersTag                         = Constants.frameBuffer + "drawBuffers";
 	}
 	
@@ -75,7 +75,7 @@ public class FrameBuffer extends OpenGLObject {
 		return this;
 	}
 	
-	public FrameBuffer addRenderBufferDepthAttachment(GL4 gl, RenderBuffer renderBuffer, int level) {
+	public FrameBuffer addRenderBufferDepthAttachment(GL4 gl, RenderBuffer renderBuffer) {
 		gl.glFramebufferRenderbuffer(GL4.GL_FRAMEBUFFER, GL4.GL_DEPTH_ATTACHMENT, GL4.GL_RENDERBUFFER, renderBuffer.getRenderBufferID());
 		this.checkForErrors(gl, Constants.addRenderBufferDepthAttachmentTag);
 		return this;

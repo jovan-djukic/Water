@@ -4,13 +4,13 @@ import base.objects.model.loaders.Loader;
 import base.objects.model.Model;
 import base.objects.model.loaders.IndicesLoader;
 import base.objects.model.loaders.VerticesLoader;
+import base.objects.renderer.scene.sceneModel.SceneModel;
 import com.jogamp.opengl.GL4;
 import org.joml.Vector3f;
 
 import java.nio.IntBuffer;
 
-public class Box extends Model {
-	
+public class Box extends SceneModel {
 	private static class Constants {
 		public static final String box            = "box-";
 		public static final String drawCommandTag = Constants.box + "drawCommand";
@@ -100,12 +100,8 @@ public class Box extends Model {
 		
 	}
 	
-	private float width, height, depth;
-	private boolean   isCullFaceEnabled;
-	private IntBuffer cullFaceMode;
-	
-	protected Box(String name, Loader... loaders) {
-		super(name, loaders);
+	protected Box(String name, BoxVerticesLoader boxVerticesLoader, Loader... loaders) {
+		super(name, boxVerticesLoader, loaders);
 	}
 	
 	public Box(String name, Vector3f position, float width, float height, float depth, int vertexPositionAttributeLocation) {

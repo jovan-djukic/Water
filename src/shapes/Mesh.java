@@ -5,11 +5,12 @@ import base.objects.model.Model;
 import base.objects.model.loaders.IndicesLoader;
 import base.objects.model.loaders.TexelsLoader;
 import base.objects.model.loaders.VerticesLoader;
+import base.objects.renderer.scene.sceneModel.SceneModel;
 import com.jogamp.opengl.GL4;
 
 import org.joml.Vector3f;
 
-public class Mesh extends Model {
+public class Mesh extends SceneModel {
 	private static class Constants {
 		public static final String dash                   = "-";
 		public static final String verticesPositionLoader = Constants.dash + "verticesPositionLoader";
@@ -51,21 +52,21 @@ public class Mesh extends Model {
 		}
 		
 		protected float getX(int row, int column) {
-			float x0 = this.lerp(bottomLeft.x, topLeft.x, (float) column / (this.columns - 1));
-			float x1 = this.lerp(bottomRight.x, topRight.x, (float) column / (this.columns - 1));
-			return this.lerp(x0, x1, (float)row / (this.rows - 1));
+			float x0 = this.lerp(bottomLeft.x, topLeft.x, (float) column / this.columns);
+			float x1 = this.lerp(bottomRight.x, topRight.x, (float) column / this.columns);
+			return this.lerp(x0, x1, (float)row / this.rows);
 		}
 		
 		protected float getY(int row, int column) {
-			float y0 = this.lerp(bottomLeft.y, topLeft.y, (float) column / (this.columns - 1));
-			float y1 = this.lerp(bottomRight.y, topRight.y, (float)column / (this.columns - 1));
-			return this.lerp(y0, y1, (float)row / (this.rows - 1));
+			float y0 = this.lerp(bottomLeft.y, topLeft.y, (float) column / this.columns);
+			float y1 = this.lerp(bottomRight.y, topRight.y, (float)column / this.columns);
+			return this.lerp(y0, y1, (float)row / this.rows);
 		}
 		
 		protected float getZ(int row, int column) {
-			float z0 = this.lerp(bottomLeft.z, topLeft.z, (float) column / (this.columns - 1));
-			float z1 = this.lerp(bottomRight.z, topRight.z, (float) column / (this.columns - 1));
-			return this.lerp(z0, z1, (float) row / (this.rows - 1));
+			float z0 = this.lerp(bottomLeft.z, topLeft.z, (float) column / this.columns);
+			float z1 = this.lerp(bottomRight.z, topRight.z, (float) column / this.columns);
+			return this.lerp(z0, z1, (float) row / this.rows);
 		}
 		
 		@Override
@@ -85,7 +86,7 @@ public class Mesh extends Model {
 		}
 		
 		public int getIndicesCount() {
-			return rows * columns;
+			return rows * this.columns * 6;
 		}
 		
 		@Override
@@ -165,10 +166,10 @@ public class Mesh extends Model {
 	
 	private int indicesCount;
 	
-	protected Mesh(String name, int indicesCount, Loader...loaders) {
-		super(name, loaders);
+	protected Mesh(String name, MeshVerticesLoader meshVerticesLoader, Loader...loaders) {
+		super(name, meshVerticesLoader, loaders);
 		
-		this.indicesCount = indicesCount;
+		this.indicesCount = meshVerticesLoader.getIndicesCount();
 	}
 	
 	public Mesh(String name, Vector3f bottomLeft, Vector3f bottomRight, Vector3f topLeft, Vector3f topRight, int rows, int columns, float scaleU, float scaleV, int vertexPositionAttributeLocation, int textureCoordinatesAttributeLocation) {

@@ -28,7 +28,7 @@ public abstract class Camera {
 		return this.farClippingPlane;
 	}
 	
-	protected Vector3f getPosition() {
+	public  Vector3f getPosition() {
 		return position;
 	}
 	

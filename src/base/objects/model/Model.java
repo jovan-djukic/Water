@@ -1,28 +1,24 @@
 package base.objects.model;
 
+import base.objects.CompositeOpenGLObject;
 import base.objects.model.loaders.Loader;
 import com.jogamp.opengl.GL4;
-import org.joml.Matrix4f;
 
 import java.nio.IntBuffer;
 
-public abstract class Model extends ModelBase {
+public abstract class Model extends CompositeOpenGLObject {
 	protected static class Constants {
 		public static final String model           = "model-";
 		public static final String initTag         = Constants.model + "init";
 		public static final String destroyTag      = Constants.model + "destroy";
 		public static final String preRenderTag    = Constants.model + "preRender";
 		public static final String postRenderTag   = Constants.model + "postRender";
-		public static final int    transformLength = 16;
 	}
 	
-	private int   vertexArrayObjectID;
-	private float transform[];
+	private int vertexArrayObjectID;
 	
 	public Model(String name, Loader...loaders) {
 		super(name, loaders);
-		
-		this.transform = new float[Constants.transformLength];
 	}
 	
 	@Override
@@ -66,12 +62,7 @@ public abstract class Model extends ModelBase {
 	
 	protected abstract void drawCommand(GL4 gl);
 	
-	@Override
-	public void render(GL4 gl, Matrix4f parentTransform, int transformUniformLocation) {
-		if (parentTransform != null && transformUniformLocation >= 0) {
-			super.applyTransform(parentTransform).get(this.transform);
-			gl.glUniformMatrix4fv(transformUniformLocation, 1, false, this.transform, 0);
-		}
+	public void render(GL4 gl) {
 		this.preRender(gl);
 		this.drawCommand(gl);
 		this.postRender(gl);

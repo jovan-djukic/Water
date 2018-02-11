@@ -40,26 +40,28 @@ public class WaterTileShaderProgram extends SceneShaderProgram {
 		);
 	}
 	
-	public int getVertexPositionAttributeLocation() {
+	
+	@Override
+	protected String getViewMatrixUniformName() {
+		return Uniforms.view;
+	}
+	
+	@Override
+	protected String getProjectionMatrixUniformName() {
+		return Uniforms.projection;
+	}
+	
+	@Override
+	protected String getTransformMatrixUniformName() {
+		return Uniforms.transform;
+	}
+	
+	@Override
+	public int getVertexAttributeLocation() {
 		return 0;
 	}
 	
-	public int getTextureCoordinateAttributeLocation() {
+	public int getTexelAttributeLocation() {
 		return 1;
-	}
-	
-	@Override
-	public int getViewMatrixUniformPosition() {
-		return super.getUniformLocation(Uniforms.view);
-	}
-	
-	@Override
-	public int getProjectionMatrixUniformPosition() {
-		return super.getUniformLocation(Uniforms.projection);
-	}
-	
-	@Override
-	public int getTransformUniformLocation() {
-		return super.getUniformLocation(Uniforms.transform);
 	}
 }

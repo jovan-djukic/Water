@@ -3,6 +3,8 @@ package water.basicWater;
 import base.objects.renderer.RendererBase;
 import base.views.GLView;
 import com.jogamp.newt.opengl.GLWindow;
+import org.joml.Vector3f;
+import org.joml.Vector4f;
 import skybox.Skybox;
 import terrain.perlinNoiseTerrain.PerlinNoiseTerrain;
 import tests.texturePreviewRenderer.TexturePreviewRenderer;
@@ -10,6 +12,7 @@ import tests.texturePreviewRenderer.depthTexturePreviewRenderer.DepthTexturePrev
 import tests.texturePreviewRenderer.rgbaTexturePreviewRenderer.RGBATexturePreviewRenderer;
 import water.basicWater.basicWaterTerrainScene.BasicWaterTerrainScene;
 import water.basicWater.basicWaterTerrainScene.basicWaterTerrainShaderProgram.BasicWaterTerrainShaderProgram;
+import water.basicWater.textureRenderer.ClipDistanceRenderer;
 import water.basicWater.textureRenderer.ReflectionTextureRenderer;
 import water.basicWater.waterTile.WaterTileModel;
 import water.basicWater.waterTile.WaterTileRenderer;
@@ -30,9 +33,9 @@ public class BasicWaterView extends GLView {
 			public static final float aspectRation      = 1;
 			public static final float nearClippingPlane = 0.1f;
 			public static final float farClippingPlane  = 100;
-			public static final float xAngle            = 30;
-			public static final float yAngle            = 0;
-			public static final float zAngle            = 0;
+			public static final float pitch             = 30;
+			public static final float yaw               = 0;
+			public static final float roll              = 0;
 			public static final float zStep             = 0.5f;
 		}
 		
@@ -49,19 +52,18 @@ public class BasicWaterView extends GLView {
 		}
 		
 		public static class PerlinNoiseTerrainConstants {
-			public static final String perlinNoiseTerrain = "perlinNoiseTerrain";
-			public static final float  x                  = -5;
-			public static final float  z                  = 5;
-			public static final float  width              = 10;
-			public static final float  height             = 10;
-			public static final int    rows               = 400;
-			public static final int    columns            = 400;
-			public static final int    numberOfOctaves    = 4;
-			public static final float  persistence        = 0.5f;
-			public static final float  scaleX             = 2.0f / PerlinNoiseTerrainConstants.width;
-			public static final float  scaleY             = 2.0f / PerlinNoiseTerrainConstants.height;
-			public static final float  amplitude          = 5;
-			public static final float  power              = 1;
+			public static final String   perlinNoiseTerrain = "perlinNoiseTerrain";
+			public static final Vector3f topLeft            = new Vector3f(-5, 0, -5);
+			public static final float    width              = 10;
+			public static final float    height             = 10;
+			public static final int      rows               = 400;
+			public static final int      columns            = 400;
+			public static final int      numberOfOctaves    = 4;
+			public static final float    persistence        = 0.5f;
+			public static final float    scaleX             = 2.0f / PerlinNoiseTerrainConstants.width;
+			public static final float    scaleY             = 2.0f / PerlinNoiseTerrainConstants.height;
+			public static final float    amplitude          = 5;
+			public static final float    power              = 1;
 		}
 		
 		public static class BasicTerrainConstants {
@@ -71,27 +73,15 @@ public class BasicWaterView extends GLView {
 			public static final String grassTexture    = BasicTerrainConstants.imagesDirectory + "grass.png";
 		}
 		
-		public static class WaterTileConstants {
-			public static final String waterTile = "waterTile";
-			public static final String waterTileRenderer = "waterTileRenderer";
-			public static final float  x                  = -5;
-			public static final float  z                  = 5;
-			public static final float  width              = 10;
-			public static final float  height             = 10;
-			public static final int    rows               = 400;
-			public static final int    columns            = 400;
-			public static final int    numberOfOctaves    = 4;
-			public static final float  persistence        = 0.5f;
-			public static final float  scaleX             = 2.0f / PerlinNoiseTerrainConstants.width;
-			public static final float  scaleY             = 2.0f / PerlinNoiseTerrainConstants.height;
-			public static final float  amplitude          = 5;
-			public static final float  power              = 1;
+		public static class ReflectionTextureRendererConstants {
+			public static final String   reflecionTextureRenderer = "reflectionTextureRenderer";
+			public static final int      width                    = 800;
+			public static final int      height                   = 800;
 		}
 		
-		public static class ReflectionTextureRendererConstants {
-			public static final String reflecionTextureRenderer = "reflectionTextureRenderer";
-			public static final int    width                    = 800;
-			public static final int    height                   = 800;
+		public static class ClipDistanceRenderer {
+			public static final String   name                    = "clipDistanceRenderer";
+			public static final Vector4f reflectionClippingPlane = new Vector4f(0, 1, 0, 0);
 		}
 	}
 	
@@ -117,9 +107,9 @@ public class BasicWaterView extends GLView {
 				Constants.BasicWaterCameraConstants.aspectRation,
 				Constants.BasicWaterCameraConstants.nearClippingPlane,
 				Constants.BasicWaterCameraConstants.farClippingPlane,
-				Constants.BasicWaterCameraConstants.xAngle,
-				Constants.BasicWaterCameraConstants.yAngle,
-				Constants.BasicWaterCameraConstants.zAngle,
+				Constants.BasicWaterCameraConstants.pitch,
+				Constants.BasicWaterCameraConstants.yaw,
+				Constants.BasicWaterCameraConstants.roll,
 				Constants.BasicWaterCameraConstants.zStep
 		);
 		
@@ -140,20 +130,19 @@ public class BasicWaterView extends GLView {
 		
 		this.perlinNoiseTerrain = new PerlinNoiseTerrain(
 				Constants.PerlinNoiseTerrainConstants.perlinNoiseTerrain,
-				Constants.PerlinNoiseTerrainConstants.x,
-				Constants.PerlinNoiseTerrainConstants.z,
-				basicWaterTerrainShaderProgram.getVertexPositionAttributeLocation(),
+				Constants.PerlinNoiseTerrainConstants.topLeft,
 				Constants.PerlinNoiseTerrainConstants.width,
 				Constants.PerlinNoiseTerrainConstants.height,
 				Constants.PerlinNoiseTerrainConstants.rows,
 				Constants.PerlinNoiseTerrainConstants.columns,
+				basicWaterTerrainShaderProgram.getVertexAttributeLocation(),
 				Constants.PerlinNoiseTerrainConstants.numberOfOctaves,
 				Constants.PerlinNoiseTerrainConstants.persistence,
 				Constants.PerlinNoiseTerrainConstants.scaleX,
 				Constants.PerlinNoiseTerrainConstants.scaleY,
 				Constants.PerlinNoiseTerrainConstants.amplitude,
 				Constants.PerlinNoiseTerrainConstants.power,
-				basicWaterTerrainShaderProgram.getTextureCoordinateAttributeLocation()
+				basicWaterTerrainShaderProgram.getTexelAttributeLocation()
 		);
 		
 		this.basicTerrain = new BasicWaterTerrainScene(
@@ -166,38 +155,28 @@ public class BasicWaterView extends GLView {
 				Constants.BasicTerrainConstants.sandTexture
 		);
 		
-		this.waterTileShaderProgram = new WaterTileShaderProgram();
-		this.waterTileModel = new WaterTileModel(
-				Constants.WaterTileConstants.waterTile,
-				Constants.WaterTileConstants.x,
-				0,
-				Constants.WaterTileConstants.z,
-				Constants.WaterTileConstants.width,
-				Constants.WaterTileConstants.height,
-				this.waterTileShaderProgram.getVertexPositionAttributeLocation()
-		);
-		this.waterTileRenderer = new WaterTileRenderer(
-				Constants.WaterTileConstants.waterTileRenderer,
-				this.waterTileShaderProgram,
-				this.waterTileModel,
-				this.basicWaterCamera
-		);
-		
 		this.reflectionTextureRenderer = new ReflectionTextureRenderer(
 				Constants.ReflectionTextureRendererConstants.reflecionTextureRenderer,
 				new RendererBase[] {
 						this.skybox,
-						this.basicTerrain,
+						new ClipDistanceRenderer(
+							Constants.ClipDistanceRenderer.name,
+							new RendererBase[]{
+									this.basicTerrain
+							},
+							basicWaterTerrainShaderProgram,
+							Constants.ClipDistanceRenderer.reflectionClippingPlane
+						)
 				},
 				Constants.ReflectionTextureRendererConstants.width,
-				Constants.ReflectionTextureRendererConstants.height
+				Constants.ReflectionTextureRendererConstants.height,
+				basicWaterTerrainShaderProgram,
+				this.basicWaterCamera
 		);
 		
 		rendererBases.add(this.reflectionTextureRenderer);
 		
 		TexturePreviewRenderer texturePreviewRenderer = new RGBATexturePreviewRenderer(this.reflectionTextureRenderer.getColorAttachment());
-		//TexturePreviewRenderer texturePreviewRenderer = new DepthTexturePreviewRenderer(this.reflectionTextureRenderer.getDepthAttachment(), Constants.BasicWaterCameraConstants.nearClippingPlane, Constants.BasicWaterCameraConstants.farClippingPlane);
-		
 		rendererBases.add(texturePreviewRenderer);
 		
 		return rendererBases;

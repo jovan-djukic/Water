@@ -1,10 +1,13 @@
 package water.basicWater.textureRenderer;
 
 import base.objects.frameBuffer.FrameBuffer;
+import base.objects.frameBuffer.RenderBuffer;
 import base.objects.renderer.RendererBase;
 import base.objects.renderer.textureRenderer.TextureRenderer;
 import base.objects.textures.Texture;
 import com.jogamp.opengl.GL4;
+import water.basicWater.BasicWaterCamera;
+import water.basicWater.basicWaterTerrainScene.basicWaterTerrainShaderProgram.BasicWaterTerrainShaderProgram;
 
 public class ReflectionTextureRenderer extends TextureRenderer {
 	
@@ -13,22 +16,25 @@ public class ReflectionTextureRenderer extends TextureRenderer {
 		public static final String frameBuffer               = Constants.reflectionTextureRenderer + "frameBuffer";
 		public static final String colorAttachment           = Constants.reflectionTextureRenderer + "colorAttachment";
 		public static final String depthAttachment           = Constants.reflectionTextureRenderer + "depthAttachment";
+		public static final String preRenderTag  = Constants.reflectionTextureRenderer + "-preRender";
+		public static final String postRenderTag = Constants.reflectionTextureRenderer + "-postRender";
 	}
 	
-	private Texture depthAttachment;
+	private RenderBuffer depthAttachment;
+	private BasicWaterTerrainShaderProgram shaderProgram;
+	private BasicWaterCamera camera;
+	private float distance;
 	
-	protected ReflectionTextureRenderer(String name, RendererBase[] renderers, FrameBuffer frameBuffer, Texture colorAttachment, int width, int height, Texture depthAttachment) {
-		super(name, renderers, frameBuffer, colorAttachment, width, height, depthAttachment);
+	protected ReflectionTextureRenderer(String name, RendererBase[] renderers, FrameBuffer frameBuffer, Texture colorAttachment, int width, int height, RenderBuffer depthAttachment, BasicWaterTerrainShaderProgram shaderProgram, BasicWaterCamera camera) {
+		super(name, renderers, frameBuffer, colorAttachment, width, height, depthAttachment, shaderProgram);
 		
 		this.depthAttachment = depthAttachment;
+		this.shaderProgram = shaderProgram;
+		this.camera = camera;
 	}
 	
-	public ReflectionTextureRenderer(String name, RendererBase[] renderers, int width, int height) {
-		this(name, renderers, new FrameBuffer(Constants.frameBuffer), new Texture(Constants.colorAttachment, GL4.GL_RGBA, GL4.GL_RGBA, GL4.GL_UNSIGNED_BYTE), width, height, new Texture(Constants.depthAttachment, GL4.GL_DEPTH_COMPONENT32F, GL4.GL_DEPTH_COMPONENT, GL4.GL_FLOAT));
-	}
-	
-	public Texture getDepthAttachment() {
-		return depthAttachment;
+	public ReflectionTextureRenderer(String name, RendererBase[] renderers, int width, int height, BasicWaterTerrainShaderProgram shaderProgram, BasicWaterCamera camera) {
+		this(name, renderers, new FrameBuffer(Constants.frameBuffer), new Texture(Constants.colorAttachment, GL4.GL_RGBA, GL4.GL_RGBA, GL4.GL_UNSIGNED_BYTE), width, height, new RenderBuffer(Constants.depthAttachment), shaderProgram, camera);
 	}
 	
 	@Override
@@ -36,16 +42,13 @@ public class ReflectionTextureRenderer extends TextureRenderer {
 		super.init(gl);
 		
 		this.depthAttachment.bind(gl)
-				.texImage2D(gl, 0, super.getWidth(), super.getHeight(), null)
-				.texParameteri(gl, GL4.GL_TEXTURE_MAG_FILTER, GL4.GL_LINEAR)
-				.texParameteri(gl, GL4.GL_TEXTURE_MIN_FILTER, GL4.GL_LINEAR)
-				.texParameteri(gl, GL4.GL_TEXTURE_WRAP_S, GL4.GL_MIRRORED_REPEAT)
-				.texParameteri(gl, GL4.GL_TEXTURE_WRAP_T, GL4.GL_MIRRORED_REPEAT);
-		
+				.renderBufferStorage(gl, GL4.GL_DEPTH_COMPONENT, super.getWidth(), super.getHeight());
 		
 		super.getFrameBuffer().bind(gl)
-				.addTextureDepthAttachment(gl, this.depthAttachment, 0)
-				.unbind(gl);
+							.addRenderBufferDepthAttachment(gl, this.depthAttachment)
+							.unbind(gl);
+		
+		super.getFrameBuffer().status(gl);
 	}
 	
 	@Override
@@ -53,5 +56,14 @@ public class ReflectionTextureRenderer extends TextureRenderer {
 		super.preRender(gl);
 		
 		gl.glClear(GL4.GL_DEPTH_BUFFER_BIT);
+		
+		this.checkForErrors(gl, Constants.preRenderTag);
+	}
+	
+	@Override
+	protected void postRender(GL4 gl) {
+		super.postRender(gl);
+		
+		this.checkForErrors(gl, Constants.postRenderTag);
 	}
 }

@@ -14,10 +14,6 @@ import java.nio.IntBuffer;
 
 public class PerlinNoiseTextureGenerator extends TextureRenderer {
 	protected static class Constants {
-		public static final int    xIndex                      = 0;
-		public static final int    yIndex                      = 1;
-		public static final int    widthIndex                  = 2;
-		public static final int    heightIndex                 = 3;
 		public static final String perlinNoiseTexture          = "-perlinNoiseTexture";
 		public static final String perlinNoiseFrameBuffer      = "-perlinNoiseFrameBuffer";
 		public static final String perlinNoiseGenerator        = "-perlinNoiseGenerator-";
@@ -49,7 +45,7 @@ public class PerlinNoiseTextureGenerator extends TextureRenderer {
 		this(name, numberOfOctaves, persistence, scaleX, scaleY, new FrameBuffer(name + Constants.perlinNoiseFrameBuffer), new Texture(name + Constants.perlinNoiseTexture, GL4.GL_R32F, GL4.GL_RED, GL4.GL_FLOAT), textureWidth, textureHeight);
 	}
 	
-	public TextureBase getPerlinNoiseTexture() {
+	public Texture getPerlinNoiseTexture() {
 		return perlinNoiseTexture;
 	}
 	

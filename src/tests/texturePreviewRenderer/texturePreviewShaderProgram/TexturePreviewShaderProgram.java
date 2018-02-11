@@ -1,9 +1,12 @@
 package tests.texturePreviewRenderer.texturePreviewShaderProgram;
 
+import base.Utilities;
 import base.glsl.Shader;
 import base.glsl.ShaderProgram;
 import base.glsl.shaders.FragmentShader;
 import base.glsl.shaders.VertexShader;
+import base.glsl.uniformSetter.Uniform1i;
+import com.jogamp.opengl.GL4;
 
 public abstract class TexturePreviewShaderProgram extends ShaderProgram {
 	private static class Constants {
@@ -20,30 +23,17 @@ public abstract class TexturePreviewShaderProgram extends ShaderProgram {
 		};
 	}
 	
-	private static String[] concatenate(String array0[], String array1[]) {
-		String array[] = new String[array0.length + array1.length];
-		
-		for (int i = 0; i < array.length; i++) {
-			if (i < array0.length) {
-				array[i] = array0[i];
-			} else {
-				array[i] = array1[i - array0.length];
-			}
-		}
-		
-		return array;
-	}
 	
 	public TexturePreviewShaderProgram(String fragmentShaderSource, String ...additionalUniforms) {
 		super(
 			Constants.shaderProgramName,
-			TexturePreviewShaderProgram.concatenate(Uniforms.uniforms, additionalUniforms),
+			Utilities.getInstance().concatenate(String.class, Uniforms.uniforms, additionalUniforms),
 			new VertexShader(Constants.vertexShaderName, Shader.getShaderSource(TexturePreviewShaderProgram.class, Constants.vertexShaderSourceFileName)),
 			new FragmentShader(Constants.fragmentShaderName, fragmentShaderSource)
 		);
 	}
 	
-	public int getSampleUniformLocation() {
-		return super.getUniformLocation(Uniforms.sampler);
+	public void setSamplerUniform(GL4 gl, int textureUnit) {
+		super.setUniform(gl, new Uniform1i(super.getUniformLocation(Uniforms.sampler), textureUnit));
 	}
 }

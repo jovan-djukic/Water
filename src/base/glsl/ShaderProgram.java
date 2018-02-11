@@ -4,7 +4,9 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
+import java.util.List;
 
+import base.glsl.uniformSetter.UniformSetter;
 import base.objects.CompositeOpenGLObject;
 import com.jogamp.opengl.GL4;
 
@@ -22,15 +24,16 @@ public abstract class ShaderProgram extends CompositeOpenGLObject {
 	}
 	
 	public enum Status {
-		PROGRAM_NOT_COMPLETE, PROGRAM_COMPLETE
+		PROGRAM_NOT_COMPLETE, PROGRAM_COMPLETE, ACTIVE, INACTIVE
 	};
 	
-	private Dictionary<String, Integer>	uniformLocations;
-	private ArrayList<String> 			listOfUniforms;
-	private ArrayList<Shader>			shaders;
-	private int							programID;
-	private StringBuilder				buildLog;
-	private Status						programStatus;
+	private Dictionary<String, Integer> uniformLocations;
+	private List<String>                listOfUniforms;
+	private List<Shader>                shaders;
+	private int                         programID;
+	private StringBuilder               buildLog;
+	private Status                      programStatus;
+	private List<UniformSetter>         uniformSetters;
 	
 	public ShaderProgram(String name, String uniforms[], Shader ...shaders) {
 		super(name, shaders);
@@ -38,6 +41,7 @@ public abstract class ShaderProgram extends CompositeOpenGLObject {
 		this.uniformLocations = new Hashtable<>();
 		this.listOfUniforms = new ArrayList<>();
 		this.shaders = new ArrayList<>();
+		this.uniformSetters = new ArrayList<>();
 		
 		for (int i = 0; i < uniforms.length; i++) {
 			this.listOfUniforms.add(uniforms[i]);
@@ -161,14 +165,30 @@ public abstract class ShaderProgram extends CompositeOpenGLObject {
 	}
 	
 	public void activate(GL4 gl) {
-		gl.glUseProgram(this.programID);
+		if (!Status.ACTIVE.equals(this.programStatus)) {
+			gl.glUseProgram(this.programID);
+			this.programStatus = Status.ACTIVE;
+			
+			for (UniformSetter uniformSetter : this.uniformSetters) {
+				uniformSetter.set(gl);
+			}
+			
+			this.uniformSetters.clear();
+		}
 	}
 	
 	public void deactivate(GL4 gl) {
-		gl.glUseProgram(0);
+		if (!Status.INACTIVE.equals(this.programStatus)) {
+			gl.glUseProgram(0);
+			this.programStatus = Status.INACTIVE;
+		}
 	}
 	
-	public int getTransformUniformLocation() {
-		return -1;
+	public void setUniform(GL4 gl, UniformSetter uniformSetter) {
+		if (!Status.ACTIVE.equals(this.programStatus)) {
+			this.uniformSetters.add(uniformSetter);
+		} else {
+			uniformSetter.set(gl);
+		}
 	}
 }

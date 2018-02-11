@@ -4,6 +4,10 @@ import base.glsl.Shader;
 import base.glsl.ShaderProgram;
 import base.glsl.shaders.FragmentShader;
 import base.glsl.shaders.VertexShader;
+import base.glsl.uniformSetter.Uniform1f;
+import base.glsl.uniformSetter.Uniform1i;
+import base.glsl.uniformSetter.Uniform1iv;
+import com.jogamp.opengl.GL4;
 
 public class PerlinNoiseShaderProgram extends ShaderProgram {
 	private static class Constants {
@@ -40,22 +44,23 @@ public class PerlinNoiseShaderProgram extends ShaderProgram {
 		);
 	}
 	
-	public int getPermutationLocation() {
-		return super.getUniformLocation(Uniforms.permutation);
+	public void setPermutationUniform(GL4 gl, int[] permutation) {
+		super.setUniform(gl, new Uniform1iv(super.getUniformLocation(Uniforms.permutation), permutation.length, permutation, 0));
 	}
 	
-	public int getNumberOfOctavesLocation() {
-		return super.getUniformLocation(Uniforms.numberOfOctaves);
+	public void setNumberOfOctavesUniform(GL4 gl, int numberOfOctaves) {
+		super.setUniform(gl, new Uniform1i(super.getUniformLocation(Uniforms.numberOfOctaves), numberOfOctaves));
 	}
 	
-	public int getPersistenceLocation() {
-		return super.getUniformLocation(Uniforms.persistence);
+	public void setPersistenceUniform(GL4 gl, float persistence) {
+		super.setUniform(gl, new Uniform1f(super.getUniformLocation(Uniforms.persistence), persistence));
 	}
 	
-	public int getScaleXLocation() {
-		return super.getUniformLocation(Uniforms.scaleX);
+	public void setScaleXUniform(GL4 gl, float scaleX) {
+		super.setUniform(gl, new Uniform1f(super.getUniformLocation(Uniforms.scaleX), scaleX));
 	}
-	public int getScaleYLocation() {
-		return super.getUniformLocation(Uniforms.scaleY);
+	
+	public void setScaleYUniform(GL4 gl, float scaleY) {
+		super.setUniform(gl, new Uniform1f(super.getUniformLocation(Uniforms.scaleY), scaleY));
 	}
 }

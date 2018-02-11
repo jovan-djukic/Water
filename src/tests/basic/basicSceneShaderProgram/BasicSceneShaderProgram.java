@@ -6,7 +6,6 @@ import base.glsl.shaders.VertexShader;
 import base.objects.renderer.scene.SceneShaderProgram;
 
 public class BasicSceneShaderProgram extends SceneShaderProgram {
-	
 	private static class Constants {
 		public static final String name                 = "basicShaderProgram";
 		public static final String vertexShaderName     = "basicVertexShader";
@@ -33,17 +32,25 @@ public class BasicSceneShaderProgram extends SceneShaderProgram {
 		);
 	}
 	
+	
 	@Override
-	public int getViewMatrixUniformPosition() {
-		return super.getUniformLocation(Uniforms.view);
+	protected String getViewMatrixUniformName() {
+		return Uniforms.view;
 	}
 	
 	@Override
-	public int getProjectionMatrixUniformPosition() {
-		return super.getUniformLocation(Uniforms.projection);
+	protected String getProjectionMatrixUniformName() {
+		return Uniforms.projection;
 	}
 	
-	public int getVertexPositionAttributeLocation() {
+	@Override
+	protected String getTransformMatrixUniformName() {
+		return "";
+	}
+	
+	@Override
+	public int getVertexAttributeLocation() {
 		return 0;
 	}
+	
 }

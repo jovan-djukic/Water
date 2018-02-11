@@ -1,6 +1,6 @@
 package base.objects.renderer.textureRenderer;
 
-import base.objects.CompositeOpenGLObject;
+import base.Utilities;
 import base.objects.OpenGLObject;
 import base.objects.frameBuffer.FrameBuffer;
 import base.objects.renderer.CompositeRenderer;
@@ -12,15 +12,14 @@ import java.nio.IntBuffer;
 
 public abstract class TextureRenderer extends CompositeRenderer {
 	private static class Constants {
-		public static final int    xIndex                = 0;
-		public static final int    yIndex                = 1;
-		public static final int    widthIndex            = 2;
-		public static final int    heightIndex           = 3;
-		public static final String textureRenderer       = "textureRenderer-";
-		public static final String compositeOpenGLObject = Constants.textureRenderer + "compositeOpenGLObject";
-		public static final String initTag               = Constants.textureRenderer + "init";
-		public static final String preRenderTag          = Constants.textureRenderer + "preRenderTag";
-		public static final String postRenderTag         = Constants.textureRenderer + "postRenderTag";
+		public static final int    xIndex          = 0;
+		public static final int    yIndex          = 1;
+		public static final int    widthIndex      = 2;
+		public static final int    heightIndex     = 3;
+		public static final String textureRenderer = "textureRenderer-";
+		public static final String initTag         = Constants.textureRenderer + "init";
+		public static final String preRenderTag    = Constants.textureRenderer + "preRenderTag";
+		public static final String postRenderTag   = Constants.textureRenderer + "postRenderTag";
 	}
 	
 	private FrameBuffer frameBuffer;
@@ -29,7 +28,7 @@ public abstract class TextureRenderer extends CompositeRenderer {
 	private IntBuffer oldViewPort;
 	
 	protected TextureRenderer(String name, RendererBase[] renderers, FrameBuffer frameBuffer, Texture colorAttachment, int width, int height, OpenGLObject ...openGLObjects) {
-		super(name, renderers, frameBuffer, colorAttachment, new CompositeOpenGLObject(Constants.compositeOpenGLObject, openGLObjects));
+		super(name, renderers, Utilities.getInstance().concatenate(OpenGLObject.class, Utilities.getInstance().concatenate(OpenGLObject.class, frameBuffer, colorAttachment),  openGLObjects));
 		
 		this.frameBuffer = frameBuffer;
 		this.colorAttachment = colorAttachment;

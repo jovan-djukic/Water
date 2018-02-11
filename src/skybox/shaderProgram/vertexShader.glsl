@@ -4,7 +4,7 @@ layout (location = 0) in vec3 position;
 
 out vec3 textureCoordinate;
 
-uniform mat4 view, projection;
+uniform mat4 view, projection, transform;
 
 void main() {
     textureCoordinate = position;

@@ -1,6 +1,6 @@
 package tests.texturePreviewRenderer;
 
-import base.objects.model.ModelBase;
+import base.objects.model.Model;
 import base.objects.renderer.Renderer;
 import base.objects.textures.Texture;
 import com.jogamp.opengl.GL4;
@@ -19,7 +19,7 @@ public abstract class TexturePreviewRenderer extends Renderer {
 		super(
 				Constants.texturePreviewRenderer,
 				shaderProgram,
-				new ModelBase[] {
+				new Model[] {
 					new TexturePreviewModel(Constants.texturePreviewModel)
 				}
 			);
@@ -34,6 +34,11 @@ public abstract class TexturePreviewRenderer extends Renderer {
 		
 		gl.glActiveTexture(GL4.GL_TEXTURE0);
 		this.texture.bind(gl);
-		gl.glUniform1i(this.shaderProgram.getSampleUniformLocation(), 0);
+		this.shaderProgram.setSamplerUniform(gl, 0);
+	}
+	
+	@Override
+	public void update() {
+	
 	}
 }

@@ -1,8 +1,8 @@
 package water.basicWater.waterTile;
 
-import base.objects.model.ModelBase;
 import base.objects.renderer.scene.Scene;
 import base.objects.renderer.scene.camera.Camera;
+import base.objects.renderer.scene.sceneModel.SceneModel;
 import com.jogamp.opengl.GL4;
 import water.basicWater.waterTile.waterTileShaderProgram.WaterTileShaderProgram;
 
@@ -16,7 +16,7 @@ public class WaterTileRenderer extends Scene {
 	private boolean isBlendEnabled;
 	
 	public WaterTileRenderer(String name, WaterTileShaderProgram shaderProgram, WaterTileModel waterTileModel, Camera camera) {
-		super(name, shaderProgram, new ModelBase[] { waterTileModel }, camera);
+		super(name, shaderProgram, camera, new SceneModel[] {waterTileModel });
 	}
 	
 	@Override
