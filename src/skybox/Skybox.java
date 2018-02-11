@@ -79,7 +79,7 @@ public class Skybox extends Renderer {
 			) {
 		this(
 			name, camera, new SkyboxShaderProgram(),
-			size, new CubeMapTexture(name + Constants.cubeMapTexture), scope,
+			size, new CubeMapTexture(name + Constants.cubeMapTexture, GL4.GL_RGBA, GL4.GL_RGBA, GL4.GL_UNSIGNED_BYTE), scope,
 			xPositiveFileName, xNegativeFileName,
 			yPositiveFileName, yNegativeFileName,
 			zPositiveFileName, zNegativeFileName
@@ -93,12 +93,12 @@ public class Skybox extends Renderer {
 		this.cubeMapTexture.init(gl);
 		
 		this.cubeMapTexture.bind(gl)
-			.bufferXPositive(gl, 0, GL4.GL_RGBA, GL4.GL_RGBA, TextureData.decodePngImage(this.scope, this.xPositiveFileName, PNGDecoder.Format.RGBA))
-			.bufferYPositive(gl, 0, GL4.GL_RGBA, GL4.GL_RGBA, TextureData.decodePngImage(this.scope, this.yPositiveFileName, PNGDecoder.Format.RGBA))
-			.bufferZPositive(gl, 0, GL4.GL_RGBA, GL4.GL_RGBA, TextureData.decodePngImage(this.scope, this.zPositiveFileName, PNGDecoder.Format.RGBA))
-			.bufferXNegative(gl, 0, GL4.GL_RGBA, GL4.GL_RGBA, TextureData.decodePngImage(this.scope, this.xNegativeFileName, PNGDecoder.Format.RGBA))
-			.bufferYNegative(gl, 0, GL4.GL_RGBA, GL4.GL_RGBA, TextureData.decodePngImage(this.scope, this.yNegativeFileName, PNGDecoder.Format.RGBA))
-			.bufferZNegative(gl, 0, GL4.GL_RGBA, GL4.GL_RGBA, TextureData.decodePngImage(this.scope, this.zNegativeFileName, PNGDecoder.Format.RGBA))
+			.bufferXPositive(gl, 0, TextureData.decodePngImage(this.scope, this.xPositiveFileName, PNGDecoder.Format.RGBA))
+			.bufferYPositive(gl, 0, TextureData.decodePngImage(this.scope, this.yPositiveFileName, PNGDecoder.Format.RGBA))
+			.bufferZPositive(gl, 0, TextureData.decodePngImage(this.scope, this.zPositiveFileName, PNGDecoder.Format.RGBA))
+			.bufferXNegative(gl, 0, TextureData.decodePngImage(this.scope, this.xNegativeFileName, PNGDecoder.Format.RGBA))
+			.bufferYNegative(gl, 0, TextureData.decodePngImage(this.scope, this.yNegativeFileName, PNGDecoder.Format.RGBA))
+			.bufferZNegative(gl, 0, TextureData.decodePngImage(this.scope, this.zNegativeFileName, PNGDecoder.Format.RGBA))
 			.texParameteri(gl, GL4.GL_TEXTURE_MAG_FILTER, GL4.GL_LINEAR)
 			.texParameteri(gl, GL4.GL_TEXTURE_MIN_FILTER, GL4.GL_LINEAR)
 			.texParameteri(gl, GL4.GL_TEXTURE_WRAP_S, GL4.GL_CLAMP_TO_EDGE)

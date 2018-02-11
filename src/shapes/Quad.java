@@ -21,7 +21,7 @@ public class Quad extends Model {
 		private Vector3f bottomLeft, bottomRight, topLeft, topRight;
 		
 		protected QuadVerticesLoader(String name, Vector3f bottomLeft, Vector3f bottomRight, Vector3f topLeft, Vector3f topRight, int vertexPositionAttributeLocation) {
-			super(name, Constants.numberOfBuffers, bottomLeft, vertexPositionAttributeLocation);
+			super(name, bottomLeft, vertexPositionAttributeLocation);
 			
 			this.bottomLeft = bottomLeft;
 			this.bottomRight = bottomRight;

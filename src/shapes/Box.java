@@ -12,10 +12,9 @@ import java.nio.IntBuffer;
 public class Box extends Model {
 	
 	private static class Constants {
-		public static final String box                  = "box-";
-		public static final String drawCommandTag       = Constants.box + "drawCommand";
+		public static final String box            = "box-";
+		public static final String drawCommandTag = Constants.box + "drawCommand";
 		public static final String verticesLoader = "-verticesLoader";
-		public static final String indicesLoader        = "-indicesLoader";
 	}
 	
 	protected static class BoxVerticesLoader extends IndicesLoader {

@@ -2,6 +2,7 @@ package water.basicWater.textureRenderer;
 
 import base.objects.frameBuffer.FrameBuffer;
 import base.objects.renderer.RendererBase;
+import base.objects.renderer.textureRenderer.TextureRenderer;
 import base.objects.textures.Texture;
 import com.jogamp.opengl.GL4;
 
@@ -23,7 +24,7 @@ public class ReflectionTextureRenderer extends TextureRenderer {
 	}
 	
 	public ReflectionTextureRenderer(String name, RendererBase[] renderers, int width, int height) {
-		this(name, renderers, new FrameBuffer(Constants.frameBuffer), new Texture(Constants.colorAttachment), width, height, new Texture(Constants.depthAttachment));
+		this(name, renderers, new FrameBuffer(Constants.frameBuffer), new Texture(Constants.colorAttachment, GL4.GL_RGBA, GL4.GL_RGBA, GL4.GL_UNSIGNED_BYTE), width, height, new Texture(Constants.depthAttachment, GL4.GL_DEPTH_COMPONENT32F, GL4.GL_DEPTH_COMPONENT, GL4.GL_FLOAT));
 	}
 	
 	public Texture getDepthAttachment() {
@@ -35,7 +36,7 @@ public class ReflectionTextureRenderer extends TextureRenderer {
 		super.init(gl);
 		
 		this.depthAttachment.bind(gl)
-				.texImage2D(gl, GL4.GL_TEXTURE_2D, 0, GL4.GL_DEPTH_COMPONENT32F, super.getWidth(), super.getHeight(), GL4.GL_DEPTH_COMPONENT, GL4.GL_FLOAT, null)
+				.texImage2D(gl, 0, super.getWidth(), super.getHeight(), null)
 				.texParameteri(gl, GL4.GL_TEXTURE_MAG_FILTER, GL4.GL_LINEAR)
 				.texParameteri(gl, GL4.GL_TEXTURE_MIN_FILTER, GL4.GL_LINEAR)
 				.texParameteri(gl, GL4.GL_TEXTURE_WRAP_S, GL4.GL_MIRRORED_REPEAT)

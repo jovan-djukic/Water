@@ -4,6 +4,7 @@ import de.matthiasmann.twl.utils.PNGDecoder;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.Buffer;
 import java.nio.ByteBuffer;
 
 public class TextureData {
@@ -27,9 +28,9 @@ public class TextureData {
 	}
 	
 	private int width, height;
-	private ByteBuffer data;
+	private Buffer data;
 	
-	private TextureData(int width, int height, ByteBuffer data) {
+	public TextureData(int width, int height, Buffer data) {
 		this.width = width;
 		this.height = height;
 		this.data = data;
@@ -43,7 +44,7 @@ public class TextureData {
 		return height;
 	}
 	
-	public ByteBuffer getData() {
+	public Buffer getData() {
 		return data;
 	}
 }

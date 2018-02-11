@@ -19,10 +19,14 @@ public abstract class TextureBase extends OpenGLObject {
 	
 	protected int textureID;
 	protected int target;
+	private int internalFormat, format, type;
 	
-	public TextureBase(String name, int target) {
+	public TextureBase(String name, int target, int internalFormat, int format, int type) {
 		super(name);
 		this.target = target;
+		this.internalFormat = internalFormat;
+		this.format = format;
+		this.type = type;
 	}
 	
 	public int getTextureID() {
@@ -66,13 +70,13 @@ public abstract class TextureBase extends OpenGLObject {
 		return this;
 	}
 	
-	protected TextureBase texImage2D(GL4 gl, int target, int level, int internalFormat, int width, int height, int format, int type, Buffer data) {
-		gl.glTexImage2D(target, level, internalFormat, width, height, 0, format, type, data);
+	protected TextureBase texImage2D(GL4 gl, int target, int level, int width, int height, Buffer data) {
+		gl.glTexImage2D(target, level, this.internalFormat, width, height, 0, this.format, this.type, data);
 		this.checkForErrors(gl, Constants.texImage2DTag);
 		return this;
 	}
 	
-	protected TextureBase texImage2D(GL4 gl, int target, int level, int internalFormat, int format, TextureData textureData) {
-		return this.texImage2D(gl, target, level, internalFormat, textureData.getWidth(), textureData.getHeight(), format, GL4.GL_UNSIGNED_BYTE, textureData.getData());
+	protected TextureBase texImage2D(GL4 gl, int target, int level, TextureData textureData) {
+		return this.texImage2D(gl, target, level, textureData.getWidth(), textureData.getHeight(), textureData.getData());
 	}
 }

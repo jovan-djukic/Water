@@ -8,8 +8,8 @@ import terrain.perlinNoiseTerrain.PerlinNoiseTerrain;
 import tests.texturePreviewRenderer.TexturePreviewRenderer;
 import tests.texturePreviewRenderer.depthTexturePreviewRenderer.DepthTexturePreviewRenderer;
 import tests.texturePreviewRenderer.rgbaTexturePreviewRenderer.RGBATexturePreviewRenderer;
-import water.basicWater.basicTerrain.BasicTerrainScene;
-import water.basicWater.basicTerrain.basicTerrainShaderProgram.BasicTerrainShaderProgram;
+import water.basicWater.basicWaterTerrainScene.BasicWaterTerrainScene;
+import water.basicWater.basicWaterTerrainScene.basicWaterTerrainShaderProgram.BasicWaterTerrainShaderProgram;
 import water.basicWater.textureRenderer.ReflectionTextureRenderer;
 import water.basicWater.waterTile.WaterTileModel;
 import water.basicWater.waterTile.WaterTileRenderer;
@@ -65,7 +65,7 @@ public class BasicWaterView extends GLView {
 		}
 		
 		public static class BasicTerrainConstants {
-			public static final String basicTerrain    = "basicTerrain";
+			public static final String basicTerrain    = "basicWaterTerrainScene";
 			public static final String imagesDirectory = Constants.imagesDirectory + "terrainImages/";
 			public static final String sandTexture     = BasicTerrainConstants.imagesDirectory + "sand.png";
 			public static final String grassTexture    = BasicTerrainConstants.imagesDirectory + "grass.png";
@@ -95,7 +95,7 @@ public class BasicWaterView extends GLView {
 		}
 	}
 	
-	private BasicTerrainScene         basicTerrain;
+	private BasicWaterTerrainScene    basicTerrain;
 	private PerlinNoiseTerrain        perlinNoiseTerrain;
 	private BasicWaterCamera          basicWaterCamera;
 	private Skybox                    skybox;
@@ -136,13 +136,13 @@ public class BasicWaterView extends GLView {
 				Constants.SkyboxConstants.negativeZ
 		);
 		
-		BasicTerrainShaderProgram basicTerrainShaderProgram = new BasicTerrainShaderProgram();
+		BasicWaterTerrainShaderProgram basicWaterTerrainShaderProgram = new BasicWaterTerrainShaderProgram();
 		
 		this.perlinNoiseTerrain = new PerlinNoiseTerrain(
 				Constants.PerlinNoiseTerrainConstants.perlinNoiseTerrain,
 				Constants.PerlinNoiseTerrainConstants.x,
 				Constants.PerlinNoiseTerrainConstants.z,
-				basicTerrainShaderProgram.getVertexPositionAttributeLocation(),
+				basicWaterTerrainShaderProgram.getVertexPositionAttributeLocation(),
 				Constants.PerlinNoiseTerrainConstants.width,
 				Constants.PerlinNoiseTerrainConstants.height,
 				Constants.PerlinNoiseTerrainConstants.rows,
@@ -153,13 +153,13 @@ public class BasicWaterView extends GLView {
 				Constants.PerlinNoiseTerrainConstants.scaleY,
 				Constants.PerlinNoiseTerrainConstants.amplitude,
 				Constants.PerlinNoiseTerrainConstants.power,
-				basicTerrainShaderProgram.getTextureCoordinateAttributeLocation()
+				basicWaterTerrainShaderProgram.getTextureCoordinateAttributeLocation()
 		);
 		
-		this.basicTerrain = new BasicTerrainScene(
+		this.basicTerrain = new BasicWaterTerrainScene(
 				Constants.BasicTerrainConstants.basicTerrain,
 				basicWaterCamera,
-				basicTerrainShaderProgram,
+				basicWaterTerrainShaderProgram,
 				this.perlinNoiseTerrain,
 				this.getClass(),
 				Constants.BasicTerrainConstants.grassTexture,

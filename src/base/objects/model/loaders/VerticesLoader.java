@@ -26,6 +26,14 @@ public abstract class VerticesLoader extends Loader {
 		this(name, numberOfBuffers, new Vector3f(x, y, z), vertexPositionAttributeLocation);
 	}
 	
+	protected VerticesLoader(String name, Vector3f position, int vertexPositionAttributeLocation) {
+		this(name, 1, position, vertexPositionAttributeLocation);
+	}
+	
+	protected VerticesLoader(String name, float x, float y, float z, int vertexPositionAttributeLocation) {
+		this(name, 1, new Vector3f(x, y, z), vertexPositionAttributeLocation);
+	}
+	
 	public Vector3f getPosition() {
 		return position;
 	}

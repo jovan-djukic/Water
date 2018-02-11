@@ -8,8 +8,8 @@ import java.nio.Buffer;
 public class Texture extends TextureBase {
 	private int width, height;
 	
-	public Texture(String name) {
-		super(name, GL4.GL_TEXTURE_2D);
+	public Texture(String name, int internalFormat, int format, int type) {
+		super(name, GL4.GL_TEXTURE_2D, internalFormat, format, type);
 	}
 	
 	public int getWidth() {
@@ -20,16 +20,14 @@ public class Texture extends TextureBase {
 		return height;
 	}
 	
-	@Override
-	public Texture texImage2D(GL4 gl, int target, int level, int internalFormat, int width, int height, int format, int type, Buffer data) {
+	public Texture texImage2D(GL4 gl, int level, int width, int height, Buffer data) {
 		this.width = width;
 		this.height = height;
-		return (Texture) super.texImage2D(gl, target, level, internalFormat, width, height, format, type, data);
+		return (Texture) super.texImage2D(gl, super.getTarget(), level, width, height, data);
 	}
 	
-	@Override
-	public Texture texImage2D(GL4 gl, int target, int level, int internalFormat, int format, TextureData textureData) {
-		return (Texture) super.texImage2D(gl, target, level, internalFormat, format, textureData);
+	public Texture texImage2D(GL4 gl, int level,  TextureData textureData) {
+		return (Texture) super.texImage2D(gl, super.getTarget(), level, textureData);
 	}
 	
 	@Override
