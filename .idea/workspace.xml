@@ -2,55 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdca1d5e-5758-47c5-a254-1fbc2c6411e1" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/base/glsl/uniformSetter/Uniform1f.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/base/glsl/uniformSetter/Uniform1i.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/base/glsl/uniformSetter/Uniform1iv.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/base/glsl/uniformSetter/Uniform4f.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/base/glsl/uniformSetter/UniformMatrix4fv.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/base/glsl/uniformSetter/UniformSetter.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/base/objects/renderer/scene/sceneModel/SceneModel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/tests/perlinNoiseTest/PerlinNoiseTextureRenderer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/BasicWaterTerrainScene.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/basicWaterTerrainShaderProgram/BasicWaterTerrainShaderProgram.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/basicWaterTerrainShaderProgram/fragmentShader.glsl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/basicWaterTerrainShaderProgram/vertexShader.glsl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/water/basicWater/textureRenderer/ClipDistanceRenderer.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/water/basicWater/textureRenderer/RefractionTextureRenderer.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/base/glsl/ShaderProgram.java" afterPath="$PROJECT_DIR$/src/base/glsl/ShaderProgram.java" />
-      <change beforePath="$PROJECT_DIR$/src/base/objects/CompositeOpenGLObject.java" afterPath="$PROJECT_DIR$/src/base/objects/CompositeOpenGLObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/base/objects/frameBuffer/FrameBuffer.java" afterPath="$PROJECT_DIR$/src/base/objects/frameBuffer/FrameBuffer.java" />
-      <change beforePath="$PROJECT_DIR$/src/base/objects/model/CompositeModel.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/base/objects/model/Model.java" afterPath="$PROJECT_DIR$/src/base/objects/model/Model.java" />
-      <change beforePath="$PROJECT_DIR$/src/base/objects/model/ModelBase.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/base/objects/renderer/CompositeRenderer.java" afterPath="$PROJECT_DIR$/src/base/objects/renderer/CompositeRenderer.java" />
-      <change beforePath="$PROJECT_DIR$/src/base/objects/renderer/Renderer.java" afterPath="$PROJECT_DIR$/src/base/objects/renderer/Renderer.java" />
-      <change beforePath="$PROJECT_DIR$/src/base/objects/renderer/scene/Scene.java" afterPath="$PROJECT_DIR$/src/base/objects/renderer/scene/Scene.java" />
-      <change beforePath="$PROJECT_DIR$/src/base/objects/renderer/scene/SceneShaderProgram.java" afterPath="$PROJECT_DIR$/src/base/objects/renderer/scene/SceneShaderProgram.java" />
-      <change beforePath="$PROJECT_DIR$/src/base/objects/renderer/scene/camera/Camera.java" afterPath="$PROJECT_DIR$/src/base/objects/renderer/scene/camera/Camera.java" />
-      <change beforePath="$PROJECT_DIR$/src/base/objects/renderer/textureRenderer/TextureRenderer.java" afterPath="$PROJECT_DIR$/src/base/objects/renderer/textureRenderer/TextureRenderer.java" />
-      <change beforePath="$PROJECT_DIR$/src/perlinNoise/perlinNoiseTextureGenerator/PerlinNoiseRenderer.java" afterPath="$PROJECT_DIR$/src/perlinNoise/perlinNoiseTextureGenerator/PerlinNoiseRenderer.java" />
-      <change beforePath="$PROJECT_DIR$/src/perlinNoise/perlinNoiseTextureGenerator/PerlinNoiseTextureGenerator.java" afterPath="$PROJECT_DIR$/src/perlinNoise/perlinNoiseTextureGenerator/PerlinNoiseTextureGenerator.java" />
-      <change beforePath="$PROJECT_DIR$/src/perlinNoise/perlinNoiseTextureGenerator/shaderProgram/PerlinNoiseShaderProgram.java" afterPath="$PROJECT_DIR$/src/perlinNoise/perlinNoiseTextureGenerator/shaderProgram/PerlinNoiseShaderProgram.java" />
-      <change beforePath="$PROJECT_DIR$/src/shapes/Box.java" afterPath="$PROJECT_DIR$/src/shapes/Box.java" />
-      <change beforePath="$PROJECT_DIR$/src/shapes/Mesh.java" afterPath="$PROJECT_DIR$/src/shapes/Mesh.java" />
-      <change beforePath="$PROJECT_DIR$/src/shapes/Quad.java" afterPath="$PROJECT_DIR$/src/shapes/Quad.java" />
-      <change beforePath="$PROJECT_DIR$/src/shapes/Shape.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/skybox/Skybox.java" afterPath="$PROJECT_DIR$/src/skybox/Skybox.java" />
-      <change beforePath="$PROJECT_DIR$/src/skybox/shaderProgram/SkyboxShaderProgram.java" afterPath="$PROJECT_DIR$/src/skybox/shaderProgram/SkyboxShaderProgram.java" />
-      <change beforePath="$PROJECT_DIR$/src/skybox/shaderProgram/vertexShader.glsl" afterPath="$PROJECT_DIR$/src/skybox/shaderProgram/vertexShader.glsl" />
-      <change beforePath="$PROJECT_DIR$/src/terrain/perlinNoiseTerrain/PerlinNoiseTerrain.java" afterPath="$PROJECT_DIR$/src/terrain/perlinNoiseTerrain/PerlinNoiseTerrain.java" />
-      <change beforePath="$PROJECT_DIR$/src/tests/basic/basicSceneShaderProgram/BasicSceneShaderProgram.java" afterPath="$PROJECT_DIR$/src/tests/basic/basicSceneShaderProgram/BasicSceneShaderProgram.java" />
-      <change beforePath="$PROJECT_DIR$/src/tests/basicMeshTest/BasicMeshTestView.java" afterPath="$PROJECT_DIR$/src/tests/basicMeshTest/BasicMeshTestView.java" />
-      <change beforePath="$PROJECT_DIR$/src/tests/perlinNoiseTest/PerlinNoiseTestRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/tests/perlinNoiseTest/PerlinNoiseTestView.java" afterPath="$PROJECT_DIR$/src/tests/perlinNoiseTest/PerlinNoiseTestView.java" />
-      <change beforePath="$PROJECT_DIR$/src/tests/perlinNoiseTest/twoDRShaderProgram/TwoDRShaderProgram.java" afterPath="$PROJECT_DIR$/src/tests/perlinNoiseTest/twoDRShaderProgram/TwoDRShaderProgram.java" />
-      <change beforePath="$PROJECT_DIR$/src/tests/texturePreviewRenderer/TexturePreviewRenderer.java" afterPath="$PROJECT_DIR$/src/tests/texturePreviewRenderer/TexturePreviewRenderer.java" />
-      <change beforePath="$PROJECT_DIR$/src/tests/texturePreviewRenderer/texturePreviewShaderProgram/TexturePreviewShaderProgram.java" afterPath="$PROJECT_DIR$/src/tests/texturePreviewRenderer/texturePreviewShaderProgram/TexturePreviewShaderProgram.java" />
-      <change beforePath="$PROJECT_DIR$/src/water/basicWater/BasicWaterCamera.java" afterPath="$PROJECT_DIR$/src/water/basicWater/BasicWaterCamera.java" />
       <change beforePath="$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java" afterPath="$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java" />
       <change beforePath="$PROJECT_DIR$/src/water/basicWater/textureRenderer/ReflectionTextureRenderer.java" afterPath="$PROJECT_DIR$/src/water/basicWater/textureRenderer/ReflectionTextureRenderer.java" />
-      <change beforePath="$PROJECT_DIR$/src/water/basicWater/waterTile/WaterTileRenderer.java" afterPath="$PROJECT_DIR$/src/water/basicWater/waterTile/WaterTileRenderer.java" />
-      <change beforePath="$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/WaterTileShaderProgram.java" afterPath="$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/WaterTileShaderProgram.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,24 +17,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BasicWaterCamera.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/water/basicWater/BasicWaterCamera.java">
+      <file leaf-file-name="ReflectionTextureRenderer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/water/basicWater/textureRenderer/ReflectionTextureRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+            <state relative-caret-position="340">
+              <caret line="32" column="99" lean-forward="false" selection-start-line="32" selection-start-column="99" selection-end-line="32" selection-end-column="99" />
               <folding>
-                <element signature="e#2052#2053#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReflectionTextureRenderer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/water/basicWater/textureRenderer/ReflectionTextureRenderer.java">
+      <file leaf-file-name="RefractionTextureRenderer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/water/basicWater/textureRenderer/RefractionTextureRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="136">
+              <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1800#1801#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,29 +65,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Camera.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/base/objects/renderer/scene/camera/Camera.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="56" column="4" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
-              <folding>
-                <element signature="e#1155#1156#0" expanded="true" />
-                <element signature="e#1173#1174#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BasicWaterView.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BasicWaterView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="29" column="41" lean-forward="false" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+            <state relative-caret-position="238">
+              <caret line="204" column="247" lean-forward="false" selection-start-line="204" selection-start-column="247" selection-end-line="204" selection-end-column="247" />
               <folding>
-                <element signature="e#8178#8179#0" expanded="true" />
-                <element signature="e#8231#8232#0" expanded="true" />
-                <element signature="e#8295#8296#0" expanded="true" />
-                <element signature="e#8354#8355#0" expanded="true" />
+                <element signature="e#9293#9294#0" expanded="true" />
+                <element signature="e#9346#9347#0" expanded="true" />
+                <element signature="e#9410#9411#0" expanded="true" />
+                <element signature="e#9469#9470#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -172,6 +117,7 @@
       <find>G</find>
       <find>COLOR_ATTACHMENT</find>
       <find>lerp</find>
+      <find>private Texture                        depthAttachment;</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -188,7 +134,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/base/glsl/uniformSetter/IUniformSetter.java" />
         <option value="$PROJECT_DIR$/src/base/glsl/ShaderProgram.java" />
         <option value="$PROJECT_DIR$/src/base/glsl/uniformSetter/UniformSetter.java" />
         <option value="$PROJECT_DIR$/src/base/glsl/uniformSetter/Uniform1f.java" />
@@ -236,9 +181,10 @@
         <option value="$PROJECT_DIR$/src/base/objects/frameBuffer/FrameBuffer.java" />
         <option value="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/basicWaterTerrainShaderProgram/vertexShader.glsl" />
         <option value="$PROJECT_DIR$/src/base/objects/renderer/scene/camera/Camera.java" />
-        <option value="$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java" />
         <option value="$PROJECT_DIR$/src/water/basicWater/BasicWaterCamera.java" />
         <option value="$PROJECT_DIR$/src/water/basicWater/textureRenderer/ReflectionTextureRenderer.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/textureRenderer/RefractionTextureRenderer.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java" />
       </list>
     </option>
   </component>
@@ -516,7 +462,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Background" />
+    <property name="settings.editor.selected.configurable" value="http.proxy" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -678,7 +624,8 @@
     <MESSAGE value="Forgot to add these files." />
     <MESSAGE value="Added base texture renderer class. Also refractored textures so now they take internalFormat, format and type as parameters." />
     <MESSAGE value="Forgot to add TextureRenderer class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Forgot to add TextureRenderer class." />
+    <MESSAGE value="Refractored everything once more. Added delayed set uniform methods. Added clipDistanceRenderer." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refractored everything once more. Added delayed set uniform methods. Added clipDistanceRenderer." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -701,34 +648,12 @@
           <properties />
           <option name="timeStamp" value="68" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/base/objects/renderer/scene/Scene.java</url>
-          <line>53</line>
-          <properties />
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/base/objects/renderer/scene/Scene.java</url>
-          <line>59</line>
-          <properties />
-          <option name="timeStamp" value="74" />
-        </line-breakpoint>
       </breakpoints>
       <option name="time" value="76" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/water/basicWater/waterTile/WaterTileRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/water/basicWater/waterTile/WaterTileModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1068,19 +993,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="29" column="41" lean-forward="false" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
-          <folding>
-            <element signature="e#8178#8179#0" expanded="true" />
-            <element signature="e#8231#8232#0" expanded="true" />
-            <element signature="e#8295#8296#0" expanded="true" />
-            <element signature="e#8354#8355#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/BasicWaterTerrainScene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -1105,6 +1017,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/objects/renderer/scene/camera/Camera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="56" column="4" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
+          <folding>
+            <element signature="e#1155#1156#0" expanded="true" />
+            <element signature="e#1173#1174#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/water/basicWater/BasicWaterCamera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="76" column="32" lean-forward="false" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
+          <folding>
+            <element signature="e#2052#2053#0" expanded="true" />
+            <element signature="e#2083#2084#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/water/basicWater/textureRenderer/ReflectionTextureRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="32" column="99" lean-forward="false" selection-start-line="32" selection-start-column="99" selection-end-line="32" selection-end-column="99" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/water/basicWater/textureRenderer/RefractionTextureRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1800#1801#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/shapes/Mesh.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89">
@@ -1112,16 +1067,6 @@
           <folding>
             <element signature="e#3122#3123#0" expanded="true" />
             <element signature="e#3161#3162#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/water/basicWater/BasicWaterCamera.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding>
-            <element signature="e#2052#2053#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1134,22 +1079,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/objects/renderer/scene/camera/Camera.java">
+    <entry file="file://$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="56" column="4" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
+        <state relative-caret-position="238">
+          <caret line="204" column="247" lean-forward="false" selection-start-line="204" selection-start-column="247" selection-end-line="204" selection-end-column="247" />
           <folding>
-            <element signature="e#1155#1156#0" expanded="true" />
-            <element signature="e#1173#1174#0" expanded="true" />
+            <element signature="e#9293#9294#0" expanded="true" />
+            <element signature="e#9346#9347#0" expanded="true" />
+            <element signature="e#9410#9411#0" expanded="true" />
+            <element signature="e#9469#9470#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/water/basicWater/textureRenderer/ReflectionTextureRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>

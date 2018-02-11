@@ -10,7 +10,6 @@ import water.basicWater.BasicWaterCamera;
 import water.basicWater.basicWaterTerrainScene.basicWaterTerrainShaderProgram.BasicWaterTerrainShaderProgram;
 
 public class ReflectionTextureRenderer extends TextureRenderer {
-	
 	private static class Constants {
 		public static final String reflectionTextureRenderer = "reflectionTextureRenderer";
 		public static final String frameBuffer               = Constants.reflectionTextureRenderer + "frameBuffer";
@@ -21,20 +20,18 @@ public class ReflectionTextureRenderer extends TextureRenderer {
 	}
 	
 	private RenderBuffer depthAttachment;
-	private BasicWaterTerrainShaderProgram shaderProgram;
 	private BasicWaterCamera camera;
 	private float distance;
 	
-	protected ReflectionTextureRenderer(String name, RendererBase[] renderers, FrameBuffer frameBuffer, Texture colorAttachment, int width, int height, RenderBuffer depthAttachment, BasicWaterTerrainShaderProgram shaderProgram, BasicWaterCamera camera) {
-		super(name, renderers, frameBuffer, colorAttachment, width, height, depthAttachment, shaderProgram);
+	protected ReflectionTextureRenderer(String name, RendererBase[] renderers, FrameBuffer frameBuffer, Texture colorAttachment, int width, int height, RenderBuffer depthAttachment, BasicWaterCamera camera) {
+		super(name, renderers, frameBuffer, colorAttachment, width, height, depthAttachment);
 		
 		this.depthAttachment = depthAttachment;
-		this.shaderProgram = shaderProgram;
 		this.camera = camera;
 	}
 	
-	public ReflectionTextureRenderer(String name, RendererBase[] renderers, int width, int height, BasicWaterTerrainShaderProgram shaderProgram, BasicWaterCamera camera) {
-		this(name, renderers, new FrameBuffer(Constants.frameBuffer), new Texture(Constants.colorAttachment, GL4.GL_RGBA, GL4.GL_RGBA, GL4.GL_UNSIGNED_BYTE), width, height, new RenderBuffer(Constants.depthAttachment), shaderProgram, camera);
+	public ReflectionTextureRenderer(String name, RendererBase[] renderers, int width, int height, BasicWaterCamera camera) {
+		this(name, renderers, new FrameBuffer(Constants.frameBuffer), new Texture(Constants.colorAttachment, GL4.GL_RGBA, GL4.GL_RGBA, GL4.GL_UNSIGNED_BYTE), width, height, new RenderBuffer(Constants.depthAttachment), camera);
 	}
 	
 	@Override
@@ -57,12 +54,21 @@ public class ReflectionTextureRenderer extends TextureRenderer {
 		
 		gl.glClear(GL4.GL_DEPTH_BUFFER_BIT);
 		
+		this.distance = 2 * this.camera.getPosition().y;
+		this.camera.getPosition().y -= this.distance;
+		this.camera.invertPitch();
+		this.camera.update();
+		
 		this.checkForErrors(gl, Constants.preRenderTag);
 	}
 	
 	@Override
 	protected void postRender(GL4 gl) {
 		super.postRender(gl);
+		
+		this.camera.getPosition().y += this.distance;
+		this.camera.invertPitch();
+		this.camera.update();
 		
 		this.checkForErrors(gl, Constants.postRenderTag);
 	}

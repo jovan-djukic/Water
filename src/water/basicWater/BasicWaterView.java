@@ -14,6 +14,7 @@ import water.basicWater.basicWaterTerrainScene.BasicWaterTerrainScene;
 import water.basicWater.basicWaterTerrainScene.basicWaterTerrainShaderProgram.BasicWaterTerrainShaderProgram;
 import water.basicWater.textureRenderer.ClipDistanceRenderer;
 import water.basicWater.textureRenderer.ReflectionTextureRenderer;
+import water.basicWater.textureRenderer.RefractionTextureRenderer;
 import water.basicWater.waterTile.WaterTileModel;
 import water.basicWater.waterTile.WaterTileRenderer;
 import water.basicWater.waterTile.waterTileShaderProgram.WaterTileShaderProgram;
@@ -79,21 +80,27 @@ public class BasicWaterView extends GLView {
 			public static final int      height                   = 800;
 		}
 		
+		public static class RefractionTextureRendererConstants {
+			public static final String   refractionTextureRenderer = "refractionTextureRenderer";
+			public static final int      width                    = 800;
+			public static final int      height                   = 800;
+		}
+		
 		public static class ClipDistanceRenderer {
 			public static final String   name                    = "clipDistanceRenderer";
 			public static final Vector4f reflectionClippingPlane = new Vector4f(0, 1, 0, 0);
+			public static final Vector4f refractionClippingPlane = new Vector4f(0, -1, 0, 0);
 		}
 	}
 	
+	private BasicWaterTerrainShaderProgram shaderProgram;
 	private BasicWaterTerrainScene    basicTerrain;
 	private PerlinNoiseTerrain        perlinNoiseTerrain;
 	private BasicWaterCamera          basicWaterCamera;
 	private Skybox                    skybox;
 	private ReflectionTextureRenderer reflectionTextureRenderer;
+	private RefractionTextureRenderer refractionTextureRenderer;
 	
-	private WaterTileShaderProgram waterTileShaderProgram;
-	private WaterTileModel         waterTileModel;
-	private WaterTileRenderer      waterTileRenderer;
 	
 	@Override
 	protected ArrayList<RendererBase> getRenderers() {
@@ -126,7 +133,7 @@ public class BasicWaterView extends GLView {
 				Constants.SkyboxConstants.negativeZ
 		);
 		
-		BasicWaterTerrainShaderProgram basicWaterTerrainShaderProgram = new BasicWaterTerrainShaderProgram();
+		this.shaderProgram = new BasicWaterTerrainShaderProgram();
 		
 		this.perlinNoiseTerrain = new PerlinNoiseTerrain(
 				Constants.PerlinNoiseTerrainConstants.perlinNoiseTerrain,
@@ -135,20 +142,20 @@ public class BasicWaterView extends GLView {
 				Constants.PerlinNoiseTerrainConstants.height,
 				Constants.PerlinNoiseTerrainConstants.rows,
 				Constants.PerlinNoiseTerrainConstants.columns,
-				basicWaterTerrainShaderProgram.getVertexAttributeLocation(),
+				this.shaderProgram.getVertexAttributeLocation(),
 				Constants.PerlinNoiseTerrainConstants.numberOfOctaves,
 				Constants.PerlinNoiseTerrainConstants.persistence,
 				Constants.PerlinNoiseTerrainConstants.scaleX,
 				Constants.PerlinNoiseTerrainConstants.scaleY,
 				Constants.PerlinNoiseTerrainConstants.amplitude,
 				Constants.PerlinNoiseTerrainConstants.power,
-				basicWaterTerrainShaderProgram.getTexelAttributeLocation()
+				this.shaderProgram.getTexelAttributeLocation()
 		);
 		
 		this.basicTerrain = new BasicWaterTerrainScene(
 				Constants.BasicTerrainConstants.basicTerrain,
 				basicWaterCamera,
-				basicWaterTerrainShaderProgram,
+				this.shaderProgram,
 				this.perlinNoiseTerrain,
 				this.getClass(),
 				Constants.BasicTerrainConstants.grassTexture,
@@ -164,19 +171,38 @@ public class BasicWaterView extends GLView {
 							new RendererBase[]{
 									this.basicTerrain
 							},
-							basicWaterTerrainShaderProgram,
+							this.shaderProgram,
 							Constants.ClipDistanceRenderer.reflectionClippingPlane
 						)
 				},
 				Constants.ReflectionTextureRendererConstants.width,
 				Constants.ReflectionTextureRendererConstants.height,
-				basicWaterTerrainShaderProgram,
 				this.basicWaterCamera
 		);
 		
 		rendererBases.add(this.reflectionTextureRenderer);
 		
-		TexturePreviewRenderer texturePreviewRenderer = new RGBATexturePreviewRenderer(this.reflectionTextureRenderer.getColorAttachment());
+		this.refractionTextureRenderer = new RefractionTextureRenderer(
+				Constants.RefractionTextureRendererConstants.refractionTextureRenderer,
+				new RendererBase[] {
+						new ClipDistanceRenderer(
+								Constants.ClipDistanceRenderer.name,
+								new RendererBase[] {
+										this.basicTerrain,
+								},
+								this.shaderProgram,
+								Constants.ClipDistanceRenderer.refractionClippingPlane
+						)
+				},
+				Constants.RefractionTextureRendererConstants.width,
+				Constants.RefractionTextureRendererConstants.height
+		);
+		
+		
+		rendererBases.add(this.refractionTextureRenderer);
+		
+		//TexturePreviewRenderer texturePreviewRenderer = new RGBATexturePreviewRenderer(this.refractionTextureRenderer.getColorAttachment());
+		TexturePreviewRenderer texturePreviewRenderer = new DepthTexturePreviewRenderer(this.refractionTextureRenderer.getDepthAttachment(), Constants.BasicWaterCameraConstants.nearClippingPlane, Constants.BasicWaterCameraConstants.farClippingPlane);
 		rendererBases.add(texturePreviewRenderer);
 		
 		return rendererBases;
