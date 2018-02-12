@@ -2,8 +2,11 @@
 
 layout (location = 0) in vec3 vertexPosition;
 
+out vec4 clipSpaceCoordinates;
+
 uniform mat4 transform, projection, view;
 
 void main() {
-	gl_Position = projection * view * transform * vec4(vertexPosition, 1.0);
+    clipSpaceCoordinates = projection * view * transform * vec4(vertexPosition, 1.0);
+	gl_Position = clipSpaceCoordinates;
 }

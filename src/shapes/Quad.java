@@ -15,19 +15,15 @@ public class Quad extends SceneModel {
 	}
 	
 	protected static class QuadVerticesLoader extends VerticesLoader {
-		private static class Constants {
-			public static final int numberOfBuffers = 1;
-		}
-		
 		private Vector3f bottomLeft, bottomRight, topLeft, topRight;
 		
-		protected QuadVerticesLoader(String name, Vector3f bottomLeft, Vector3f bottomRight, Vector3f topLeft, Vector3f topRight, int vertexPositionAttributeLocation) {
+		protected QuadVerticesLoader(String name,  Vector3f topLeft, Vector3f topRight, Vector3f bottomLeft, Vector3f bottomRight, int vertexPositionAttributeLocation) {
 			super(name, bottomLeft, vertexPositionAttributeLocation);
 			
-			this.bottomLeft = bottomLeft;
-			this.bottomRight = bottomRight;
 			this.topLeft = topLeft;
 			this.topRight = topRight;
+			this.bottomLeft = bottomLeft;
+			this.bottomRight = bottomRight;
 		}
 		
 		@Override
@@ -46,10 +42,10 @@ public class Quad extends SceneModel {
 		super(name, quadVerticesLoader, loaders);
 	}
 	
-	public Quad(String name, Vector3f bottomLeft, Vector3f bottomRight, Vector3f topLeft, Vector3f topRight, int vertexPositionAttributeLocation) {
+	public Quad(String name,  Vector3f topLeft, Vector3f topRight, Vector3f bottomLeft, Vector3f bottomRight, int vertexPositionAttributeLocation) {
 		super(
 				name,
-				new QuadVerticesLoader(Constants.vertexPositionLoader, bottomLeft, bottomRight, topLeft, topRight, vertexPositionAttributeLocation)
+				new QuadVerticesLoader(Constants.vertexPositionLoader, topLeft, topRight, bottomLeft, bottomRight,  vertexPositionAttributeLocation)
 		);
 	}
 	
