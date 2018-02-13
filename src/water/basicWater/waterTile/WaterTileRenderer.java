@@ -28,6 +28,7 @@ public class WaterTileRenderer extends Scene {
 	private float                  waveStrength;
 	private float                  waveSpeed, moveFactor;
 	private long lastTime;
+	private float distortionStrength;
 	
 	public WaterTileRenderer(
 			String name,
@@ -42,7 +43,8 @@ public class WaterTileRenderer extends Scene {
 			float scaleX,
 			float scaleY,
 			float waveStrength,
-			float waveSpeed
+			float waveSpeed,
+			float distortionStrength
 	) {
 		super(name, shaderProgram, camera, new SceneModel[]{waterTileModel}, dudvTexture, reflectionTexture, refractionTexture);
 		
@@ -56,6 +58,7 @@ public class WaterTileRenderer extends Scene {
 		this.scaleY = scaleY;
 		this.waveStrength = waveStrength;
 		this.waveSpeed = waveSpeed;
+		this.distortionStrength = distortionStrength;
 	}
 	
 	public WaterTileRenderer(
@@ -70,7 +73,8 @@ public class WaterTileRenderer extends Scene {
 			float scaleX,
 			float scaleY,
 			float waveStrength,
-			float waveSpeed
+			float waveSpeed,
+			float distortionStrength
 	) {
 		this(
 				name,
@@ -85,7 +89,8 @@ public class WaterTileRenderer extends Scene {
 				scaleX,
 				scaleY,
 				waveStrength,
-				waveSpeed
+				waveSpeed,
+				distortionStrength
 		);
 	}
 	
@@ -129,6 +134,8 @@ public class WaterTileRenderer extends Scene {
 		
 		this.shaderProgram.setMoveFactorUniform(gl, this.moveFactor);
 		
+		this.shaderProgram.setDistortionStrengthUniform(gl, this.distortionStrength);
+		
 		this.checkForErrors(gl, Constants.preRenderTag);
 	}
 	
@@ -155,8 +162,6 @@ public class WaterTileRenderer extends Scene {
 			this.lastTime = currentTime;
 			
 			this.moveFactor += this.waveSpeed * passedTime;
-			this.moveFactor %= 1;
-			
 		}
 	}
 }

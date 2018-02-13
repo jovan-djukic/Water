@@ -18,17 +18,18 @@ public class WaterTileShaderProgram extends SceneShaderProgram {
 	}
 	
 	public static class Uniforms {
-		public static final String projection        = "projection";
-		public static final String view              = "view";
-		public static final String transform         = "transform";
-		public static final String reflectionTexture = "reflectionTexture";
-		public static final String refractionTexture = "refractionTexture";
-		public static final String scaleX            = "scaleX";
-		public static final String scaleY            = "scaleY";
-		public static final String dudvTexture       = "dudvTexture";
-		public static final String waveStrength      = "waveStrength";
-		public static final String moveFactor        = "moveFactor";
-		public static final String uniforms[]        = {
+		public static final String projection         = "projection";
+		public static final String view               = "view";
+		public static final String transform          = "transform";
+		public static final String reflectionTexture  = "reflectionTexture";
+		public static final String refractionTexture  = "refractionTexture";
+		public static final String scaleX             = "scaleX";
+		public static final String scaleY             = "scaleY";
+		public static final String dudvTexture        = "dudvTexture";
+		public static final String waveStrength       = "waveStrength";
+		public static final String moveFactor         = "moveFactor";
+		public static final String distortionStrength = "distortionStrength";
+		public static final String uniforms[]         = {
 				Uniforms.projection,
 				Uniforms.view,
 				Uniforms.transform,
@@ -38,7 +39,8 @@ public class WaterTileShaderProgram extends SceneShaderProgram {
 				Uniforms.scaleY,
 				Uniforms.dudvTexture,
 				Uniforms.waveStrength,
-				Uniforms.moveFactor
+				Uniforms.moveFactor,
+				Uniforms.distortionStrength
 		};
 	}
 	
@@ -108,5 +110,9 @@ public class WaterTileShaderProgram extends SceneShaderProgram {
 	
 	public void setMoveFactorUniform(GL4 gl, float moveFactor) {
 		super.setUniform(gl, new Uniform1f(super.getUniformLocation(Uniforms.moveFactor), moveFactor));
+	}
+	
+	public void setDistortionStrengthUniform(GL4 gl, float distortionStrength) {
+		super.setUniform(gl, new Uniform1f(super.getUniformLocation(Uniforms.distortionStrength), distortionStrength));
 	}
 }

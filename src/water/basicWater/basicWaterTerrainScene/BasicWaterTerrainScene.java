@@ -76,17 +76,24 @@ public class BasicWaterTerrainScene extends Scene {
 		this.checkForErrors(gl, Constants.initTag);
 	}
 	
+	protected void setGrassTexture(GL4 gl) {
+		gl.glActiveTexture(GL4.GL_TEXTURE0);
+		this.grassTexture.bind(gl);
+		this.shaderProgram.setGrassTextureUniform(gl, 0);
+	}
+	
+	protected void setSandTexture(GL4 gl) {
+		gl.glActiveTexture(GL4.GL_TEXTURE1);
+		this.sandTexture.bind(gl);
+		this.shaderProgram.setSandTextureUniform(gl, 1);
+	}
+	
 	@Override
 	protected void preRender(GL4 gl) {
 		super.preRender(gl);
 		
-		gl.glActiveTexture(GL4.GL_TEXTURE0);
-		this.grassTexture.bind(gl);
-		gl.glActiveTexture(GL4.GL_TEXTURE1);
-		this.sandTexture.bind(gl);
-		
-		this.shaderProgram.setGrassTextureUniform(gl, 0);
-		this.shaderProgram.setSandTextureUniform(gl, 1);
+		this.setGrassTexture(gl);
+		this.setSandTexture(gl);
 		
 		this.isCullFaceEnabled = gl.glIsEnabled(GL4.GL_CULL_FACE);
 		

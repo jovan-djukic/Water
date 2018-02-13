@@ -90,16 +90,17 @@ public class BasicWaterView extends GLView {
 		}
 		
 		public static class WaterTile {
-			public static final String   name            = "waterTile";
-			public static final Vector3f topLeft         = PerlinNoiseTerrain.topLeft;
-			public static final float    width           = PerlinNoiseTerrain.width;
-			public static final float    height          = PerlinNoiseTerrain.height;
-			public static final String   imagesDirectory = Constants.imagesDirectory + "waterTileImages/";
-			public static final String   dudvTexture     = WaterTile.imagesDirectory + "dudvTexture.png";
-			public static final float    scaleX          = 0.1f;
-			public static final float    scaleY          = 0.1f;
-			public static final float    waveStrength    = 0.01f;
-			public static final float    waveSpeed       = 0.001f;
+			public static final String   name               = "waterTile";
+			public static final Vector3f topLeft            = PerlinNoiseTerrain.topLeft;
+			public static final float    width              = PerlinNoiseTerrain.width;
+			public static final float    height             = PerlinNoiseTerrain.height;
+			public static final String   imagesDirectory    = Constants.imagesDirectory + "waterTileImages/";
+			public static final String   dudvTexture        = WaterTile.imagesDirectory + "dudvTexture.png";
+			public static final float    scaleX             = 0.1f;
+			public static final float    scaleY             = 0.1f;
+			public static final float    waveStrength       = 0.01f;
+			public static final float    waveSpeed          = 0.001f;
+			public static final float    distortionStrength = 0.005f;
 		}
 		
 		public static class WaterTileRenderer {
@@ -238,7 +239,8 @@ public class BasicWaterView extends GLView {
 				Constants.WaterTile.scaleX,
 				Constants.WaterTile.scaleY,
 				Constants.WaterTile.waveStrength,
-				Constants.WaterTile.waveSpeed
+				Constants.WaterTile.waveSpeed,
+				Constants.WaterTile.distortionStrength
 		);
 		
 		rendererBases.add(this.skybox);

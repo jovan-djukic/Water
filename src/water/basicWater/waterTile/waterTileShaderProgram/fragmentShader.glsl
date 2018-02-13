@@ -6,21 +6,23 @@ in vec2 textureCoordinates;
 out vec4 outColor;
 
 uniform sampler2D reflectionTexture, refractionTexture, dudvTexture;
-uniform float waveStrength, moveFactor;
+uniform float waveStrength, moveFactor, distortionStrength;
 
 void main() {
-    vec2 distortion = (texture(dudvTexture, vec2(textureCoordinates.x + moveFactor, textureCoordinates.y)).rg * 2 - 1) * waveStrength;
+    vec2 distortedTextureCoords = texture(dudvTexture, vec2(textureCoordinates.x + moveFactor, textureCoordinates.y)).rg * distortionStrength;
+	distortedTextureCoords = textureCoordinates + vec2(distortedTextureCoords.x, distortedTextureCoords.y +	moveFactor);
+	vec2 totalDistortion = (texture(dudvTexture, distortedTextureCoords).rg * 2.0 - 1.0) * waveStrength;
 
     vec2 refractionTextureCoordinates = (clipSpaceCoordinates.xy / clipSpaceCoordinates.w) / 2 + 0.5;
-    refractionTextureCoordinates += distortion;
+    refractionTextureCoordinates += totalDistortion;
 
     vec2 reflectionTextureCoordinates = vec2(refractionTextureCoordinates.x, 1 - refractionTextureCoordinates.y);
-    reflectionTextureCoordinates += distortion;
+    reflectionTextureCoordinates += totalDistortion;
 
     vec4 reflectionColor = texture(reflectionTexture, reflectionTextureCoordinates);
     vec4 refractionColor = texture(refractionTexture, refractionTextureCoordinates);
 
-    outColor = mix(reflectionColor, refractionColor, 0.5);
+    outColor = mix(mix(reflectionColor, refractionColor, 0.5), vec4(0, 0.1, 0.3, 1), 0.5);
 }
 
 
