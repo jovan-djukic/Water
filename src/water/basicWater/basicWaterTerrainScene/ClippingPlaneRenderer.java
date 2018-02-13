@@ -1,4 +1,4 @@
-package water.basicWater.textureRenderer;
+package water.basicWater.basicWaterTerrainScene;
 
 import base.objects.renderer.CompositeRenderer;
 import base.objects.renderer.RendererBase;
@@ -6,13 +6,13 @@ import com.jogamp.opengl.GL4;
 import org.joml.Vector4f;
 import water.basicWater.basicWaterTerrainScene.basicWaterTerrainShaderProgram.BasicWaterTerrainShaderProgram;
 
-public class ClipDistanceRenderer extends CompositeRenderer {
+public class ClippingPlaneRenderer extends CompositeRenderer {
 	
 	private BasicWaterTerrainShaderProgram shaderProgram;
 	private Vector4f clippingPlane;
 	private boolean isClipDistance0Enabled;
 	
-	public ClipDistanceRenderer(String name, RendererBase[] rendererBases, BasicWaterTerrainShaderProgram shaderProgram, Vector4f clippingPlane) {
+	public ClippingPlaneRenderer(String name, RendererBase[] rendererBases, BasicWaterTerrainShaderProgram shaderProgram, Vector4f clippingPlane) {
 		super(name, rendererBases, shaderProgram);
 		
 		this.shaderProgram = shaderProgram;

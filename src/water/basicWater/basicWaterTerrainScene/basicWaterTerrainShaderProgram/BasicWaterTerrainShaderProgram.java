@@ -22,15 +22,13 @@ public class BasicWaterTerrainShaderProgram extends SceneShaderProgram {
 		public static final String projection     = "projection";
 		public static final String view           = "view";
 		public static final String transform      = "transform";
-		public static final String grassTexture   = "grassTexture";
-		public static final String sandTexture    = "sandTexture";
+		public static final String terrainTexture = "terrainTexture";
 		public static final String clippingPlane0 = "clippingPlane0";
 		public static final String uniforms[]     = {
 				Uniforms.projection,
 				Uniforms.view,
 				Uniforms.transform,
-				Uniforms.grassTexture,
-				Uniforms.sandTexture,
+				Uniforms.terrainTexture,
 				Uniforms.clippingPlane0
 		};
 	}
@@ -74,12 +72,8 @@ public class BasicWaterTerrainShaderProgram extends SceneShaderProgram {
 		return 1;
 	}
 	
-	public void setGrassTextureUniform(GL4 gl, int textureUnit) {
-		super.setUniform(gl, new Uniform1i(super.getUniformLocation(Uniforms.grassTexture), textureUnit));
-	}
-
-	public void setSandTextureUniform(GL4 gl, int textureUnit) {
-		super.setUniform(gl, new Uniform1i(super.getUniformLocation(Uniforms.sandTexture), textureUnit));
+	public void setTerrainTextureUniform(GL4 gl, int textureUnit) {
+		super.setUniform(gl, new Uniform1i(super.getUniformLocation(Uniforms.terrainTexture), textureUnit));
 	}
 	
 	public void setClippingPlaneUniform(GL4 gl, Vector4f clippingPlane) {
