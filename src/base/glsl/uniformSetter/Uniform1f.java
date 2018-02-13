@@ -4,7 +4,7 @@ import com.jogamp.opengl.GL4;
 
 public class Uniform1f extends UniformSetter {
 	private static class Constants {
-		public static final String tag = "uniform1iv";
+		public static final String tag = "uniform1if";
 	}
 	
 	private float value;

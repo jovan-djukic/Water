@@ -125,6 +125,7 @@ public class FrameBuffer extends OpenGLObject {
 		gl.glBindFramebuffer(GL4.GL_FRAMEBUFFER, 0);
 		
 		System.out.println(statusMessage);
+		System.out.println();
 		
 		return this;
 	}

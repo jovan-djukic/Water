@@ -90,10 +90,16 @@ public class BasicWaterView extends GLView {
 		}
 		
 		public static class WaterTile {
-			public static final String   name    = "waterTile";
-			public static final Vector3f topLeft = PerlinNoiseTerrain.topLeft;
-			public static final float    width   = PerlinNoiseTerrain.width;
-			public static final float    height  = PerlinNoiseTerrain.height;
+			public static final String   name            = "waterTile";
+			public static final Vector3f topLeft         = PerlinNoiseTerrain.topLeft;
+			public static final float    width           = PerlinNoiseTerrain.width;
+			public static final float    height          = PerlinNoiseTerrain.height;
+			public static final String   imagesDirectory = Constants.imagesDirectory + "waterTileImages/";
+			public static final String   dudvTexture     = WaterTile.imagesDirectory + "dudvTexture.png";
+			public static final float    scaleX          = 0.1f;
+			public static final float    scaleY          = 0.1f;
+			public static final float    waveStrength    = 0.01f;
+			public static final float    waveSpeed       = 0.001f;
 		}
 		
 		public static class WaterTileRenderer {
@@ -221,11 +227,18 @@ public class BasicWaterView extends GLView {
 						Constants.WaterTile.topLeft,
 						Constants.WaterTile.width,
 						Constants.WaterTile.height,
-						this.waterTileShaderProgram.getVertexAttributeLocation()
+						this.waterTileShaderProgram.getVertexAttributeLocation(),
+						this.waterTileShaderProgram.getTexelAttributeLocation()
 				),
 				this.basicWaterCamera,
 				this.reflectionTextureRenderer.getColorAttachment(),
-				this.refractionTextureRenderer.getColorAttachment()
+				this.refractionTextureRenderer.getColorAttachment(),
+				this.getClass(),
+				Constants.WaterTile.dudvTexture,
+				Constants.WaterTile.scaleX,
+				Constants.WaterTile.scaleY,
+				Constants.WaterTile.waveStrength,
+				Constants.WaterTile.waveSpeed
 		);
 		
 		rendererBases.add(this.skybox);

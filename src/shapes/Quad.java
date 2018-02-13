@@ -2,6 +2,7 @@ package shapes;
 
 import base.objects.model.loaders.Loader;
 import base.objects.model.Model;
+import base.objects.model.loaders.TexelsLoader;
 import base.objects.model.loaders.VerticesLoader;
 import base.objects.renderer.scene.sceneModel.SceneModel;
 import com.jogamp.opengl.GL4;
@@ -9,9 +10,10 @@ import org.joml.Vector3f;
 
 public class Quad extends SceneModel {
 	private static class Constants {
-		public final static String quad = "quad";
+		public final static String quad                 = "quad";
 		public final static String vertexPositionLoader = Constants.quad + "vertexPositionLoader";
-		public final static String drawCommandTag = Constants.quad + "drawCommand";
+		public final static String texelsLoader         = Constants.quad + "texelsLoader";
+		public final static String drawCommandTag       = Constants.quad + "drawCommand";
 	}
 	
 	protected static class QuadVerticesLoader extends VerticesLoader {
@@ -38,14 +40,39 @@ public class Quad extends SceneModel {
 		
 	}
 	
+	protected static class QuadTexelsLoader extends TexelsLoader {
+		
+		public QuadTexelsLoader(String name, int textureCoordinatesAttributeLocation) {
+			super(name, textureCoordinatesAttributeLocation);
+		}
+		
+		@Override
+		protected float[] getTextureCoordinatesData() {
+			return new float[] {
+				 0,  0,
+				+1,  0,
+				 0, +1,
+				+1, +1
+			};
+		}
+	}
+	
 	protected Quad(String name, QuadVerticesLoader quadVerticesLoader, Loader... loaders) {
 		super(name, quadVerticesLoader, loaders);
 	}
 	
-	public Quad(String name,  Vector3f topLeft, Vector3f topRight, Vector3f bottomLeft, Vector3f bottomRight, int vertexPositionAttributeLocation) {
-		super(
+	public Quad(String name,  Vector3f topLeft, Vector3f topRight, Vector3f bottomLeft, Vector3f bottomRight, int vertexAttributeLocation) {
+		this(
 				name,
-				new QuadVerticesLoader(Constants.vertexPositionLoader, topLeft, topRight, bottomLeft, bottomRight,  vertexPositionAttributeLocation)
+				new QuadVerticesLoader(Constants.vertexPositionLoader, topLeft, topRight, bottomLeft, bottomRight,  vertexAttributeLocation)
+		);
+	}
+	
+	public Quad(String name,  Vector3f topLeft, Vector3f topRight, Vector3f bottomLeft, Vector3f bottomRight, int vertexAttributeLocation, int texelAttributeLocation) {
+		this(
+				name,
+				new QuadVerticesLoader(Constants.vertexPositionLoader, topLeft, topRight, bottomLeft, bottomRight,  vertexAttributeLocation),
+				new QuadTexelsLoader(Constants.texelsLoader, texelAttributeLocation)
 		);
 	}
 	
