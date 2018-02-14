@@ -1,0 +1,4 @@
+-reflection and refraction textures need to be rendered without face culling and a little bit above and below surface, respectively.
+Clipping planes came in handy here.
+
+-distortion movement was set experimentally, there are other solutions.

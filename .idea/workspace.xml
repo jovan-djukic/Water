@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdca1d5e-5758-47c5-a254-1fbc2c6411e1" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/base/objects/renderer/rendererDecorators/CullFaceRendererDecorator.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/notes/notes.txt" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java" afterPath="$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java" />
-      <change beforePath="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/BasicWaterTerrainScene.java" afterPath="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/BasicWaterTerrainScene.java" />
-      <change beforePath="$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/fragmentShader.glsl" afterPath="$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/fragmentShader.glsl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,7 +14,48 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="fragmentShader.glsl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/fragmentShader.glsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="56" lean-forward="false" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReflectionTextureRenderer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/water/basicWater/textureRenderer/ReflectionTextureRenderer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="11" column="53" lean-forward="false" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TextureRenderer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/base/objects/renderer/textureRenderer/TextureRenderer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="69" column="72" lean-forward="false" selection-start-line="69" selection-start-column="72" selection-end-line="69" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="notes.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/notes/notes.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="70" lean-forward="false" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -62,7 +100,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/skybox/shaderProgram/vertexShader.glsl" />
         <option value="$PROJECT_DIR$/src/base/objects/renderer/scene/SceneModel.java" />
         <option value="$PROJECT_DIR$/src/base/objects/model/ModelBase.java" />
         <option value="$PROJECT_DIR$/src/base/objects/CompositeOpenGLObject.java" />
@@ -100,7 +137,6 @@
         <option value="$PROJECT_DIR$/src/water/basicWater/textureRenderer/RefractionTextureRenderer.java" />
         <option value="$PROJECT_DIR$/src/shapes/Quad.java" />
         <option value="$PROJECT_DIR$/src/water/basicWater/waterTile/WaterTileModel.java" />
-        <option value="$PROJECT_DIR$/src/base/objects/renderer/textureRenderer/TextureRenderer.java" />
         <option value="$PROJECT_DIR$/src/base/objects/frameBuffer/FrameBuffer.java" />
         <option value="$PROJECT_DIR$/src/base/glsl/uniformSetter/Uniform1f.java" />
         <option value="$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/vertexShader.glsl" />
@@ -113,6 +149,8 @@
         <option value="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/BasicWaterTerrainScene.java" />
         <option value="$PROJECT_DIR$/src/base/objects/renderer/rendererDecorators/CullFaceRendererDecorator.java" />
         <option value="$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java" />
+        <option value="$PROJECT_DIR$/src/base/objects/renderer/textureRenderer/TextureRenderer.java" />
+        <option value="$PROJECT_DIR$/notes/notes.txt" />
       </list>
     </option>
   </component>
@@ -144,6 +182,11 @@
             <path>
               <item name="Water" type="b2602c69:ProjectViewProjectNode" />
               <item name="Water" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="notes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Water" type="b2602c69:ProjectViewProjectNode" />
@@ -533,7 +576,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25402635" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25402635" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08320951" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -587,7 +630,8 @@
     <MESSAGE value="Added a better distortion equation. Also added a mix of final color with blue." />
     <MESSAGE value="Forgot something." />
     <MESSAGE value="Added a better reflection and refraction renderer. I rendered the whole surface to those two textures, one pass with grass texture and clipping plane because of the inverted camera, one pass with sand texture. And then i added two clipping plane renderers for final pas to remove unnecessary parts of the terrain." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a better reflection and refraction renderer. I rendered the whole surface to those two textures, one pass with grass texture and clipping plane because of the inverted camera, one pass with sand texture. And then i added two clipping plane renderers for final pas to remove unnecessary parts of the terrain." />
+    <MESSAGE value="Added a cull face renderer decorator to fix the glitch with reflection/refraction textures. Textures need to be rendered without face culling. The do no need to e complete, they can be clippid just a little below/above surface." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a cull face renderer decorator to fix the glitch with reflection/refraction textures. Textures need to be rendered without face culling. The do no need to e complete, they can be clippid just a little below/above surface." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -622,13 +666,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/base/glsl/ShaderProgram.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/base/glsl/uniformSetter/Uniform1i.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -818,17 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/water/basicWater/textureRenderer/RefractionTextureRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1800#1801#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/base/objects/model/loaders/TexelsLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -841,14 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="70" column="167" lean-forward="false" selection-start-line="70" selection-start-column="167" selection-end-line="70" selection-end-column="167" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/objects/renderer/textureRenderer/TextureRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="66" column="55" lean-forward="false" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
           <folding />
         </state>
       </provider>
@@ -967,14 +985,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/fragmentShader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="56" lean-forward="false" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/ClippingPlaneRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -993,14 +1003,6 @@
             <element signature="class#Skybox#0;class#Constants#0;class#BasicWaterView#0" expanded="false" />
             <element signature="class#PerlinNoiseTerrain#0;class#Constants#0;class#BasicWaterView#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/water/basicWater/textureRenderer/ReflectionTextureRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="32" column="11" lean-forward="false" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1026,6 +1028,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/water/basicWater/textureRenderer/RefractionTextureRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="30" column="39" lean-forward="false" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/fragmentShader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="56" lean-forward="false" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/water/basicWater/textureRenderer/ReflectionTextureRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="53" lean-forward="false" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/objects/renderer/textureRenderer/TextureRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="69" column="72" lean-forward="false" selection-start-line="69" selection-start-column="72" selection-end-line="69" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notes/notes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="70" lean-forward="false" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
           <folding />
         </state>
       </provider>
