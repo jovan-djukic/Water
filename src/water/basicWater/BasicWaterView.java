@@ -1,8 +1,10 @@
 package water.basicWater;
 
 import base.objects.renderer.RendererBase;
+import base.objects.renderer.rendererDecorators.CullFaceRendererDecorator;
 import base.views.GLView;
 import com.jogamp.newt.opengl.GLWindow;
+import com.jogamp.opengl.GL4;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 import skybox.Skybox;
@@ -70,8 +72,13 @@ public class BasicWaterView extends GLView {
 			public static final String textureFileName = BasicWaterGrassTerrainScene.imagesDirectory + "grass.png";
 			
 			public static final class ClippingPlaneRenderer {
-				public static final String   name          = "basicWaterGrassTerrainDistanceRenderer";
+				public static final String   name          = BasicWaterGrassTerrainScene.name + "clippingPlaneRenderer";
 				public static final Vector4f clippingPlane = new Vector4f(0, 1, 0, 0);
+			}
+			
+			public static final class CullFaceRendererDecorator {
+				public static final String name = BasicWaterGrassTerrainScene.name + "cullFaceRendererDecorator";
+				public static final int    face = GL4.GL_BACK;
 			}
 		}
 		
@@ -81,8 +88,13 @@ public class BasicWaterView extends GLView {
 			public static final String textureFileName = BasicWaterSandTerrainScene.imagesDirectory + "sand.png";
 			
 			public static class ClippingPlaneRenderer {
-				public static final String   name          = "basicWaterSandDistanceRenderer";
+				public static final String   name          = BasicWaterSandTerrainScene.name + "clippingPlaneRenderer";
 				public static final Vector4f clippingPlane = new Vector4f(0, -1, 0, 0);
+			}
+			
+			public static final class CullFaceRendererDecorator {
+				public static final String name = BasicWaterSandTerrainScene.name + "cullFaceRendererDecorator";
+				public static final int    face = GL4.GL_BACK;
 			}
 		}
 		
@@ -92,8 +104,8 @@ public class BasicWaterView extends GLView {
 			public static final int    height = 800;
 			
 			public static final class ClippingPlaneRenderer {
-				public static final String   name          = "reflectionTextureClippingPlaneRenderer";
-				public static final Vector4f clippingPlane = new Vector4f(0, 1, 0,0.05f);
+				public static final String   name          = ReflectionTextureRenderer.name + "ClippingPlaneRenderer";
+				public static final Vector4f clippingPlane = new Vector4f(0, 1, 0,0.08f);
 			}
 		}
 		
@@ -101,6 +113,11 @@ public class BasicWaterView extends GLView {
 			public static final String name   = "refractionTextureRenderer";
 			public static final int    width  = 800;
 			public static final int    height = 800;
+			
+			public static final class ClippingPlaneRenderer {
+				public static final String   name          = RefractionTextureRenderer.name + "ClippingPlaneRenderer";
+				public static final Vector4f clippingPlane = new Vector4f(0, -1, 0,0.08f);
+			}
 		}
 		
 		
@@ -128,15 +145,16 @@ public class BasicWaterView extends GLView {
 	
 	private PerlinNoiseTerrain     perlinNoiseTerrain;
 	private BasicWaterTerrainScene basicWaterGrassTerrainScene;
-	private ClippingPlaneRenderer  basicWaterGrassTerrainClippDistanceRenderer;
+	private ClippingPlaneRenderer  basicWaterGrassTerrainClippingPlaneRenderer;
 	private BasicWaterTerrainScene basicWaterSandTerrainScene;
-	private ClippingPlaneRenderer  basicWaterSandTerrainClippDistanceRenderer;
+	private ClippingPlaneRenderer  basicWaterSandTerrainClippingPlaneRenderer;
 	
 	private Skybox skybox;
 	
 	private ReflectionTextureRenderer reflectionTextureRenderer;
-	private ClippingPlaneRenderer     reflectionTextureCLippingPlaneRenderer;
+	private ClippingPlaneRenderer     reflectionTextureClippingPlaneRenderer;
 	private RefractionTextureRenderer refractionTextureRenderer;
+	private ClippingPlaneRenderer     refractionTextureClippingPlaneRenderer;
 	
 	private WaterTileShaderProgram waterTileShaderProgram;
 	private WaterTileRenderer      waterTileRenderer;
@@ -201,7 +219,7 @@ public class BasicWaterView extends GLView {
 				Constants.BasicWaterGrassTerrainScene.textureFileName
 		);
 		
-		this.reflectionTextureCLippingPlaneRenderer = new ClippingPlaneRenderer(
+		this.reflectionTextureClippingPlaneRenderer = new ClippingPlaneRenderer(
 				Constants.ReflectionTextureRenderer.ClippingPlaneRenderer.name,
 				new RendererBase[] {
 						this.basicWaterGrassTerrainScene
@@ -214,7 +232,7 @@ public class BasicWaterView extends GLView {
 				Constants.ReflectionTextureRenderer.name,
 				new RendererBase[] {
 						this.skybox,
-						this.reflectionTextureCLippingPlaneRenderer
+						this.reflectionTextureClippingPlaneRenderer
 				},
 				Constants.ReflectionTextureRenderer.width,
 				Constants.ReflectionTextureRenderer.height,
@@ -232,10 +250,19 @@ public class BasicWaterView extends GLView {
 				Constants.BasicWaterSandTerrainScene.textureFileName
 		);
 		
+		this.refractionTextureClippingPlaneRenderer = new ClippingPlaneRenderer(
+				Constants.RefractionTextureRenderer.ClippingPlaneRenderer.name,
+				new RendererBase[] {
+						this.basicWaterSandTerrainScene
+				},
+				this.shaderProgram,
+				Constants.RefractionTextureRenderer.ClippingPlaneRenderer.clippingPlane
+		);
+		
 		this.refractionTextureRenderer = new RefractionTextureRenderer(
 				Constants.RefractionTextureRenderer.name,
 				new RendererBase[] {
-						this.basicWaterSandTerrainScene
+						this.refractionTextureClippingPlaneRenderer
 				},
 				Constants.RefractionTextureRenderer.width,
 				Constants.RefractionTextureRenderer.height
@@ -269,27 +296,39 @@ public class BasicWaterView extends GLView {
 				Constants.WaterTile.distortionStrength
 		);
 		
-		this.basicWaterGrassTerrainClippDistanceRenderer = new ClippingPlaneRenderer(
+		this.basicWaterGrassTerrainClippingPlaneRenderer = new ClippingPlaneRenderer(
 				Constants.BasicWaterGrassTerrainScene.ClippingPlaneRenderer.name,
 				new RendererBase[] {
-						this.basicWaterGrassTerrainScene
+						new CullFaceRendererDecorator(
+								Constants.BasicWaterGrassTerrainScene.CullFaceRendererDecorator.name,
+								new RendererBase[] {
+										this.basicWaterGrassTerrainScene
+								},
+								Constants.BasicWaterGrassTerrainScene.CullFaceRendererDecorator.face
+						)
 				},
 				this.shaderProgram,
 				Constants.BasicWaterGrassTerrainScene.ClippingPlaneRenderer.clippingPlane
 		);
 		
-		this.basicWaterSandTerrainClippDistanceRenderer = new ClippingPlaneRenderer(
+		this.basicWaterSandTerrainClippingPlaneRenderer = new ClippingPlaneRenderer(
 				Constants.BasicWaterSandTerrainScene.ClippingPlaneRenderer.name,
 				new RendererBase[] {
-						this.basicWaterSandTerrainScene
+						new CullFaceRendererDecorator(
+								Constants.BasicWaterSandTerrainScene.CullFaceRendererDecorator.name,
+								new RendererBase[] {
+										this.basicWaterSandTerrainScene
+								},
+								Constants.BasicWaterSandTerrainScene.CullFaceRendererDecorator.face
+						)
 				},
 				this.shaderProgram,
 				Constants.BasicWaterSandTerrainScene.ClippingPlaneRenderer.clippingPlane
 		);
 		
 		rendererBases.add(this.skybox);
-		rendererBases.add(this.basicWaterGrassTerrainClippDistanceRenderer);
-		rendererBases.add(this.basicWaterSandTerrainClippDistanceRenderer);
+		rendererBases.add(this.basicWaterGrassTerrainClippingPlaneRenderer);
+		rendererBases.add(this.basicWaterSandTerrainClippingPlaneRenderer);
 		rendererBases.add(this.waterTileRenderer);
 		
 		return rendererBases;

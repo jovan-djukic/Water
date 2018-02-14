@@ -24,8 +24,8 @@ public class BasicWaterTerrainScene extends Scene {
 	private Texture                        terrainTexture;
 	private String                         terrainTextureFileName;
 	private Class                          scope;
-	private boolean                        isCullFaceEnabled, isDepthTestEnabled;
-	private IntBuffer cullFace, polygonMode;
+	private boolean                        isDepthTestEnabled;
+	private IntBuffer polygonMode;
 	
 	private BasicWaterTerrainScene(String name, BasicWaterTerrainShaderProgram shaderProgram, Camera camera, Mesh terrain, Texture terrainTexture, Class scope, String terrainTextureFileName) {
 		super(
@@ -43,7 +43,6 @@ public class BasicWaterTerrainScene extends Scene {
 		this.terrainTextureFileName = terrainTextureFileName;
 		this.scope = scope;
 		
-		this.cullFace = IntBuffer.allocate(1);
 		this.polygonMode = IntBuffer.allocate(1);
 	}
 	
@@ -79,17 +78,6 @@ public class BasicWaterTerrainScene extends Scene {
 		
 		this.setTerrainTexture(gl);
 		
-		this.isCullFaceEnabled = gl.glIsEnabled(GL4.GL_CULL_FACE);
-		
-		if (this.isCullFaceEnabled) {
-			gl.glGetIntegerv(GL4.GL_CULL_FACE, this.cullFace);
-			this.cullFace.rewind();
-		} else {
-			gl.glEnable(GL4.GL_CULL_FACE);
-		}
-		
-		gl.glCullFace(GL4.GL_BACK);
-		
 		this.isDepthTestEnabled = gl.glIsEnabled(GL4.GL_DEPTH_TEST);
 		
 		if (!this.isDepthTestEnabled) {
@@ -106,13 +94,6 @@ public class BasicWaterTerrainScene extends Scene {
 	
 	@Override
 	protected void postRender(GL4 gl) {
-		if (!this.isCullFaceEnabled) {
-			gl.glDisable(GL4.GL_CULL_FACE);
-		} else {
-			gl.glCullFace(this.cullFace.get(0));
-			this.cullFace.rewind();
-		}
-		
 		if (!this.isDepthTestEnabled) {
 			gl.glDisable(GL4.GL_DEPTH_TEST);
 		}

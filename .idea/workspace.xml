@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdca1d5e-5758-47c5-a254-1fbc2c6411e1" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/base/objects/renderer/rendererDecorators/CullFaceRendererDecorator.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java" afterPath="$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java" />
       <change beforePath="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/BasicWaterTerrainScene.java" afterPath="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/BasicWaterTerrainScene.java" />
-      <change beforePath="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/basicWaterTerrainShaderProgram/BasicWaterTerrainShaderProgram.java" afterPath="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/basicWaterTerrainShaderProgram/BasicWaterTerrainShaderProgram.java" />
-      <change beforePath="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/basicWaterTerrainShaderProgram/fragmentShader.glsl" afterPath="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/basicWaterTerrainShaderProgram/fragmentShader.glsl" />
-      <change beforePath="$PROJECT_DIR$/src/water/basicWater/textureRenderer/ClipDistanceRenderer.java" afterPath="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/ClippingPlaneRenderer.java" />
+      <change beforePath="$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/fragmentShader.glsl" afterPath="$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/fragmentShader.glsl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,53 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BasicWaterView.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="95" column="85" lean-forward="false" selection-start-line="95" selection-start-column="85" selection-end-line="95" selection-end-column="85" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="class#BasicWaterCamera#0;class#Constants#0;class#BasicWaterView#0" expanded="false" />
-                <element signature="class#Skybox#0;class#Constants#0;class#BasicWaterView#0" expanded="false" />
-                <element signature="class#PerlinNoiseTerrain#0;class#Constants#0;class#BasicWaterView#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClippingPlaneRenderer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/ClippingPlaneRenderer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BasicWaterTerrainShaderProgram.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/basicWaterTerrainShaderProgram/BasicWaterTerrainShaderProgram.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="74" column="21" lean-forward="false" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fragmentShader.glsl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/basicWaterTerrainShaderProgram/fragmentShader.glsl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="39" lean-forward="false" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -109,7 +62,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/base/glsl/uniformSetter/UniformMatrix4fv.java" />
         <option value="$PROJECT_DIR$/src/skybox/shaderProgram/vertexShader.glsl" />
         <option value="$PROJECT_DIR$/src/base/objects/renderer/scene/SceneModel.java" />
         <option value="$PROJECT_DIR$/src/base/objects/model/ModelBase.java" />
@@ -154,11 +106,12 @@
         <option value="$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/vertexShader.glsl" />
         <option value="$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/WaterTileShaderProgram.java" />
         <option value="$PROJECT_DIR$/src/water/basicWater/waterTile/WaterTileRenderer.java" />
-        <option value="$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/fragmentShader.glsl" />
         <option value="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/basicWaterTerrainShaderProgram/fragmentShader.glsl" />
         <option value="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/basicWaterTerrainShaderProgram/BasicWaterTerrainShaderProgram.java" />
-        <option value="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/BasicWaterTerrainScene.java" />
         <option value="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/ClipDistanceRenderer.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/fragmentShader.glsl" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/BasicWaterTerrainScene.java" />
+        <option value="$PROJECT_DIR$/src/base/objects/renderer/rendererDecorators/CullFaceRendererDecorator.java" />
         <option value="$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java" />
       </list>
     </option>
@@ -185,6 +138,165 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="glsl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="glsl" type="462c0819:PsiDirectoryNode" />
+              <item name="uniformSetter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="objects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="objects" type="462c0819:PsiDirectoryNode" />
+              <item name="frameBuffer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="objects" type="462c0819:PsiDirectoryNode" />
+              <item name="renderer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="objects" type="462c0819:PsiDirectoryNode" />
+              <item name="renderer" type="462c0819:PsiDirectoryNode" />
+              <item name="rendererDecorators" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="shapes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="perlinNoiseTerrain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="basicWater" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="basicWater" type="462c0819:PsiDirectoryNode" />
+              <item name="basicWaterTerrainScene" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="basicWater" type="462c0819:PsiDirectoryNode" />
+              <item name="basicWaterTerrainScene" type="462c0819:PsiDirectoryNode" />
+              <item name="basicWaterTerrainShaderProgram" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="basicWater" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="basicWater" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="waterTileImages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="basicWater" type="462c0819:PsiDirectoryNode" />
+              <item name="textureRenderer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="basicWater" type="462c0819:PsiDirectoryNode" />
+              <item name="waterTile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="basicWater" type="462c0819:PsiDirectoryNode" />
+              <item name="waterTile" type="462c0819:PsiDirectoryNode" />
+              <item name="waterTileShaderProgram" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Water" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Water" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="Water" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Water" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -292,184 +404,6 @@
               <item name="src" type="cbb8eebc:String" user="src" />
               <item name="water/basicWater" type="cbb8eebc:String" user="water/basicWater" />
               <item name="textureRenderer" type="cbb8eebc:String" user="textureRenderer" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="glsl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="glsl" type="462c0819:PsiDirectoryNode" />
-              <item name="uniformSetter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="objects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="objects" type="462c0819:PsiDirectoryNode" />
-              <item name="frameBuffer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="objects" type="462c0819:PsiDirectoryNode" />
-              <item name="renderer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="objects" type="462c0819:PsiDirectoryNode" />
-              <item name="renderer" type="462c0819:PsiDirectoryNode" />
-              <item name="scene" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="objects" type="462c0819:PsiDirectoryNode" />
-              <item name="renderer" type="462c0819:PsiDirectoryNode" />
-              <item name="scene" type="462c0819:PsiDirectoryNode" />
-              <item name="camera" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="objects" type="462c0819:PsiDirectoryNode" />
-              <item name="renderer" type="462c0819:PsiDirectoryNode" />
-              <item name="textureRenderer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="shapes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="perlinNoiseTerrain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="basicWater" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="basicWater" type="462c0819:PsiDirectoryNode" />
-              <item name="basicWaterTerrainScene" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="basicWater" type="462c0819:PsiDirectoryNode" />
-              <item name="basicWaterTerrainScene" type="462c0819:PsiDirectoryNode" />
-              <item name="basicWaterTerrainShaderProgram" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="basicWater" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="basicWater" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="waterTileImages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="basicWater" type="462c0819:PsiDirectoryNode" />
-              <item name="textureRenderer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="basicWater" type="462c0819:PsiDirectoryNode" />
-              <item name="waterTile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="basicWater" type="462c0819:PsiDirectoryNode" />
-              <item name="waterTile" type="462c0819:PsiDirectoryNode" />
-              <item name="waterTileShaderProgram" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Water" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Water" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="Water" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Water" type="616d4139:PackageViewModuleNode" />
-              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -599,7 +533,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25402635" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25402635" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08320951" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5274888" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -609,7 +544,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08320951" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -652,7 +586,8 @@
     <MESSAGE value="Added a dudv map for distortion. Also added move factor so now it looks like the water moves." />
     <MESSAGE value="Added a better distortion equation. Also added a mix of final color with blue." />
     <MESSAGE value="Forgot something." />
-    <option name="LAST_COMMIT_MESSAGE" value="Forgot something." />
+    <MESSAGE value="Added a better reflection and refraction renderer. I rendered the whole surface to those two textures, one pass with grass texture and clipping plane because of the inverted camera, one pass with sand texture. And then i added two clipping plane renderers for final pas to remove unnecessary parts of the terrain." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a better reflection and refraction renderer. I rendered the whole surface to those two textures, one pass with grass texture and clipping plane because of the inverted camera, one pass with sand texture. And then i added two clipping plane renderers for final pas to remove unnecessary parts of the terrain." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -687,14 +622,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/perlinNoise/perlinNoiseTextureGenerator/shaderProgram/PerlinNoiseShaderProgram.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/base/glsl/ShaderProgram.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
@@ -848,13 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/objects/renderer/CompositeRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/skybox/shaderProgram/vertexShader.glsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -953,7 +873,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="97">
           <caret line="385" column="30" lean-forward="false" selection-start-line="385" selection-start-column="30" selection-end-line="385" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -995,7 +914,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1010,18 +928,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/fragmentShader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/basicWaterTerrainShaderProgram/vertexShader.glsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="59" lean-forward="false" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/objects/renderer/Renderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/objects/renderer/scene/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="14" column="34" lean-forward="false" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1042,6 +967,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/fragmentShader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="56" lean-forward="false" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/ClippingPlaneRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1050,27 +983,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/objects/renderer/Renderer.java">
+    <entry file="file://$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/objects/renderer/scene/Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="14" column="34" lean-forward="false" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/BasicWaterTerrainScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="14" column="44" lean-forward="true" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
-          <folding />
+        <state relative-caret-position="-2516">
+          <caret line="164" column="68" lean-forward="false" selection-start-line="164" selection-start-column="68" selection-end-line="164" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#BasicWaterCamera#0;class#Constants#0;class#BasicWaterView#0" expanded="false" />
+            <element signature="class#Skybox#0;class#Constants#0;class#BasicWaterView#0" expanded="false" />
+            <element signature="class#PerlinNoiseTerrain#0;class#Constants#0;class#BasicWaterView#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1082,16 +1004,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java">
+    <entry file="file://$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/BasicWaterTerrainScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="95" column="85" lean-forward="false" selection-start-line="95" selection-start-column="85" selection-end-line="95" selection-end-column="85" />
+        <state relative-caret-position="339">
+          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/objects/renderer/rendererDecorators/CullFaceRendererDecorator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="47" column="47" lean-forward="true" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#BasicWaterCamera#0;class#Constants#0;class#BasicWaterView#0" expanded="false" />
-            <element signature="class#Skybox#0;class#Constants#0;class#BasicWaterView#0" expanded="false" />
-            <element signature="class#PerlinNoiseTerrain#0;class#Constants#0;class#BasicWaterView#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/objects/renderer/CompositeRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>

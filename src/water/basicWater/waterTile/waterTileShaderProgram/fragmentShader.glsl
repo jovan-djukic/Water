@@ -22,7 +22,7 @@ void main() {
     vec4 reflectionColor = texture(reflectionTexture, reflectionTextureCoordinates);
     vec4 refractionColor = texture(refractionTexture, refractionTextureCoordinates);
 
-    outColor = mix(mix(reflectionColor, refractionColor, 0.5), vec4(0, 0.05, 0.2, 1), 0.5);
+    outColor = mix(reflectionColor, refractionColor, 0.5);
 }
 
 
