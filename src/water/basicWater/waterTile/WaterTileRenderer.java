@@ -36,6 +36,7 @@ public class WaterTileRenderer extends Scene {
 	private float waterReflectivity;
 	private Light light;
 	private float shineDamper, lightReflectivity;
+	private float normalEqualizationFactor;
 	
 	public WaterTileRenderer(
 			String name,
@@ -57,7 +58,8 @@ public class WaterTileRenderer extends Scene {
 			float waterReflectivity,
 			Light light,
 			float shineDamper,
-			float lightReflectivity
+			float lightReflectivity,
+			float normalEqualizationFactor
 	) {
 		super(name, shaderProgram, camera, new SceneModel[]{waterTileModel}, dudvTexture, normalMapTexture, reflectionTexture, refractionTexture);
 		
@@ -78,6 +80,7 @@ public class WaterTileRenderer extends Scene {
 		this.light = light;
 		this.shineDamper = shineDamper;
 		this.lightReflectivity = lightReflectivity;
+		this.normalEqualizationFactor = normalEqualizationFactor;
 	}
 	
 	public WaterTileRenderer(
@@ -98,7 +101,8 @@ public class WaterTileRenderer extends Scene {
 			float waterReflectivity,
 			Light light,
 			float shineDamper,
-			float lightReflectivity
+			float lightReflectivity,
+			float normalEqualizationFactor
 	) {
 		this(
 				name,
@@ -120,7 +124,8 @@ public class WaterTileRenderer extends Scene {
 				waterReflectivity,
 				light,
 				shineDamper,
-				lightReflectivity
+				lightReflectivity,
+				normalEqualizationFactor
 		);
 	}
 	
@@ -185,6 +190,8 @@ public class WaterTileRenderer extends Scene {
 		this.shaderProgram.setLightColorUniform(gl, this.light.getColor());
 		this.shaderProgram.setShineDamperUniform(gl, this.shineDamper);
 		this.shaderProgram.setLightReflectivityUniform(gl, this.lightReflectivity);
+		
+		this.shaderProgram.setNormalEqualizationFactorUniform(gl, this.normalEqualizationFactor);
 		
 		this.checkForErrors(gl, Constants.preRenderTag);
 	}

@@ -22,25 +22,26 @@ public class WaterTileShaderProgram extends SceneShaderProgram {
 	}
 	
 	public static class Uniforms {
-		public static final String projection         = "projection";
-		public static final String view               = "view";
-		public static final String transform          = "transform";
-		public static final String reflectionTexture  = "reflectionTexture";
-		public static final String refractionTexture  = "refractionTexture";
-		public static final String scaleX             = "scaleX";
-		public static final String scaleY             = "scaleY";
-		public static final String dudvTexture        = "dudvTexture";
-		public static final String waveStrength       = "waveStrength";
-		public static final String moveFactor         = "moveFactor";
-		public static final String distortionStrength = "distortionStrength";
-		public static final String cameraPosition     = "cameraPosition";
-		public static final String waterReflectivity  = "waterReflectivity";
-		public static final String normalMapTexture   = "normalMapTexture";
-		public static final String lightPosition      = "lightPosition";
-		public static final String lightColor         = "lightColor";
-		public static final String shineDamper        = "shineDamper";
-		public static final String lightReflectivity  = "lightReflectivity";
-		public static final String uniforms[]         = {
+		public static final String projection               = "projection";
+		public static final String view                     = "view";
+		public static final String transform                = "transform";
+		public static final String reflectionTexture        = "reflectionTexture";
+		public static final String refractionTexture        = "refractionTexture";
+		public static final String scaleX                   = "scaleX";
+		public static final String scaleY                   = "scaleY";
+		public static final String dudvTexture              = "dudvTexture";
+		public static final String waveStrength             = "waveStrength";
+		public static final String moveFactor               = "moveFactor";
+		public static final String distortionStrength       = "distortionStrength";
+		public static final String cameraPosition           = "cameraPosition";
+		public static final String waterReflectivity        = "waterReflectivity";
+		public static final String normalMapTexture         = "normalMapTexture";
+		public static final String lightPosition            = "lightPosition";
+		public static final String lightColor               = "lightColor";
+		public static final String shineDamper              = "shineDamper";
+		public static final String lightReflectivity        = "lightReflectivity";
+		public static final String normalEqualizationFactor = "normalEqualizationFactor";
+		public static final String uniforms[]               = {
 				Uniforms.projection,
 				Uniforms.view,
 				Uniforms.transform,
@@ -58,7 +59,8 @@ public class WaterTileShaderProgram extends SceneShaderProgram {
 				Uniforms.lightPosition,
 				Uniforms.lightColor,
 				Uniforms.shineDamper,
-				Uniforms.lightReflectivity
+				Uniforms.lightReflectivity,
+				Uniforms.normalEqualizationFactor
 		};
 	}
 	
@@ -160,5 +162,9 @@ public class WaterTileShaderProgram extends SceneShaderProgram {
 	
 	public void setLightReflectivityUniform(GL4 gl, float lightReflectivity) {
 		super.setUniform(gl, new Uniform1f(super.getUniformLocation(Uniforms.lightReflectivity), lightReflectivity));
+	}
+	
+	public void setNormalEqualizationFactorUniform(GL4 gl, float normalEqualizationFactor) {
+		super.setUniform(gl, new Uniform1f(super.getUniformLocation(Uniforms.normalEqualizationFactor), normalEqualizationFactor));
 	}
 }

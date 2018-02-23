@@ -8,7 +8,7 @@ in vec3 fromLightVector;
 out vec4 outColor;
 
 uniform sampler2D reflectionTexture, refractionTexture, dudvTexture, normalMapTexture;
-uniform float waveStrength, moveFactor, distortionStrength, waterReflectivity, shineDamper, lightReflectivity;
+uniform float waveStrength, moveFactor, distortionStrength, waterReflectivity, shineDamper, lightReflectivity, normalEqualizationFactor;
 uniform vec4 lightColor;
 
 void main() {
@@ -25,16 +25,18 @@ void main() {
     vec4 reflectionColor = texture(reflectionTexture, reflectionTextureCoordinates);
     vec4 refractionColor = texture(refractionTexture, refractionTextureCoordinates);
 
-    vec3 normalizedToCameraVector = normalize(toCameraVector);
-    float refractiveFactor = dot(normalizedToCameraVector, vec3(0, 1, 0));
-
     vec4 normalMapColor = texture(normalMapTexture, distortedTextureCoords);
     vec3 normal = vec3(
         normalMapColor.r * 2 - 1,
-        normalMapColor.b,
+        normalMapColor.b * normalEqualizationFactor,
         normalMapColor.g * 2 - 1
     );
-    vec3 reflectedLight = reflect(normalize(fromLightVector), normalize(normal));
+    normal = normalize(normal);
+
+    vec3 normalizedToCameraVector = normalize(toCameraVector);
+    float refractiveFactor = dot(normalizedToCameraVector, normal);
+
+    vec3 reflectedLight = reflect(normalize(fromLightVector), normal);
     float specular = max(dot(normalizedToCameraVector, reflectedLight), 0);
     vec3 specularHiglights = lightColor.rgb * pow(specular, shineDamper) * lightReflectivity;
 
