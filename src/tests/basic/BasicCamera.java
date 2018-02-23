@@ -1,12 +1,10 @@
 package tests.basic;
 
+import base.objects.renderer.scene.camera.orbitingCamera.OrbitingCamera;
 import com.jogamp.newt.event.MouseEvent;
 import com.jogamp.newt.event.MouseListener;
 
-import base.objects.renderer.scene.camera.PerspectiveCamera;
-
-public class BasicCamera extends PerspectiveCamera implements MouseListener {
-	
+public class BasicCamera extends OrbitingCamera implements MouseListener {
 	private static class Constants {
 		public static final int		rotationIndex	= 1;
 		public static final int		mouseWheelUp	= 1;
@@ -14,23 +12,12 @@ public class BasicCamera extends PerspectiveCamera implements MouseListener {
 	}
 	
 	private float zStep;
-	private float xAngle, yAngle, zAngle;
 	private float oldX, oldY;
 	
-	public BasicCamera(float x, float y, float z, float fieldOfView, float aspectRation, float nearClippingPlane, float farClippingPlane, float xAngle, float yAngle, float zAngle, float zStep) {
-		super(x, y, z, fieldOfView, aspectRation, nearClippingPlane, farClippingPlane);
-		this.xAngle = xAngle;
-		this.yAngle = yAngle;
-		this.zAngle = zAngle;
-		this.zStep 	= zStep;
-	}
-	
-	
-	protected void setView() {
-		super.setView();
-		super.getView().rotate((float) Math.toRadians(this.xAngle), 1, 0, 0)
-				.rotate((float) Math.toRadians(this.yAngle), 0, 1, 0)
-				.rotate((float) Math.toRadians(this.zAngle), 0, 0, 1);
+	public BasicCamera(float distance, float pitch, float yaw, float roll, float fieldOfView, float aspectRation, float nearClippingPlane, float farClippingPlane, float zStep) {
+		super(distance, pitch, yaw, roll, fieldOfView, aspectRation, nearClippingPlane, farClippingPlane);
+		
+		this.zStep = zStep;
 	}
 	
 	@Override
@@ -59,8 +46,8 @@ public class BasicCamera extends PerspectiveCamera implements MouseListener {
 		float dx = e.getX() - this.oldX;
 		float dy = e.getY() - this.oldY;
 		
-		this.xAngle += dy;
-		this.yAngle += dx;
+		super.changePitchBy(-dy);
+		super.changeYawBy(dx);
 		
 		this.oldX = e.getX();
 		this.oldY = e.getY();
@@ -69,9 +56,9 @@ public class BasicCamera extends PerspectiveCamera implements MouseListener {
 	@Override
 	public void mouseWheelMoved(MouseEvent e) {
 		if (e.getRotation()[Constants.rotationIndex] == Constants.mouseWheelUp) {
-			super.getPosition().z -= this.zStep;
+			super.changeDistanceBy(-this.zStep);
 		} else if (e.getRotation()[Constants.rotationIndex] == Constants.mouseWheelDown) {
-			super.getPosition().z += this.zStep;
+			super.changeDistanceBy(this.zStep);
 		}
 	}
 }
