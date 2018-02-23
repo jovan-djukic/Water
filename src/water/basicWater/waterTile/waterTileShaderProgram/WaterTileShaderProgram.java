@@ -6,9 +6,11 @@ import base.glsl.shaders.VertexShader;
 import base.glsl.uniformSetter.Uniform1f;
 import base.glsl.uniformSetter.Uniform1i;
 import base.glsl.uniformSetter.Uniform3f;
+import base.glsl.uniformSetter.Uniform4f;
 import base.objects.renderer.scene.SceneShaderProgram;
 import com.jogamp.opengl.GL4;
 import org.joml.Vector3f;
+import org.joml.Vector4f;
 
 public class WaterTileShaderProgram extends SceneShaderProgram {
 	private static class Constants {
@@ -33,6 +35,11 @@ public class WaterTileShaderProgram extends SceneShaderProgram {
 		public static final String distortionStrength = "distortionStrength";
 		public static final String cameraPosition     = "cameraPosition";
 		public static final String waterReflectivity  = "waterReflectivity";
+		public static final String normalMapTexture   = "normalMapTexture";
+		public static final String lightPosition      = "lightPosition";
+		public static final String lightColor         = "lightColor";
+		public static final String shineDamper        = "shineDamper";
+		public static final String lightReflectivity  = "lightReflectivity";
 		public static final String uniforms[]         = {
 				Uniforms.projection,
 				Uniforms.view,
@@ -46,7 +53,12 @@ public class WaterTileShaderProgram extends SceneShaderProgram {
 				Uniforms.moveFactor,
 				Uniforms.distortionStrength,
 				Uniforms.cameraPosition,
-				Uniforms.waterReflectivity
+				Uniforms.waterReflectivity,
+				Uniforms.normalMapTexture,
+				Uniforms.lightPosition,
+				Uniforms.lightColor,
+				Uniforms.shineDamper,
+				Uniforms.lightReflectivity
 		};
 	}
 	
@@ -128,5 +140,25 @@ public class WaterTileShaderProgram extends SceneShaderProgram {
 	
 	public void setWaterReflectivityUniform(GL4 gl, float waterReflectivity) {
 		super.setUniform(gl, new Uniform1f(super.getUniformLocation(Uniforms.waterReflectivity), waterReflectivity));
+	}
+	
+	public void setNormalMapTextureUniform(GL4 gl, int textureUnit) {
+		super.setUniform(gl, new Uniform1i(super.getUniformLocation(Uniforms.normalMapTexture), textureUnit));
+	}
+	
+	public void setLightPositionUniform(GL4 gl, Vector3f lightPositon) {
+		super.setUniform(gl, new Uniform3f(super.getUniformLocation(Uniforms.lightPosition), lightPositon));
+	}
+	
+	public void setLightColorUniform(GL4 gl, Vector4f lightColor) {
+		super.setUniform(gl, new Uniform4f(super.getUniformLocation(Uniforms.lightColor), lightColor));
+	}
+	
+	public void setShineDamperUniform(GL4 gl, float shineDamper) {
+		super.setUniform(gl, new Uniform1f(super.getUniformLocation(Uniforms.shineDamper), shineDamper));
+	}
+	
+	public void setLightReflectivityUniform(GL4 gl, float lightReflectivity) {
+		super.setUniform(gl, new Uniform1f(super.getUniformLocation(Uniforms.lightReflectivity), lightReflectivity));
 	}
 }

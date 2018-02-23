@@ -2,6 +2,7 @@ package water.basicWater;
 
 import base.objects.renderer.RendererBase;
 import base.objects.renderer.rendererDecorators.CullFaceRendererDecorator;
+import base.objects.renderer.scene.light.Light;
 import base.views.GLView;
 import com.jogamp.newt.opengl.GLWindow;
 import com.jogamp.opengl.GL4;
@@ -126,12 +127,19 @@ public class BasicWaterView extends GLView {
 			public static final float    height             = PerlinNoiseTerrain.height;
 			public static final String   imagesDirectory    = Constants.imagesDirectory + "waterTileImages/";
 			public static final String   dudvTexture        = WaterTile.imagesDirectory + "dudvTexture.png";
-			public static final float    scaleX             = 0.1f;
-			public static final float    scaleY             = 0.1f;
+			public static final String   normalMapTexture   = WaterTile.imagesDirectory + "normalMapTexture.png";
+			public static final float    scaleX             = 4;
+			public static final float    scaleY             = 4;
 			public static final float    waveStrength       = 0.01f;
-			public static final float    waveSpeed          = 0.001f;
-			public static final float    distortionStrength = 0.005f;
+			public static final float    waveSpeed          = 0.05f;
+			public static final float    distortionStrength = 0.01f;
 			public static final float    waterReflectivity  = 2;
+			public static final Light    light              = new Light(
+					new Vector3f(20, 20, 20),
+					new Vector4f(1, 1, 1, 1)
+			);
+			public static final float    shineDamper        = 20;
+			public static final float    lightReflectivity  = 0.6f;
 		}
 		
 		public static class WaterTileRenderer {
@@ -287,12 +295,16 @@ public class BasicWaterView extends GLView {
 				this.refractionTextureRenderer.getColorAttachment(),
 				this.getClass(),
 				Constants.WaterTile.dudvTexture,
+				Constants.WaterTile.normalMapTexture,
 				Constants.WaterTile.scaleX,
 				Constants.WaterTile.scaleY,
 				Constants.WaterTile.waveStrength,
 				Constants.WaterTile.waveSpeed,
 				Constants.WaterTile.distortionStrength,
-				Constants.WaterTile.waterReflectivity
+				Constants.WaterTile.waterReflectivity,
+				Constants.WaterTile.light,
+				Constants.WaterTile.shineDamper,
+				Constants.WaterTile.lightReflectivity
 		);
 		
 		this.basicWaterGrassTerrainClippingPlaneRenderer = new ClippingPlaneRenderer(
