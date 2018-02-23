@@ -22,13 +22,14 @@ public class WaterTileRenderer extends Scene {
 	private Class   scope;
 	private String  dudvTextureFileName;
 	private Texture dudvTexture;
-	private float     scaleX, scaleY;
+	private float   scaleX, scaleY;
 	private Texture reflectionTexture, refractionTexture;
 	private WaterTileShaderProgram shaderProgram;
 	private float                  waveStrength;
 	private float                  waveSpeed, moveFactor;
-	private long lastTime;
+	private long  lastTime;
 	private float distortionStrength;
+	private float waterReflectivity;
 	
 	public WaterTileRenderer(
 			String name,
@@ -44,7 +45,8 @@ public class WaterTileRenderer extends Scene {
 			float scaleY,
 			float waveStrength,
 			float waveSpeed,
-			float distortionStrength
+			float distortionStrength,
+			float waterReflectivity
 	) {
 		super(name, shaderProgram, camera, new SceneModel[]{waterTileModel}, dudvTexture, reflectionTexture, refractionTexture);
 		
@@ -59,6 +61,7 @@ public class WaterTileRenderer extends Scene {
 		this.waveStrength = waveStrength;
 		this.waveSpeed = waveSpeed;
 		this.distortionStrength = distortionStrength;
+		this.waterReflectivity = waterReflectivity;
 	}
 	
 	public WaterTileRenderer(
@@ -74,7 +77,8 @@ public class WaterTileRenderer extends Scene {
 			float scaleY,
 			float waveStrength,
 			float waveSpeed,
-			float distortionStrength
+			float distortionStrength,
+			float waterReflectivity
 	) {
 		this(
 				name,
@@ -90,7 +94,8 @@ public class WaterTileRenderer extends Scene {
 				scaleY,
 				waveStrength,
 				waveSpeed,
-				distortionStrength
+				distortionStrength,
+				waterReflectivity
 		);
 	}
 	
@@ -135,6 +140,10 @@ public class WaterTileRenderer extends Scene {
 		this.shaderProgram.setMoveFactorUniform(gl, this.moveFactor);
 		
 		this.shaderProgram.setDistortionStrengthUniform(gl, this.distortionStrength);
+		
+		this.shaderProgram.setCameraPositionUniform(gl, super.getCamera().getEye());
+		
+		this.shaderProgram.setWaterReflectivityUniform(gl, this.waterReflectivity);
 		
 		this.checkForErrors(gl, Constants.preRenderTag);
 	}

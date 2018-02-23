@@ -21,17 +21,18 @@ public class ReflectionTextureRenderer extends TextureRenderer {
 	
 	private RenderBuffer depthAttachment;
 	private BasicWaterCamera camera;
-	private float distance;
+	private float waterHeight, distance;
 	
-	protected ReflectionTextureRenderer(String name, RendererBase[] renderers, FrameBuffer frameBuffer, Texture colorAttachment, int width, int height, RenderBuffer depthAttachment, BasicWaterCamera camera) {
+	protected ReflectionTextureRenderer(String name, RendererBase[] renderers, FrameBuffer frameBuffer, Texture colorAttachment, int width, int height, RenderBuffer depthAttachment, BasicWaterCamera camera, float waterHeight) {
 		super(name, renderers, frameBuffer, colorAttachment, width, height, depthAttachment);
 		
 		this.depthAttachment = depthAttachment;
 		this.camera = camera;
+		this.waterHeight = waterHeight;
 	}
 	
-	public ReflectionTextureRenderer(String name, RendererBase[] renderers, int width, int height, BasicWaterCamera camera) {
-		this(name, renderers, new FrameBuffer(Constants.frameBuffer), new Texture(Constants.colorAttachment, GL4.GL_RGBA, GL4.GL_RGBA, GL4.GL_UNSIGNED_BYTE), width, height, new RenderBuffer(Constants.depthAttachment), camera);
+	public ReflectionTextureRenderer(String name, RendererBase[] renderers, int width, int height, BasicWaterCamera camera, float waterHeight) {
+		this(name, renderers, new FrameBuffer(Constants.frameBuffer), new Texture(Constants.colorAttachment, GL4.GL_RGBA, GL4.GL_RGBA, GL4.GL_UNSIGNED_BYTE), width, height, new RenderBuffer(Constants.depthAttachment), camera, waterHeight);
 	}
 	
 	@Override
@@ -54,7 +55,7 @@ public class ReflectionTextureRenderer extends TextureRenderer {
 		
 		gl.glClear(GL4.GL_DEPTH_BUFFER_BIT);
 		
-		this.distance = 2 * this.camera.getEye().y;
+		this.distance = 2 * (this.camera.getEye().y - this.waterHeight);
 		this.camera.getEye().y -= this.distance;
 		this.camera.invertPitch();
 		this.camera.update();

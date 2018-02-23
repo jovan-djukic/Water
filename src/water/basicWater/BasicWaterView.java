@@ -31,7 +31,7 @@ public class BasicWaterView extends GLView {
 			public static final float aspectRation      = 1;
 			public static final float nearClippingPlane = 0.1f;
 			public static final float farClippingPlane  = 100;
-			public static final float pitch             = 30;
+			public static final float pitch             = -30;
 			public static final float yaw               = 0;
 			public static final float roll              = 0;
 			public static final float zStep             = 0.5f;
@@ -131,6 +131,7 @@ public class BasicWaterView extends GLView {
 			public static final float    waveStrength       = 0.01f;
 			public static final float    waveSpeed          = 0.001f;
 			public static final float    distortionStrength = 0.005f;
+			public static final float    waterReflectivity  = 2;
 		}
 		
 		public static class WaterTileRenderer {
@@ -232,7 +233,8 @@ public class BasicWaterView extends GLView {
 				},
 				Constants.ReflectionTextureRenderer.width,
 				Constants.ReflectionTextureRenderer.height,
-				this.basicWaterCamera
+				this.basicWaterCamera,
+				Constants.WaterTile.topLeft.y
 		);
 		
 		rendererBases.add(this.reflectionTextureRenderer);
@@ -289,7 +291,8 @@ public class BasicWaterView extends GLView {
 				Constants.WaterTile.scaleY,
 				Constants.WaterTile.waveStrength,
 				Constants.WaterTile.waveSpeed,
-				Constants.WaterTile.distortionStrength
+				Constants.WaterTile.distortionStrength,
+				Constants.WaterTile.waterReflectivity
 		);
 		
 		this.basicWaterGrassTerrainClippingPlaneRenderer = new ClippingPlaneRenderer(

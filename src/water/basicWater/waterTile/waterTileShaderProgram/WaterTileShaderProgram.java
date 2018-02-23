@@ -5,8 +5,10 @@ import base.glsl.shaders.FragmentShader;
 import base.glsl.shaders.VertexShader;
 import base.glsl.uniformSetter.Uniform1f;
 import base.glsl.uniformSetter.Uniform1i;
+import base.glsl.uniformSetter.Uniform3f;
 import base.objects.renderer.scene.SceneShaderProgram;
 import com.jogamp.opengl.GL4;
+import org.joml.Vector3f;
 
 public class WaterTileShaderProgram extends SceneShaderProgram {
 	private static class Constants {
@@ -29,6 +31,8 @@ public class WaterTileShaderProgram extends SceneShaderProgram {
 		public static final String waveStrength       = "waveStrength";
 		public static final String moveFactor         = "moveFactor";
 		public static final String distortionStrength = "distortionStrength";
+		public static final String cameraPosition     = "cameraPosition";
+		public static final String waterReflectivity  = "waterReflectivity";
 		public static final String uniforms[]         = {
 				Uniforms.projection,
 				Uniforms.view,
@@ -40,7 +44,9 @@ public class WaterTileShaderProgram extends SceneShaderProgram {
 				Uniforms.dudvTexture,
 				Uniforms.waveStrength,
 				Uniforms.moveFactor,
-				Uniforms.distortionStrength
+				Uniforms.distortionStrength,
+				Uniforms.cameraPosition,
+				Uniforms.waterReflectivity
 		};
 	}
 	
@@ -114,5 +120,13 @@ public class WaterTileShaderProgram extends SceneShaderProgram {
 	
 	public void setDistortionStrengthUniform(GL4 gl, float distortionStrength) {
 		super.setUniform(gl, new Uniform1f(super.getUniformLocation(Uniforms.distortionStrength), distortionStrength));
+	}
+	
+	public void setCameraPositionUniform(GL4 gl, Vector3f cameraPosition) {
+		super.setUniform(gl, new Uniform3f(super.getUniformLocation(Uniforms.cameraPosition), cameraPosition));
+	}
+	
+	public void setWaterReflectivityUniform(GL4 gl, float waterReflectivity) {
+		super.setUniform(gl, new Uniform1f(super.getUniformLocation(Uniforms.waterReflectivity), waterReflectivity));
 	}
 }
