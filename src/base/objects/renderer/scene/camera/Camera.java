@@ -4,20 +4,18 @@ import org.joml.Matrix4f;
 import org.joml.Vector3f;
 
 public abstract class Camera {
-	private Vector3f position;
+	private Vector3f eye, center, up;
 	private Matrix4f view, projection;
 	private float nearClippingPlane, farClippingPlane;
 	
-	public Camera(Vector3f position, float nearClippingPlane, float farClippingPlane) {
-		this.position = position;
+	public Camera(Vector3f eye, Vector3f center, Vector3f up, float nearClippingPlane, float farClippingPlane) {
+		this.eye = eye;
+		this.center = center;
+		this.up = up;
 		this.view = new Matrix4f();
 		this.projection = new Matrix4f();
 		this.nearClippingPlane = nearClippingPlane;
 		this.farClippingPlane = farClippingPlane;
-	}
-	
-	public Camera(float x, float y, float z, float nearClippingPlane, float farClippingPlane) {
-		this(new Vector3f(x, y, z), nearClippingPlane, farClippingPlane);
 	}
 	
 	protected float getNearClippingPlane() {
@@ -28,13 +26,17 @@ public abstract class Camera {
 		return this.farClippingPlane;
 	}
 	
-	public  Vector3f getPosition() {
-		return position;
+	public  Vector3f getEye() {
+		return this.eye;
+	}
+	
+	protected Vector3f getUp() {
+		return up;
 	}
 	
 	protected void setView() {
 		this.view.identity()
-			.translate(-this.position.x, -this.position.y, -this.position.z);
+				.lookAt(this.eye, this.center, this.up);
 	}
 	
 	protected abstract void setProjection();

@@ -6,15 +6,19 @@ public class PerspectiveCamera extends Camera {
 	
 	private float fieldOfView, aspectRation;
 	
-	public PerspectiveCamera(Vector3f position, float fieldOfView, float aspectRation, float nearClippingPlane, float farClippingPlane) {
-		super(position, nearClippingPlane, farClippingPlane);
+	public PerspectiveCamera(
+			Vector3f eye,
+			Vector3f center,
+			Vector3f up,
+			float fieldOfView,
+			float aspectRation,
+			float nearClippingPlane,
+			float farClippingPlane
+	) {
+		super(eye, center, up, nearClippingPlane, farClippingPlane);
 		
 		this.fieldOfView = fieldOfView;
 		this.aspectRation = aspectRation;
-	}
-	
-	public PerspectiveCamera(float x, float y, float z, float fieldOfView, float aspectRation, float nearClippingPlane, float farClippingPlane) {
-		this(new Vector3f(x, y, z), fieldOfView, aspectRation, nearClippingPlane, farClippingPlane);
 	}
 	
 	@Override
