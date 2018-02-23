@@ -54,8 +54,8 @@ public class ReflectionTextureRenderer extends TextureRenderer {
 		
 		gl.glClear(GL4.GL_DEPTH_BUFFER_BIT);
 		
-		this.distance = 2 * this.camera.getPosition().y;
-		this.camera.getPosition().y -= this.distance;
+		this.distance = 2 * this.camera.getEye().y;
+		this.camera.getEye().y -= this.distance;
 		this.camera.invertPitch();
 		this.camera.update();
 		
@@ -66,7 +66,7 @@ public class ReflectionTextureRenderer extends TextureRenderer {
 	protected void postRender(GL4 gl) {
 		super.postRender(gl);
 		
-		this.camera.getPosition().y += this.distance;
+		this.camera.getEye().y += this.distance;
 		this.camera.invertPitch();
 		this.camera.update();
 		

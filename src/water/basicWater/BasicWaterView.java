@@ -26,9 +26,7 @@ public class BasicWaterView extends GLView {
 		public static final String imagesDirectory = "images/";
 		
 		public static class BasicWaterCamera {
-			public static final float x                 = 0;
-			public static final float y                 = 0;
-			public static final float z                 = 10;
+			public static final float distance          = 10;
 			public static final float fieldOfView       = (float) Math.toRadians(45);
 			public static final float aspectRation      = 1;
 			public static final float nearClippingPlane = 0.1f;
@@ -165,16 +163,14 @@ public class BasicWaterView extends GLView {
 		ArrayList<RendererBase> rendererBases = super.getRenderers();
 		
 		this.basicWaterCamera = new BasicWaterCamera(
-				Constants.BasicWaterCamera.x,
-				Constants.BasicWaterCamera.y,
-				Constants.BasicWaterCamera.z,
+				Constants.BasicWaterCamera.distance,
+				Constants.BasicWaterCamera.pitch,
+				Constants.BasicWaterCamera.yaw,
+				Constants.BasicWaterCamera.roll,
 				Constants.BasicWaterCamera.fieldOfView,
 				Constants.BasicWaterCamera.aspectRation,
 				Constants.BasicWaterCamera.nearClippingPlane,
 				Constants.BasicWaterCamera.farClippingPlane,
-				Constants.BasicWaterCamera.pitch,
-				Constants.BasicWaterCamera.yaw,
-				Constants.BasicWaterCamera.roll,
 				Constants.BasicWaterCamera.zStep
 		);
 		

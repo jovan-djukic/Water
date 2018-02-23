@@ -1,11 +1,10 @@
 package water.basicWater;
 
-import base.objects.renderer.scene.camera.PerspectiveCamera;
+import base.objects.renderer.scene.camera.orbitingCamera.OrbitingCamera;
 import com.jogamp.newt.event.MouseEvent;
 import com.jogamp.newt.event.MouseListener;
 
-public class BasicWaterCamera extends PerspectiveCamera implements MouseListener {
-	
+public class BasicWaterCamera extends OrbitingCamera implements MouseListener {
 	private static class Constants {
 		public static final int		rotationIndex	= 1;
 		public static final int		mouseWheelUp	= 1;
@@ -13,22 +12,12 @@ public class BasicWaterCamera extends PerspectiveCamera implements MouseListener
 	}
 	
 	private float zStep;
-	private float pitch, yaw, roll;
 	private float oldX, oldY;
 	
-	public BasicWaterCamera(float x, float y, float z, float fieldOfView, float aspectRatio, float nearClippingPlane, float farClippingPlane, float pitch, float yaw, float roll, float zStep) {
-		super(x, y, z, fieldOfView, aspectRatio, nearClippingPlane, farClippingPlane);
-		this.pitch = pitch;
-		this.yaw = yaw;
-		this.roll =  roll;
-		this.zStep 	= zStep;
-	}
-	
-	protected void setView() {
-		super.setView();
-		super.getView().rotate((float) Math.toRadians(this.pitch), 1, 0, 0)
-				.rotate((float) Math.toRadians(this.yaw), 0, 1, 0)
-				.rotate((float) Math.toRadians(this.roll), 0, 0, 1);
+	public BasicWaterCamera(float distance, float pitch, float yaw, float roll, float fieldOfView, float aspectRation, float nearClippingPlane, float farClippingPlane, float zStep) {
+		super(distance, pitch, yaw, roll, fieldOfView, aspectRation, nearClippingPlane, farClippingPlane);
+		
+		this.zStep = zStep;
 	}
 	
 	@Override
@@ -57,8 +46,8 @@ public class BasicWaterCamera extends PerspectiveCamera implements MouseListener
 		float dx = e.getX() - this.oldX;
 		float dy = e.getY() - this.oldY;
 		
-		this.pitch += dy;
-		this.yaw += dx;
+		this.changePitchBy(dy);
+		this.changeYawBy(dx);
 		
 		this.oldX = e.getX();
 		this.oldY = e.getY();
@@ -67,13 +56,13 @@ public class BasicWaterCamera extends PerspectiveCamera implements MouseListener
 	@Override
 	public void mouseWheelMoved(MouseEvent e) {
 		if (e.getRotation()[Constants.rotationIndex] == Constants.mouseWheelUp) {
-			super.getPosition().z -= this.zStep;
+			this.changeDistanceBy(-this.zStep);
 		} else if (e.getRotation()[Constants.rotationIndex] == Constants.mouseWheelDown) {
-			super.getPosition().z += this.zStep;
+			this.changeDistanceBy(this.zStep);
 		}
 	}
 	
 	public void invertPitch() {
-		this.pitch = -this.pitch;
+		super.setPitch(-super.getPitch());
 	}
 }
