@@ -108,7 +108,7 @@ public class Skybox extends Scene {
 		
 		this.skyboxTextureUnit = TextureUnitManager.getInstance().getTextureUnit();
 		
-		gl.glActiveTexture(this.skyboxTextureUnit + GL4.GL_TEXTURE0);
+		gl.glActiveTexture(GL4.GL_TEXTURE0 + this.skyboxTextureUnit);
 		this.cubeMapTexture.bind(gl);
 		this.skyboxShaderProgram.setCubeMapTextureUniform(gl, this.skyboxTextureUnit);
 		
