@@ -149,7 +149,7 @@ public class BasicWaterView extends GLView {
 					new Vector4f(1, 1, 1, 1)
 			);
 			public static final float  shineDamper              = 20;
-			public static final float  lightReflectivity        = 0.6f;
+			public static final float  lightReflectivity        = 0.3f;
 			public static final float  normalEqualizationFactor = 3;
 		}
 	}

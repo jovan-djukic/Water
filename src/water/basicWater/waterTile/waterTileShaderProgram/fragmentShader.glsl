@@ -40,7 +40,9 @@ void main() {
     float specular = max(dot(normalizedToCameraVector, reflectedLight), 0);
     vec3 specularHiglights = lightColor.rgb * pow(specular, shineDamper) * lightReflectivity;
 
-    outColor = mix(reflectionColor, refractionColor, pow(refractiveFactor, waterReflectivity)) + vec4(specularHiglights, 0);
+    outColor = mix(reflectionColor, refractionColor, pow(refractiveFactor, waterReflectivity));
+    outColor = mix(outColor, vec4(0, 0.2, 0.5, 0.2), 0.2);
+    outColor = outColor + vec4(specularHiglights, 0);
 }
 
 
