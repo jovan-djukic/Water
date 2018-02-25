@@ -14,6 +14,7 @@ import water.basicWater.basicWaterTerrainScene.BasicWaterTerrainScene;
 import water.basicWater.basicWaterTerrainScene.basicWaterTerrainShaderProgram.BasicWaterTerrainShaderProgram;
 import water.basicWater.basicWaterTerrainScene.ClippingPlaneRenderer;
 import water.basicWater.rendererDecorators.DistortionRenderDecorator;
+import water.basicWater.rendererDecorators.LightRenderDecorator;
 import water.basicWater.rendererDecorators.NormalMapRenderDecorator;
 import water.basicWater.textureRenderer.ReflectionTextureRenderer;
 import water.basicWater.textureRenderer.RefractionTextureRenderer;
@@ -144,22 +145,26 @@ public class BasicWaterView extends GLView {
 			public static final float  normalEqualizationFactor = 3;
 		}
 		
+		public static final class LightRenderDecorator {
+			public static final String name  = "lightRenderDecorator";
+			public static final Light  light = new Light(
+					new Vector3f(20, 20, 20),
+					new Vector4f(1, 1, 1, 1)
+			);
+		}
+		
 		public static class WaterTileRenderer {
 			public static final String name                     = "waterTileRenderer";
 			public static final float  scaleX                   = 4;
 			public static final float  scaleY                   = 4;
 			public static final float  waveStrength             = 0.01f;
 			public static final float  waterReflectivity        = 0.5f;
-			public static final Light  light                    = new Light(
-					new Vector3f(20, 20, 20),
-					new Vector4f(1, 1, 1, 1)
-			);
 			public static final float  shineDamper              = 20;
 			public static final float  lightReflectivity        = 0.3f;
 		}
 	}
 	
-	private BasicWaterTerrainShaderProgram shaderProgram;
+	private BasicWaterTerrainShaderProgram basicWaterTerrainShaderProgram;
 	private BasicWaterCamera               basicWaterCamera;
 	
 	private PerlinNoiseTerrain     perlinNoiseTerrain;
@@ -178,6 +183,8 @@ public class BasicWaterView extends GLView {
 	private DistortionRenderDecorator distortionRenderDecorator;
 	
 	private NormalMapRenderDecorator normalMapRenderDecorator;
+	
+	private LightRenderDecorator lightRenderDecorator;
 	
 	private WaterTileShaderProgram waterTileShaderProgram;
 	private WaterTileRenderer      waterTileRenderer;
@@ -212,7 +219,7 @@ public class BasicWaterView extends GLView {
 				Constants.Skybox.negativeZ
 		);
 		
-		this.shaderProgram = new BasicWaterTerrainShaderProgram();
+		this.basicWaterTerrainShaderProgram = new BasicWaterTerrainShaderProgram();
 		
 		this.perlinNoiseTerrain = new PerlinNoiseTerrain(
 				Constants.PerlinNoiseTerrain.name,
@@ -221,20 +228,20 @@ public class BasicWaterView extends GLView {
 				Constants.PerlinNoiseTerrain.height,
 				Constants.PerlinNoiseTerrain.rows,
 				Constants.PerlinNoiseTerrain.columns,
-				this.shaderProgram.getVertexAttributeLocation(),
+				this.basicWaterTerrainShaderProgram.getVertexAttributeLocation(),
 				Constants.PerlinNoiseTerrain.numberOfOctaves,
 				Constants.PerlinNoiseTerrain.persistence,
 				Constants.PerlinNoiseTerrain.scaleX,
 				Constants.PerlinNoiseTerrain.scaleY,
 				Constants.PerlinNoiseTerrain.amplitude,
 				Constants.PerlinNoiseTerrain.power,
-				this.shaderProgram.getTexelAttributeLocation()
+				this.basicWaterTerrainShaderProgram.getTexelAttributeLocation()
 		);
 		
 		this.basicWaterGrassTerrainScene = new BasicWaterTerrainScene(
 				Constants.BasicWaterGrassTerrainScene.name,
 				basicWaterCamera,
-				this.shaderProgram,
+				this.basicWaterTerrainShaderProgram,
 				this.perlinNoiseTerrain,
 				this.getClass(),
 				Constants.BasicWaterGrassTerrainScene.textureFileName
@@ -245,7 +252,7 @@ public class BasicWaterView extends GLView {
 				new RendererBase[] {
 						this.basicWaterGrassTerrainScene
 				},
-				this.shaderProgram,
+				this.basicWaterTerrainShaderProgram,
 				Constants.ReflectionTextureRenderer.ClippingPlaneRenderer.clippingPlane
 		);
 		
@@ -266,7 +273,7 @@ public class BasicWaterView extends GLView {
 		this.basicWaterSandTerrainScene = new BasicWaterTerrainScene(
 				Constants.BasicWaterSandTerrainScene.name,
 				basicWaterCamera,
-				this.shaderProgram,
+				this.basicWaterTerrainShaderProgram,
 				this.perlinNoiseTerrain,
 				this.getClass(),
 				Constants.BasicWaterSandTerrainScene.textureFileName
@@ -277,7 +284,7 @@ public class BasicWaterView extends GLView {
 				new RendererBase[] {
 						this.basicWaterSandTerrainScene
 				},
-				this.shaderProgram,
+				this.basicWaterTerrainShaderProgram,
 				Constants.RefractionTextureRenderer.ClippingPlaneRenderer.clippingPlane
 		);
 		
@@ -313,7 +320,6 @@ public class BasicWaterView extends GLView {
 				Constants.WaterTileRenderer.scaleY,
 				Constants.WaterTileRenderer.waveStrength,
 				Constants.WaterTileRenderer.waterReflectivity,
-				Constants.WaterTileRenderer.light,
 				Constants.WaterTileRenderer.shineDamper,
 				Constants.WaterTileRenderer.lightReflectivity
 		);
@@ -341,6 +347,15 @@ public class BasicWaterView extends GLView {
 				this.waterTileShaderProgram
 		);
 		
+		this.lightRenderDecorator = new LightRenderDecorator(
+				Constants.LightRenderDecorator.name,
+				new RendererBase[] {
+						this.normalMapRenderDecorator
+				},
+				Constants.LightRenderDecorator.light,
+				this.waterTileShaderProgram
+		);
+		
 		this.basicWaterGrassTerrainClippingPlaneRenderer = new ClippingPlaneRenderer(
 				Constants.BasicWaterGrassTerrainScene.ClippingPlaneRenderer.name,
 				new RendererBase[] {
@@ -352,7 +367,7 @@ public class BasicWaterView extends GLView {
 								Constants.BasicWaterGrassTerrainScene.CullFaceRendererDecorator.face
 						)
 				},
-				this.shaderProgram,
+				this.basicWaterTerrainShaderProgram,
 				Constants.BasicWaterGrassTerrainScene.ClippingPlaneRenderer.clippingPlane
 		);
 		
@@ -367,14 +382,14 @@ public class BasicWaterView extends GLView {
 								Constants.BasicWaterSandTerrainScene.CullFaceRendererDecorator.face
 						)
 				},
-				this.shaderProgram,
+				this.basicWaterTerrainShaderProgram,
 				Constants.BasicWaterSandTerrainScene.ClippingPlaneRenderer.clippingPlane
 		);
 		
 		rendererBases.add(this.skybox);
 		rendererBases.add(this.basicWaterGrassTerrainClippingPlaneRenderer);
 		rendererBases.add(this.basicWaterSandTerrainClippingPlaneRenderer);
-		rendererBases.add(this.normalMapRenderDecorator);
+		rendererBases.add(this.lightRenderDecorator);
 		
 		return rendererBases;
 	}

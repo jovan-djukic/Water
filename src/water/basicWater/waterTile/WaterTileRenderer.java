@@ -25,7 +25,6 @@ public class WaterTileRenderer extends Scene {
 	private WaterTileShaderProgram shaderProgram;
 	private float                  waveStrength;
 	private float waterReflectivity;
-	private Light light;
 	private float shineDamper, lightReflectivity;
 	
 	public WaterTileRenderer(
@@ -39,7 +38,6 @@ public class WaterTileRenderer extends Scene {
 			float scaleY,
 			float waveStrength,
 			float waterReflectivity,
-			Light light,
 			float shineDamper,
 			float lightReflectivity
 	) {
@@ -52,7 +50,6 @@ public class WaterTileRenderer extends Scene {
 		this.scaleY = scaleY;
 		this.waveStrength = waveStrength;
 		this.waterReflectivity = waterReflectivity;
-		this.light = light;
 		this.shineDamper = shineDamper;
 		this.lightReflectivity = lightReflectivity;
 	}
@@ -85,8 +82,6 @@ public class WaterTileRenderer extends Scene {
 		
 		this.shaderProgram.setWaterReflectivityUniform(gl, this.waterReflectivity);
 		
-		this.shaderProgram.setLightPositionUniform(gl, this.light.getPosition());
-		this.shaderProgram.setLightColorUniform(gl, this.light.getColor());
 		this.shaderProgram.setShineDamperUniform(gl, this.shineDamper);
 		this.shaderProgram.setLightReflectivityUniform(gl, this.lightReflectivity);
 		
