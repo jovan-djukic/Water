@@ -35,7 +35,7 @@ public abstract class TexturePreviewRenderer extends Renderer {
 		super.preRender(gl);
 		
 		this.texturePreviewTextureUnit = TextureUnitManager.getInstance().getTextureUnit();
-		gl.glActiveTexture(this.texturePreviewTextureUnit);
+		gl.glActiveTexture(GL4.GL_TEXTURE0 + this.texturePreviewTextureUnit);
 		this.texture.bind(gl);
 		this.shaderProgram.setSamplerUniform(gl, this.texturePreviewTextureUnit);
 	}
