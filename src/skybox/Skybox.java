@@ -5,6 +5,7 @@ import base.objects.renderer.scene.camera.Camera;
 import base.objects.renderer.scene.sceneModel.SceneModel;
 import base.objects.textures.CubeMapTexture;
 import base.objects.textures.TextureData;
+import base.objects.textures.TextureUnitManager;
 import com.jogamp.opengl.GL4;
 import de.matthiasmann.twl.utils.PNGDecoder;
 import shapes.Box;
@@ -31,6 +32,7 @@ public class Skybox extends Scene {
 	private String zPositiveFileName, zNegativeFileName;
 	private boolean isCullFaceEnabled;
 	private IntBuffer cullFace;
+	private int skyboxTextureUnit;
 	
 	protected Skybox(
 			String name, Camera camera, SkyboxShaderProgram shaderProgram,
@@ -104,9 +106,11 @@ public class Skybox extends Scene {
 	protected void preRender(GL4 gl) {
 		super.preRender(gl);
 		
-		gl.glActiveTexture(GL4.GL_TEXTURE0);
+		this.skyboxTextureUnit = TextureUnitManager.getInstance().getTextureUnit();
+		
+		gl.glActiveTexture(this.skyboxTextureUnit);
 		this.cubeMapTexture.bind(gl);
-		this.skyboxShaderProgram.setCubeMapTextureUniform(gl, 0);
+		this.skyboxShaderProgram.setCubeMapTextureUniform(gl, this.skyboxTextureUnit);
 		
 		this.isCullFaceEnabled = gl.glIsEnabled(GL4.GL_CULL_FACE);
 		
@@ -125,6 +129,8 @@ public class Skybox extends Scene {
 	@Override
 	protected void postRender(GL4 gl) {
 		super.postRender(gl);
+		
+		TextureUnitManager.getInstance().freeTextureUnit(this.skyboxTextureUnit);
 		
 		if (!this.isCullFaceEnabled) {
 			gl.glDisable(GL4.GL_CULL_FACE);
