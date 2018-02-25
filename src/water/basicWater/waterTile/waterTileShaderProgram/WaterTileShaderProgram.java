@@ -12,8 +12,12 @@ import com.jogamp.opengl.GL4;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 import water.basicWater.rendererDecorators.DistortionRenderDecorator;
+import water.basicWater.rendererDecorators.NormalMapRenderDecorator;
 
-public class WaterTileShaderProgram extends SceneShaderProgram implements DistortionRenderDecorator.IDistortionShaderProgram {
+public class WaterTileShaderProgram extends SceneShaderProgram
+		implements DistortionRenderDecorator.IDistortionShaderProgram,
+		           NormalMapRenderDecorator.INormalMapShaderProgram {
+	
 	private static class Constants {
 		public static final String	shaderProgramName		= "waterTileShaderProgram";
 		public static final String	vertexShaderName		= "waterTileVertexShader";

@@ -14,6 +14,7 @@ import water.basicWater.basicWaterTerrainScene.BasicWaterTerrainScene;
 import water.basicWater.basicWaterTerrainScene.basicWaterTerrainShaderProgram.BasicWaterTerrainShaderProgram;
 import water.basicWater.basicWaterTerrainScene.ClippingPlaneRenderer;
 import water.basicWater.rendererDecorators.DistortionRenderDecorator;
+import water.basicWater.rendererDecorators.NormalMapRenderDecorator;
 import water.basicWater.textureRenderer.ReflectionTextureRenderer;
 import water.basicWater.textureRenderer.RefractionTextureRenderer;
 import water.basicWater.waterTile.WaterTileModel;
@@ -136,10 +137,15 @@ public class BasicWaterView extends GLView {
 			public static final float  distortionStrength = 0.01f;
 		}
 		
+		public static final class NormalMapRenderDecorator {
+			public static final String name                     = "normalMapRenderDecorator";
+			public static final String imagesDirectory          = Constants.imagesDirectory + "normalMapImages/";
+			public static final String normalMapTexture         = NormalMapRenderDecorator.imagesDirectory + "normalMapTexture.png";
+			public static final float  normalEqualizationFactor = 3;
+		}
+		
 		public static class WaterTileRenderer {
 			public static final String name                     = "waterTileRenderer";
-			public static final String imagesDirectory          = Constants.imagesDirectory + "waterTileImages/";
-			public static final String normalMapTexture         = WaterTileRenderer.imagesDirectory + "normalMapTexture.png";
 			public static final float  scaleX                   = 4;
 			public static final float  scaleY                   = 4;
 			public static final float  waveStrength             = 0.01f;
@@ -150,7 +156,6 @@ public class BasicWaterView extends GLView {
 			);
 			public static final float  shineDamper              = 20;
 			public static final float  lightReflectivity        = 0.3f;
-			public static final float  normalEqualizationFactor = 3;
 		}
 	}
 	
@@ -171,6 +176,8 @@ public class BasicWaterView extends GLView {
 	private ClippingPlaneRenderer     refractionTextureClippingPlaneRenderer;
 	
 	private DistortionRenderDecorator distortionRenderDecorator;
+	
+	private NormalMapRenderDecorator normalMapRenderDecorator;
 	
 	private WaterTileShaderProgram waterTileShaderProgram;
 	private WaterTileRenderer      waterTileRenderer;
@@ -302,16 +309,13 @@ public class BasicWaterView extends GLView {
 				this.basicWaterCamera,
 				this.reflectionTextureRenderer.getColorAttachment(),
 				this.refractionTextureRenderer.getColorAttachment(),
-				this.getClass(),
-				Constants.WaterTileRenderer.normalMapTexture,
 				Constants.WaterTileRenderer.scaleX,
 				Constants.WaterTileRenderer.scaleY,
 				Constants.WaterTileRenderer.waveStrength,
 				Constants.WaterTileRenderer.waterReflectivity,
 				Constants.WaterTileRenderer.light,
 				Constants.WaterTileRenderer.shineDamper,
-				Constants.WaterTileRenderer.lightReflectivity,
-				Constants.WaterTileRenderer.normalEqualizationFactor
+				Constants.WaterTileRenderer.lightReflectivity
 		);
 		
 		this.distortionRenderDecorator = new DistortionRenderDecorator(
@@ -323,6 +327,17 @@ public class BasicWaterView extends GLView {
 				Constants.DistortionRenderDecorator.dudvTexture,
 				Constants.DistortionRenderDecorator.distortionSpeed,
 				Constants.DistortionRenderDecorator.distortionStrength,
+				this.waterTileShaderProgram
+		);
+		
+		this.normalMapRenderDecorator = new NormalMapRenderDecorator(
+				Constants.NormalMapRenderDecorator.name,
+				new RendererBase[] {
+						this.distortionRenderDecorator
+				},
+				this.getClass(),
+				Constants.NormalMapRenderDecorator.normalMapTexture,
+				Constants.NormalMapRenderDecorator.normalEqualizationFactor,
 				this.waterTileShaderProgram
 		);
 		
@@ -359,7 +374,7 @@ public class BasicWaterView extends GLView {
 		rendererBases.add(this.skybox);
 		rendererBases.add(this.basicWaterGrassTerrainClippingPlaneRenderer);
 		rendererBases.add(this.basicWaterSandTerrainClippingPlaneRenderer);
-		rendererBases.add(this.distortionRenderDecorator);
+		rendererBases.add(this.normalMapRenderDecorator);
 		
 		return rendererBases;
 	}

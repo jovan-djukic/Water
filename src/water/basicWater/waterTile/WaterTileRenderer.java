@@ -14,16 +14,11 @@ import water.basicWater.waterTile.waterTileShaderProgram.WaterTileShaderProgram;
 public class WaterTileRenderer extends Scene {
 	private static class Constants {
 		public static final String waterTileRenderer   = "waterTileRenderer";
-		public static final String normalMapTexture    = Constants.waterTileRenderer + "-normalMapTexture";
 		public static final String preRenderTag        = Constants.waterTileRenderer + "-preRender";
 		public static final String postRenderTag       = Constants.waterTileRenderer + "-postRender";
 	}
 	
 	private boolean isDepthTestEnable;
-	private Class   scope;
-	private String  normalMapTextureFileName;
-	private Texture normalMapTexture;
-	private int     normalMapTextureUnit;
 	private float   scaleX, scaleY;
 	private Texture reflectionTexture, refractionTexture;
 	private int reflectionTextureUnit, refractionTextureUnit;
@@ -32,7 +27,6 @@ public class WaterTileRenderer extends Scene {
 	private float waterReflectivity;
 	private Light light;
 	private float shineDamper, lightReflectivity;
-	private float normalEqualizationFactor;
 	
 	public WaterTileRenderer(
 			String name,
@@ -41,26 +35,19 @@ public class WaterTileRenderer extends Scene {
 			Camera camera,
 			Texture reflectionTexture,
 			Texture refractionTexture,
-			Class scope,
-			String normalMapTextureFileName,
-			Texture normalMapTexture,
 			float scaleX,
 			float scaleY,
 			float waveStrength,
 			float waterReflectivity,
 			Light light,
 			float shineDamper,
-			float lightReflectivity,
-			float normalEqualizationFactor
+			float lightReflectivity
 	) {
-		super(name, shaderProgram, camera, new SceneModel[]{waterTileModel}, normalMapTexture, reflectionTexture, refractionTexture);
+		super(name, shaderProgram, camera, new SceneModel[]{waterTileModel}, reflectionTexture, refractionTexture);
 		
 		this.shaderProgram = shaderProgram;
 		this.reflectionTexture = reflectionTexture;
 		this.refractionTexture = refractionTexture;
-		this.scope = scope;
-		this.normalMapTextureFileName = normalMapTextureFileName;
-		this.normalMapTexture = normalMapTexture;
 		this.scaleX = scaleX;
 		this.scaleY = scaleY;
 		this.waveStrength = waveStrength;
@@ -68,58 +55,6 @@ public class WaterTileRenderer extends Scene {
 		this.light = light;
 		this.shineDamper = shineDamper;
 		this.lightReflectivity = lightReflectivity;
-		this.normalEqualizationFactor = normalEqualizationFactor;
-	}
-	
-	public WaterTileRenderer(
-			String name,
-			WaterTileShaderProgram shaderProgram,
-			WaterTileModel waterTileModel,
-			Camera camera,
-			Texture reflectionTexture,
-			Texture refractionTexture,
-			Class scope,
-			String normalMapTextureFileName,
-			float scaleX,
-			float scaleY,
-			float waveStrength,
-			float waterReflectivity,
-			Light light,
-			float shineDamper,
-			float lightReflectivity,
-			float normalEqualizationFactor
-	) {
-		this(
-				name,
-				shaderProgram,
-				waterTileModel,
-				camera,
-				reflectionTexture,
-				refractionTexture,
-				scope,
-				normalMapTextureFileName,
-				new Texture(Constants.normalMapTexture, GL4.GL_RGBA, GL4.GL_RGBA, GL4.GL_UNSIGNED_BYTE),
-				scaleX,
-				scaleY,
-				waveStrength,
-				waterReflectivity,
-				light,
-				shineDamper,
-				lightReflectivity,
-				normalEqualizationFactor
-		);
-	}
-	
-	@Override
-	public void init(GL4 gl) {
-		super.init(gl);
-		
-		this.normalMapTexture.bind(gl)
-				.texImage2D(gl, 0, TextureData.decodePngImage(this.scope, this.normalMapTextureFileName, PNGDecoder.Format.RGBA))
-				.texParameteri(gl, GL4.GL_TEXTURE_MAG_FILTER, GL4.GL_LINEAR)
-				.texParameteri(gl, GL4.GL_TEXTURE_MIN_FILTER, GL4.GL_LINEAR)
-				.texParameteri(gl, GL4.GL_TEXTURE_WRAP_S, GL4.GL_MIRRORED_REPEAT)
-				.texParameteri(gl, GL4.GL_TEXTURE_WRAP_T, GL4.GL_MIRRORED_REPEAT);
 	}
 	
 	@Override
@@ -150,17 +85,10 @@ public class WaterTileRenderer extends Scene {
 		
 		this.shaderProgram.setWaterReflectivityUniform(gl, this.waterReflectivity);
 		
-		this.normalMapTextureUnit = TextureUnitManager.getInstance().getTextureUnit();
-		gl.glActiveTexture(GL4.GL_TEXTURE0 + this.normalMapTextureUnit);
-		this.normalMapTexture.bind(gl);
-		this.shaderProgram.setNormalMapTextureUniform(gl, this.normalMapTextureUnit);
-		
 		this.shaderProgram.setLightPositionUniform(gl, this.light.getPosition());
 		this.shaderProgram.setLightColorUniform(gl, this.light.getColor());
 		this.shaderProgram.setShineDamperUniform(gl, this.shineDamper);
 		this.shaderProgram.setLightReflectivityUniform(gl, this.lightReflectivity);
-		
-		this.shaderProgram.setNormalEqualizationFactorUniform(gl, this.normalEqualizationFactor);
 		
 		this.checkForErrors(gl, Constants.preRenderTag);
 	}
@@ -175,7 +103,6 @@ public class WaterTileRenderer extends Scene {
 		
 		TextureUnitManager.getInstance().freeTextureUnit(this.reflectionTextureUnit);
 		TextureUnitManager.getInstance().freeTextureUnit(this.refractionTextureUnit);
-		TextureUnitManager.getInstance().freeTextureUnit(this.normalMapTextureUnit);
 		
 		this.checkForErrors(gl, Constants.postRenderTag);
 	}
