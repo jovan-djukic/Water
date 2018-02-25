@@ -13,6 +13,7 @@ import terrain.perlinNoiseTerrain.PerlinNoiseTerrain;
 import water.basicWater.basicWaterTerrainScene.BasicWaterTerrainScene;
 import water.basicWater.basicWaterTerrainScene.basicWaterTerrainShaderProgram.BasicWaterTerrainShaderProgram;
 import water.basicWater.basicWaterTerrainScene.ClippingPlaneRenderer;
+import water.basicWater.rendererDecorators.DistortionRenderDecorator;
 import water.basicWater.textureRenderer.ReflectionTextureRenderer;
 import water.basicWater.textureRenderer.RefractionTextureRenderer;
 import water.basicWater.waterTile.WaterTileModel;
@@ -125,26 +126,31 @@ public class BasicWaterView extends GLView {
 			public static final Vector3f topLeft                  = PerlinNoiseTerrain.topLeft;
 			public static final float    width                    = PerlinNoiseTerrain.width;
 			public static final float    height                   = PerlinNoiseTerrain.height;
-			public static final String   imagesDirectory          = Constants.imagesDirectory + "waterTileImages/";
-			public static final String   dudvTexture              = WaterTile.imagesDirectory + "dudvTexture.png";
-			public static final String   normalMapTexture         = WaterTile.imagesDirectory + "normalMapTexture.png";
-			public static final float    scaleX                   = 4;
-			public static final float    scaleY                   = 4;
-			public static final float    waveStrength             = 0.01f;
-			public static final float    waveSpeed                = 0.05f;
-			public static final float    distortionStrength       = 0.01f;
-			public static final float    waterReflectivity        = 0.5f;
-			public static final Light    light                    = new Light(
-					new Vector3f(20, 20, 20),
-					new Vector4f(1, 1, 1, 1)
-			);
-			public static final float    shineDamper              = 20;
-			public static final float    lightReflectivity        = 0.6f;
-			public static final float    normalEqualizationFactor = 3;
+		}
+		
+		public static final class DistortionRenderDecorator {
+			public static final String name               = "distortionRenderDecorator";
+			public static final String imagesDirectory    = Constants.imagesDirectory + "distortionImages/";
+			public static final String dudvTexture        = DistortionRenderDecorator.imagesDirectory + "dudvTexture.png";
+			public static final float  distortionSpeed    = 0.05f;
+			public static final float  distortionStrength = 0.01f;
 		}
 		
 		public static class WaterTileRenderer {
-			public static final String name = "waterTileRenderer";
+			public static final String name                     = "waterTileRenderer";
+			public static final String imagesDirectory          = Constants.imagesDirectory + "waterTileImages/";
+			public static final String normalMapTexture         = WaterTileRenderer.imagesDirectory + "normalMapTexture.png";
+			public static final float  scaleX                   = 4;
+			public static final float  scaleY                   = 4;
+			public static final float  waveStrength             = 0.01f;
+			public static final float  waterReflectivity        = 0.5f;
+			public static final Light  light                    = new Light(
+					new Vector3f(20, 20, 20),
+					new Vector4f(1, 1, 1, 1)
+			);
+			public static final float  shineDamper              = 20;
+			public static final float  lightReflectivity        = 0.6f;
+			public static final float  normalEqualizationFactor = 3;
 		}
 	}
 	
@@ -163,6 +169,8 @@ public class BasicWaterView extends GLView {
 	private ClippingPlaneRenderer     reflectionTextureClippingPlaneRenderer;
 	private RefractionTextureRenderer refractionTextureRenderer;
 	private ClippingPlaneRenderer     refractionTextureClippingPlaneRenderer;
+	
+	private DistortionRenderDecorator distortionRenderDecorator;
 	
 	private WaterTileShaderProgram waterTileShaderProgram;
 	private WaterTileRenderer      waterTileRenderer;
@@ -295,18 +303,27 @@ public class BasicWaterView extends GLView {
 				this.reflectionTextureRenderer.getColorAttachment(),
 				this.refractionTextureRenderer.getColorAttachment(),
 				this.getClass(),
-				Constants.WaterTile.dudvTexture,
-				Constants.WaterTile.normalMapTexture,
-				Constants.WaterTile.scaleX,
-				Constants.WaterTile.scaleY,
-				Constants.WaterTile.waveStrength,
-				Constants.WaterTile.waveSpeed,
-				Constants.WaterTile.distortionStrength,
-				Constants.WaterTile.waterReflectivity,
-				Constants.WaterTile.light,
-				Constants.WaterTile.shineDamper,
-				Constants.WaterTile.lightReflectivity,
-				Constants.WaterTile.normalEqualizationFactor
+				Constants.WaterTileRenderer.normalMapTexture,
+				Constants.WaterTileRenderer.scaleX,
+				Constants.WaterTileRenderer.scaleY,
+				Constants.WaterTileRenderer.waveStrength,
+				Constants.WaterTileRenderer.waterReflectivity,
+				Constants.WaterTileRenderer.light,
+				Constants.WaterTileRenderer.shineDamper,
+				Constants.WaterTileRenderer.lightReflectivity,
+				Constants.WaterTileRenderer.normalEqualizationFactor
+		);
+		
+		this.distortionRenderDecorator = new DistortionRenderDecorator(
+				Constants.DistortionRenderDecorator.name,
+				new RendererBase[] {
+						this.waterTileRenderer
+				},
+				this.getClass(),
+				Constants.DistortionRenderDecorator.dudvTexture,
+				Constants.DistortionRenderDecorator.distortionSpeed,
+				Constants.DistortionRenderDecorator.distortionStrength,
+				this.waterTileShaderProgram
 		);
 		
 		this.basicWaterGrassTerrainClippingPlaneRenderer = new ClippingPlaneRenderer(
@@ -342,7 +359,7 @@ public class BasicWaterView extends GLView {
 		rendererBases.add(this.skybox);
 		rendererBases.add(this.basicWaterGrassTerrainClippingPlaneRenderer);
 		rendererBases.add(this.basicWaterSandTerrainClippingPlaneRenderer);
-		rendererBases.add(this.waterTileRenderer);
+		rendererBases.add(this.distortionRenderDecorator);
 		
 		return rendererBases;
 	}
