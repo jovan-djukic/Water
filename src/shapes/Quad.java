@@ -31,10 +31,10 @@ public class Quad extends SceneModel {
 		@Override
 		protected float[] getVertexData() {
 			return new float[] {
-					this.bottomLeft.x, this.bottomLeft.y, this.bottomLeft.z,
-					this.bottomRight.x, this.bottomRight.y, this.bottomRight.z,
 					this.topLeft.x, this.topLeft.y, this.topLeft.z,
-					this.topRight.x, this.topRight.y, this.topRight.z
+					this.topRight.x, this.topRight.y, this.topRight.z,
+					this.bottomLeft.x, this.bottomLeft.y, this.bottomLeft.z,
+					this.bottomRight.x, this.bottomRight.y, this.bottomRight.z
 				};
 		}
 		
@@ -50,8 +50,8 @@ public class Quad extends SceneModel {
 		protected float[] getTextureCoordinatesData() {
 			return new float[] {
 				 0,  0,
-				+1,  0,
 				 0, +1,
+				+1,  0,
 				+1, +1
 			};
 		}
