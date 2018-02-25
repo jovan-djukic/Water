@@ -6,6 +6,7 @@ import base.objects.renderer.scene.light.Light;
 import base.objects.renderer.scene.sceneModel.SceneModel;
 import base.objects.textures.Texture;
 import base.objects.textures.TextureData;
+import base.objects.textures.TextureUnitManager;
 import com.jogamp.opengl.GL4;
 import de.matthiasmann.twl.utils.PNGDecoder;
 import water.basicWater.waterTile.waterTileShaderProgram.WaterTileShaderProgram;
@@ -24,10 +25,13 @@ public class WaterTileRenderer extends Scene {
 	private Class   scope;
 	private String  dudvTextureFileName;
 	private Texture dudvTexture;
+	private int     dudvTextureUnit;
 	private String  normalMapTextureFileName;
 	private Texture normalMapTexture;
+	private int     normalMapTextureUnit;
 	private float   scaleX, scaleY;
 	private Texture reflectionTexture, refractionTexture;
+	private int reflectionTextureUnit, refractionTextureUnit;
 	private WaterTileShaderProgram shaderProgram;
 	private float                  waveStrength;
 	private float                  waveSpeed, moveFactor;
@@ -157,17 +161,20 @@ public class WaterTileRenderer extends Scene {
 			gl.glEnable(GL4.GL_DEPTH_TEST);
 		}
 		
-		gl.glActiveTexture(GL4.GL_TEXTURE0);
+		this.reflectionTextureUnit = TextureUnitManager.getInstance().getTextureUnit();
+		gl.glActiveTexture(GL4.GL_TEXTURE0 + this.reflectionTextureUnit);
 		this.reflectionTexture.bind(gl);
-		this.shaderProgram.setReflectionTextureUniform(gl, 0);
+		this.shaderProgram.setReflectionTextureUniform(gl, this.reflectionTextureUnit);
 		
-		gl.glActiveTexture(GL4.GL_TEXTURE1);
+		this.refractionTextureUnit = TextureUnitManager.getInstance().getTextureUnit();
+		gl.glActiveTexture(GL4.GL_TEXTURE0 + this.refractionTextureUnit);
 		this.refractionTexture.bind(gl);
-		this.shaderProgram.setRefractionTextureUniform(gl, 1);
+		this.shaderProgram.setRefractionTextureUniform(gl, this.refractionTextureUnit);
 		
-		gl.glActiveTexture(GL4.GL_TEXTURE2);
+		this.dudvTextureUnit = TextureUnitManager.getInstance().getTextureUnit();
+		gl.glActiveTexture(GL4.GL_TEXTURE0 + this.dudvTextureUnit);
 		this.dudvTexture.bind(gl);
-		this.shaderProgram.setDudvTextureUniform(gl, 2);
+		this.shaderProgram.setDudvTextureUniform(gl, this.dudvTextureUnit);
 		
 		this.shaderProgram.setScaleXUniform(gl, this.scaleX);
 		this.shaderProgram.setScaleYUniform(gl, this.scaleY);
@@ -182,9 +189,10 @@ public class WaterTileRenderer extends Scene {
 		
 		this.shaderProgram.setWaterReflectivityUniform(gl, this.waterReflectivity);
 		
-		gl.glActiveTexture(GL4.GL_TEXTURE3);
+		this.normalMapTextureUnit = TextureUnitManager.getInstance().getTextureUnit();
+		gl.glActiveTexture(GL4.GL_TEXTURE0 + this.normalMapTextureUnit);
 		this.normalMapTexture.bind(gl);
-		this.shaderProgram.setNormalMapTextureUniform(gl, 3);
+		this.shaderProgram.setNormalMapTextureUniform(gl, this.normalMapTextureUnit);
 		
 		this.shaderProgram.setLightPositionUniform(gl, this.light.getPosition());
 		this.shaderProgram.setLightColorUniform(gl, this.light.getColor());
@@ -203,6 +211,11 @@ public class WaterTileRenderer extends Scene {
 		if (!this.isDepthTestEnable) {
 			gl.glDisable(GL4.GL_DEPTH_TEST);
 		}
+		
+		TextureUnitManager.getInstance().freeTextureUnit(this.reflectionTextureUnit);
+		TextureUnitManager.getInstance().freeTextureUnit(this.refractionTextureUnit);
+		TextureUnitManager.getInstance().freeTextureUnit(this.dudvTextureUnit);
+		TextureUnitManager.getInstance().freeTextureUnit(this.normalMapTextureUnit);
 		
 		this.checkForErrors(gl, Constants.postRenderTag);
 	}
