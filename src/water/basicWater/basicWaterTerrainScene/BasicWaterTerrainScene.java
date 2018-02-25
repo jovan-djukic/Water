@@ -5,6 +5,7 @@ import base.objects.renderer.scene.camera.Camera;
 import base.objects.renderer.scene.sceneModel.SceneModel;
 import base.objects.textures.Texture;
 import base.objects.textures.TextureData;
+import base.objects.textures.TextureUnitManager;
 import com.jogamp.opengl.GL4;
 import de.matthiasmann.twl.utils.PNGDecoder;
 import shapes.Mesh;
@@ -25,7 +26,8 @@ public class BasicWaterTerrainScene extends Scene {
 	private String                         terrainTextureFileName;
 	private Class                          scope;
 	private boolean                        isDepthTestEnabled;
-	private IntBuffer polygonMode;
+	private IntBuffer                      polygonMode;
+	private int                            textureUnit;
 	
 	private BasicWaterTerrainScene(String name, BasicWaterTerrainShaderProgram shaderProgram, Camera camera, Mesh terrain, Texture terrainTexture, Class scope, String terrainTextureFileName) {
 		super(
@@ -66,17 +68,14 @@ public class BasicWaterTerrainScene extends Scene {
 	}
 	
 	
-	protected void setTerrainTexture(GL4 gl) {
-		gl.glActiveTexture(GL4.GL_TEXTURE0);
-		this.terrainTexture.bind(gl);
-		this.shaderProgram.setTerrainTextureUniform(gl, 0);
-	}
-	
 	@Override
 	protected void preRender(GL4 gl) {
 		super.preRender(gl);
 		
-		this.setTerrainTexture(gl);
+		this.textureUnit = TextureUnitManager.getInstance().getTextureUnit();
+		gl.glActiveTexture(GL4.GL_TEXTURE0 + this.textureUnit);
+		this.terrainTexture.bind(gl);
+		this.shaderProgram.setTerrainTextureUniform(gl, this.textureUnit);
 		
 		this.isDepthTestEnabled = gl.glIsEnabled(GL4.GL_DEPTH_TEST);
 		
@@ -94,6 +93,8 @@ public class BasicWaterTerrainScene extends Scene {
 	
 	@Override
 	protected void postRender(GL4 gl) {
+		TextureUnitManager.getInstance().freeTextureUnit(this.textureUnit);
+		
 		if (!this.isDepthTestEnabled) {
 			gl.glDisable(GL4.GL_DEPTH_TEST);
 		}
