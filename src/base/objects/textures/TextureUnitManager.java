@@ -31,10 +31,11 @@ public class TextureUnitManager {
 				break;
 			}
 		}
-		return GL4.GL_TEXTURE0 + textureUnit;
+		
+		return textureUnit;
 	}
 	
 	public void freeTextureUnit(int textureUnit) {
-		this.isTextureUnitTaken[textureUnit - GL4.GL_TEXTURE0] = false;
+		this.isTextureUnitTaken[textureUnit] = false;
 	}
 }
