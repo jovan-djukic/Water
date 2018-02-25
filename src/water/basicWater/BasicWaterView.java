@@ -155,12 +155,10 @@ public class BasicWaterView extends GLView {
 		
 		public static class WaterTileRenderer {
 			public static final String name                     = "waterTileRenderer";
-			public static final float  scaleX                   = 4;
-			public static final float  scaleY                   = 4;
 			public static final float  waveStrength             = 0.01f;
 			public static final float  waterReflectivity        = 0.5f;
-			public static final float  shineDamper              = 20;
-			public static final float  lightReflectivity        = 0.3f;
+			public static final float  shineDamper              = 40;
+			public static final float  lightReflectivity        = 0.6f;
 		}
 	}
 	
@@ -316,8 +314,6 @@ public class BasicWaterView extends GLView {
 				this.basicWaterCamera,
 				this.reflectionTextureRenderer.getColorAttachment(),
 				this.refractionTextureRenderer.getColorAttachment(),
-				Constants.WaterTileRenderer.scaleX,
-				Constants.WaterTileRenderer.scaleY,
 				Constants.WaterTileRenderer.waveStrength,
 				Constants.WaterTileRenderer.waterReflectivity,
 				Constants.WaterTileRenderer.shineDamper,

@@ -19,7 +19,6 @@ public class WaterTileRenderer extends Scene {
 	}
 	
 	private boolean isDepthTestEnable;
-	private float   scaleX, scaleY;
 	private Texture reflectionTexture, refractionTexture;
 	private int reflectionTextureUnit, refractionTextureUnit;
 	private WaterTileShaderProgram shaderProgram;
@@ -34,8 +33,6 @@ public class WaterTileRenderer extends Scene {
 			Camera camera,
 			Texture reflectionTexture,
 			Texture refractionTexture,
-			float scaleX,
-			float scaleY,
 			float waveStrength,
 			float waterReflectivity,
 			float shineDamper,
@@ -46,8 +43,6 @@ public class WaterTileRenderer extends Scene {
 		this.shaderProgram = shaderProgram;
 		this.reflectionTexture = reflectionTexture;
 		this.refractionTexture = refractionTexture;
-		this.scaleX = scaleX;
-		this.scaleY = scaleY;
 		this.waveStrength = waveStrength;
 		this.waterReflectivity = waterReflectivity;
 		this.shineDamper = shineDamper;
@@ -72,9 +67,6 @@ public class WaterTileRenderer extends Scene {
 		gl.glActiveTexture(GL4.GL_TEXTURE0 + this.refractionTextureUnit);
 		this.refractionTexture.bind(gl);
 		this.shaderProgram.setRefractionTextureUniform(gl, this.refractionTextureUnit);
-		
-		this.shaderProgram.setScaleXUniform(gl, this.scaleX);
-		this.shaderProgram.setScaleYUniform(gl, this.scaleY);
 		
 		this.shaderProgram.setWaveStrengthUniform(gl, this.waveStrength);
 		

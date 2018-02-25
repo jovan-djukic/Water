@@ -34,8 +34,6 @@ public class WaterTileShaderProgram extends SceneShaderProgram
 		public static final String transform                = "transform";
 		public static final String reflectionTexture        = "reflectionTexture";
 		public static final String refractionTexture        = "refractionTexture";
-		public static final String scaleX                   = "scaleX";
-		public static final String scaleY                   = "scaleY";
 		public static final String dudvTexture              = "dudvTexture";
 		public static final String waveStrength             = "waveStrength";
 		public static final String moveFactor               = "moveFactor";
@@ -54,8 +52,6 @@ public class WaterTileShaderProgram extends SceneShaderProgram
 				Uniforms.transform,
 				Uniforms.reflectionTexture,
 				Uniforms.refractionTexture,
-				Uniforms.scaleX,
-				Uniforms.scaleY,
 				Uniforms.dudvTexture,
 				Uniforms.waveStrength,
 				Uniforms.moveFactor,
@@ -117,14 +113,6 @@ public class WaterTileShaderProgram extends SceneShaderProgram
 	
 	public void setRefractionTextureUniform(GL4 gl, int textureUnit) {
 		super.setUniform(gl, new Uniform1i(super.getUniformLocation(Uniforms.refractionTexture), textureUnit));
-	}
-	
-	public void setScaleXUniform(GL4 gl, float scaleX) {
-		super.setUniform(gl, new Uniform1f(super.getUniformLocation(Uniforms.scaleX), scaleX));
-	}
-	
-	public void setScaleYUniform(GL4 gl, float scaleY) {
-		super.setUniform(gl, new Uniform1f(super.getUniformLocation(Uniforms.scaleY), scaleY));
 	}
 	
 	public void setDudvTextureUniform(GL4 gl, int textureUnit) {

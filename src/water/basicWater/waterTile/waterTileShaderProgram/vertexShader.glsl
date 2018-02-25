@@ -9,12 +9,11 @@ out vec3 toCameraVector;
 out vec3 fromLightVector;
 
 uniform mat4 transform, projection, view;
-uniform float scaleX, scaleY;
 uniform vec3 cameraPosition;
 uniform vec3 lightPosition;
 
 void main() {
-    textureCoordinates = vec2(inTexelCoordinate.x * scaleX, inTexelCoordinate.y * scaleY);
+    textureCoordinates = inTexelCoordinate;
 
     vec4 worldPosition = transform * vec4(vertexCoordinates, 1);
 
