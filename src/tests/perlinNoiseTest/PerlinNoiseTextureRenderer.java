@@ -3,6 +3,7 @@ package tests.perlinNoiseTest;
 import base.objects.model.Model;
 import base.objects.renderer.Renderer;
 import base.objects.textures.Texture;
+import base.objects.textures.TextureUnitManager;
 import com.jogamp.opengl.GL4;
 import perlinNoise.perlinNoiseTextureGenerator.PerlinNoiseModel;
 import tests.perlinNoiseTest.twoDRShaderProgram.TwoDRShaderProgram;
@@ -15,6 +16,7 @@ public class PerlinNoiseTextureRenderer extends Renderer {
 	
 	private TwoDRShaderProgram shaderProgram;
 	private Texture perlinNoiseTexture;
+	private int perlinNoiseTextureUnit;
 	
 	public PerlinNoiseTextureRenderer(TwoDRShaderProgram twoDRShaderProgram, PerlinNoiseModel perlinNoiseModel, Texture perliNoiseTexture) {
 		super(Constants.name, twoDRShaderProgram, new Model[] {perlinNoiseModel}, perliNoiseTexture);
@@ -35,9 +37,18 @@ public class PerlinNoiseTextureRenderer extends Renderer {
 	protected void preRender(GL4 gl) {
 		super.preRender(gl);
 		
-		gl.glActiveTexture(GL4.GL_TEXTURE0);
+		this.perlinNoiseTextureUnit = TextureUnitManager.getInstance().getTextureUnit();
+		
+		gl.glActiveTexture(this.perlinNoiseTextureUnit);
 		this.perlinNoiseTexture.bind(gl);
-		this.shaderProgram.setSamplerUniform(gl, 0);
+		this.shaderProgram.setSamplerUniform(gl, this.perlinNoiseTextureUnit);
+	}
+	
+	@Override
+	protected void postRender(GL4 gl) {
+		super.postRender(gl);
+		
+		TextureUnitManager.getInstance().freeTextureUnit(this.perlinNoiseTextureUnit);
 	}
 	
 	@Override

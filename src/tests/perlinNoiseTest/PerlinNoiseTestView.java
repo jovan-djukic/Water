@@ -11,16 +11,14 @@ import java.util.ArrayList;
 
 public class PerlinNoiseTestView extends GLView {
 	private static class Constants {
-		public static final String name                    = "perlinNoiseTestRenderer";
-		public static final String perlinNoiseTextureGenerator        = "perlinNoiseTextureGenerator";
-		public static final int    numberOfOctaves         = 3;
-		public static final float  persistence             = 0.3f;
-		public static final int    textureWidth            = 256;
-		public static final int    textureHeight           = 256;
-		public static final float  scaleX                  = 8.0f / textureWidth;
-		public static final float  scaleY                  = 8.0f / textureHeight;
-		public static final String perlinNoiseTestBuffer   = Constants.name + "-";
-		public static final String renderImplementationTag = Constants.perlinNoiseTestBuffer + "renderImplementationTag";
+		public static final String name                        = "perlinNoiseTestRenderer";
+		public static final String perlinNoiseTextureGenerator = "perlinNoiseTextureGenerator";
+		public static final int    numberOfOctaves             = 3;
+		public static final float  persistence                 = 0.3f;
+		public static final int    textureWidth                = 256;
+		public static final int    textureHeight               = 256;
+		public static final float  scaleX                      = 8.0f / textureWidth;
+		public static final float  scaleY                      = 8.0f / textureHeight;
 	}
 	@Override
 	protected ArrayList<RendererBase> getRenderers() {
