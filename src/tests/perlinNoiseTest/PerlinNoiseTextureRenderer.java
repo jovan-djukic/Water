@@ -39,7 +39,7 @@ public class PerlinNoiseTextureRenderer extends Renderer {
 		
 		this.perlinNoiseTextureUnit = TextureUnitManager.getInstance().getTextureUnit();
 		
-		gl.glActiveTexture(this.perlinNoiseTextureUnit);
+		gl.glActiveTexture(GL4.GL_TEXTURE0 + this.perlinNoiseTextureUnit);
 		this.perlinNoiseTexture.bind(gl);
 		this.shaderProgram.setSamplerUniform(gl, this.perlinNoiseTextureUnit);
 	}
