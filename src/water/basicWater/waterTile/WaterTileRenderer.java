@@ -14,18 +14,13 @@ import water.basicWater.waterTile.waterTileShaderProgram.WaterTileShaderProgram;
 public class WaterTileRenderer extends Scene {
 	private static class Constants {
 		public static final String waterTileRenderer   = "waterTileRenderer";
-		public static final String dudvTexture         = Constants.waterTileRenderer + "-dudvTexture";
 		public static final String normalMapTexture    = Constants.waterTileRenderer + "-normalMapTexture";
 		public static final String preRenderTag        = Constants.waterTileRenderer + "-preRender";
 		public static final String postRenderTag       = Constants.waterTileRenderer + "-postRender";
-		public static final float  milisecondsInSecond = 1000;
 	}
 	
 	private boolean isDepthTestEnable;
 	private Class   scope;
-	private String  dudvTextureFileName;
-	private Texture dudvTexture;
-	private int     dudvTextureUnit;
 	private String  normalMapTextureFileName;
 	private Texture normalMapTexture;
 	private int     normalMapTextureUnit;
@@ -34,9 +29,6 @@ public class WaterTileRenderer extends Scene {
 	private int reflectionTextureUnit, refractionTextureUnit;
 	private WaterTileShaderProgram shaderProgram;
 	private float                  waveStrength;
-	private float                  waveSpeed, moveFactor;
-	private long  lastTime;
-	private float distortionStrength;
 	private float waterReflectivity;
 	private Light light;
 	private float shineDamper, lightReflectivity;
@@ -50,36 +42,28 @@ public class WaterTileRenderer extends Scene {
 			Texture reflectionTexture,
 			Texture refractionTexture,
 			Class scope,
-			String dudvTextureFileName,
-			Texture dudvTexture,
 			String normalMapTextureFileName,
 			Texture normalMapTexture,
 			float scaleX,
 			float scaleY,
 			float waveStrength,
-			float waveSpeed,
-			float distortionStrength,
 			float waterReflectivity,
 			Light light,
 			float shineDamper,
 			float lightReflectivity,
 			float normalEqualizationFactor
 	) {
-		super(name, shaderProgram, camera, new SceneModel[]{waterTileModel}, dudvTexture, normalMapTexture, reflectionTexture, refractionTexture);
+		super(name, shaderProgram, camera, new SceneModel[]{waterTileModel}, normalMapTexture, reflectionTexture, refractionTexture);
 		
 		this.shaderProgram = shaderProgram;
 		this.reflectionTexture = reflectionTexture;
 		this.refractionTexture = refractionTexture;
 		this.scope = scope;
-		this.dudvTextureFileName = dudvTextureFileName;
-		this.dudvTexture = dudvTexture;
 		this.normalMapTextureFileName = normalMapTextureFileName;
 		this.normalMapTexture = normalMapTexture;
 		this.scaleX = scaleX;
 		this.scaleY = scaleY;
 		this.waveStrength = waveStrength;
-		this.waveSpeed = waveSpeed;
-		this.distortionStrength = distortionStrength;
 		this.waterReflectivity = waterReflectivity;
 		this.light = light;
 		this.shineDamper = shineDamper;
@@ -95,13 +79,10 @@ public class WaterTileRenderer extends Scene {
 			Texture reflectionTexture,
 			Texture refractionTexture,
 			Class scope,
-			String dudvTextureFileName,
 			String normalMapTextureFileName,
 			float scaleX,
 			float scaleY,
 			float waveStrength,
-			float waveSpeed,
-			float distortionStrength,
 			float waterReflectivity,
 			Light light,
 			float shineDamper,
@@ -116,15 +97,11 @@ public class WaterTileRenderer extends Scene {
 				reflectionTexture,
 				refractionTexture,
 				scope,
-				dudvTextureFileName,
-				new Texture(Constants.dudvTexture, GL4.GL_RGBA, GL4.GL_RGBA, GL4.GL_UNSIGNED_BYTE),
 				normalMapTextureFileName,
 				new Texture(Constants.normalMapTexture, GL4.GL_RGBA, GL4.GL_RGBA, GL4.GL_UNSIGNED_BYTE),
 				scaleX,
 				scaleY,
 				waveStrength,
-				waveSpeed,
-				distortionStrength,
 				waterReflectivity,
 				light,
 				shineDamper,
@@ -136,13 +113,6 @@ public class WaterTileRenderer extends Scene {
 	@Override
 	public void init(GL4 gl) {
 		super.init(gl);
-		
-		this.dudvTexture.bind(gl)
-				.texImage2D(gl, 0, TextureData.decodePngImage(this.scope, this.dudvTextureFileName, PNGDecoder.Format.RGBA))
-				.texParameteri(gl, GL4.GL_TEXTURE_MAG_FILTER, GL4.GL_LINEAR)
-				.texParameteri(gl, GL4.GL_TEXTURE_MIN_FILTER, GL4.GL_LINEAR)
-				.texParameteri(gl, GL4.GL_TEXTURE_WRAP_S, GL4.GL_MIRRORED_REPEAT)
-				.texParameteri(gl, GL4.GL_TEXTURE_WRAP_T, GL4.GL_MIRRORED_REPEAT);
 		
 		this.normalMapTexture.bind(gl)
 				.texImage2D(gl, 0, TextureData.decodePngImage(this.scope, this.normalMapTextureFileName, PNGDecoder.Format.RGBA))
@@ -171,19 +141,10 @@ public class WaterTileRenderer extends Scene {
 		this.refractionTexture.bind(gl);
 		this.shaderProgram.setRefractionTextureUniform(gl, this.refractionTextureUnit);
 		
-		this.dudvTextureUnit = TextureUnitManager.getInstance().getTextureUnit();
-		gl.glActiveTexture(GL4.GL_TEXTURE0 + this.dudvTextureUnit);
-		this.dudvTexture.bind(gl);
-		this.shaderProgram.setDudvTextureUniform(gl, this.dudvTextureUnit);
-		
 		this.shaderProgram.setScaleXUniform(gl, this.scaleX);
 		this.shaderProgram.setScaleYUniform(gl, this.scaleY);
 		
 		this.shaderProgram.setWaveStrengthUniform(gl, this.waveStrength);
-		
-		this.shaderProgram.setMoveFactorUniform(gl, this.moveFactor);
-		
-		this.shaderProgram.setDistortionStrengthUniform(gl, this.distortionStrength);
 		
 		this.shaderProgram.setCameraPositionUniform(gl, super.getCamera().getEye());
 		
@@ -214,24 +175,8 @@ public class WaterTileRenderer extends Scene {
 		
 		TextureUnitManager.getInstance().freeTextureUnit(this.reflectionTextureUnit);
 		TextureUnitManager.getInstance().freeTextureUnit(this.refractionTextureUnit);
-		TextureUnitManager.getInstance().freeTextureUnit(this.dudvTextureUnit);
 		TextureUnitManager.getInstance().freeTextureUnit(this.normalMapTextureUnit);
 		
 		this.checkForErrors(gl, Constants.postRenderTag);
-	}
-	
-	@Override
-	public void update() {
-		super.update();
-		
-		if (this.lastTime == 0) {
-			this.lastTime = System.currentTimeMillis();
-		} else {
-			long currentTime = System.currentTimeMillis();
-			float passedTime = (currentTime - this.lastTime) / Constants.milisecondsInSecond;
-			this.lastTime = currentTime;
-			
-			this.moveFactor += this.waveSpeed * passedTime;
-		}
 	}
 }
