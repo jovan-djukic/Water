@@ -7,7 +7,6 @@ import base.objects.renderer.textureRenderer.TextureRenderer;
 import base.objects.textures.Texture;
 import com.jogamp.opengl.GL4;
 import water.basicWater.BasicWaterCamera;
-import water.basicWater.basicWaterTerrainScene.basicWaterTerrainShaderProgram.BasicWaterTerrainShaderProgram;
 
 public class ReflectionTextureRenderer extends TextureRenderer {
 	private static class Constants {
