@@ -188,7 +188,6 @@ public class BasicWaterView extends GLView {
 	private PerlinNoiseTerrain           perlinNoiseTerrain;
 	private BasicWaterTerrainScene       basicWaterGrassTerrainScene;
 	private ClippingPlaneRenderDecorator basicWaterGrassTerrainClippingPlaneRenderDecorator;
-	private BasicWaterTerrainScene       basicWaterSandTerrainScene;
 	
 	private Skybox skybox;
 	
@@ -291,38 +290,6 @@ public class BasicWaterView extends GLView {
 		
 		rendererBases.add(this.reflectionTextureRenderer);
 		
-		this.basicWaterSandTerrainScene = new BasicWaterTerrainScene(
-				Constants.BasicWaterSandTerrainScene.name,
-				basicWaterCamera,
-				this.basicWaterTerrainShaderProgram,
-				this.perlinNoiseTerrain,
-				this.getClass(),
-				Constants.BasicWaterSandTerrainScene.textureFileName
-		);
-		
-		this.refractionTextureClippingPlaneRenderDecorator = new ClippingPlaneRenderDecorator(
-				Constants.RefractionTextureRenderer.ClippingPlaneRenderer.name,
-				new RendererBase[] {
-						this.basicWaterSandTerrainScene
-				},
-				Constants.RefractionTextureRenderer.ClippingPlaneRenderer.clippingPlane,
-				this.basicWaterTerrainShaderProgram
-		);
-		
-		this.refractionTextureRenderer = new RefractionTextureRenderer(
-				Constants.RefractionTextureRenderer.name,
-				new RendererBase[] {
-						this.refractionTextureClippingPlaneRenderDecorator
-				},
-				Constants.RefractionTextureRenderer.width,
-				Constants.RefractionTextureRenderer.height
-		);
-		
-		
-		rendererBases.add(this.refractionTextureRenderer);
-		
-		this.waterTileShaderProgram = new WaterTileShaderProgram();
-		
 		this.causticsWaterTerrainShaderProgram = new CausticsWaterTerrainShaderProgram();
 		
 		this.causticsWaterTerrainScene = new CausticsWaterTerrainScene(
@@ -336,6 +303,26 @@ public class BasicWaterView extends GLView {
 				Constants.CausticsWaterSandTerrain.shineDamper,
 				Constants.CausticsWaterSandTerrain.lightReflectivity
 		);
+		
+		this.refractionTextureClippingPlaneRenderDecorator = new ClippingPlaneRenderDecorator(
+				Constants.RefractionTextureRenderer.ClippingPlaneRenderer.name,
+				new RendererBase[] {
+						this.causticsWaterTerrainScene
+				},
+				Constants.RefractionTextureRenderer.ClippingPlaneRenderer.clippingPlane,
+				this.causticsWaterTerrainShaderProgram
+		);
+		
+		this.refractionTextureRenderer = new RefractionTextureRenderer(
+				Constants.RefractionTextureRenderer.name,
+				new RendererBase[] {
+						this.refractionTextureClippingPlaneRenderDecorator
+				},
+				Constants.RefractionTextureRenderer.width,
+				Constants.RefractionTextureRenderer.height
+		);
+		
+		this.waterTileShaderProgram = new WaterTileShaderProgram();
 		
 		this.causticsWaterSandTerrainClippingPlaneRenderDecorator = new ClippingPlaneRenderDecorator(
 				Constants.CausticsWaterSandTerrain.ClippingPlaneRenderer.name,
@@ -376,6 +363,7 @@ public class BasicWaterView extends GLView {
 		this.distortionRenderDecorator = new DistortionRenderDecorator(
 				Constants.DistortionRenderDecorator.name,
 				new RendererBase[] {
+						this.refractionTextureRenderer,
 						this.causticsWaterSandTerrainClippingPlaneRenderDecorator,
 						this.waterTileRenderer
 				},
