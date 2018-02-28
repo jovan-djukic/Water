@@ -1,5 +1,7 @@
 #version 420
 
+#define eta 0.75
+
 in vec2 textureCoordinates;
 in vec3 waterSurfaceCoordinates;
 
@@ -18,15 +20,20 @@ void main() {
     vec4 normalMapColor = texture(normalMapTexture, distortedTextureCoords);
     vec3 normal = vec3(
         normalMapColor.r * 2 - 1,
-        normalMapColor.b * normalEqualizationFactor,
+        normalMapColor.b,
         normalMapColor.g * 2 - 1
     );
     normal = normalize(normal);
 
-    vec3 refractoredLight = refract(vec3(0, 1, 0), normal, 1.33);
+    vec3 refractedRay = vec3(0, -1, 0);
+    float theta = dot(-normal, refractedRay);
+    vec3 incidentRay = eta * refractedRay + normal * (eta * theta - eta * sqrt(1 - eta * eta * sqrt(1 - theta * theta)));
+    incidentRay = normalize(-incidentRay);
+
     vec3 normalizedToLightVector = normalize(lightPosition - waterSurfaceCoordinates);
-    float specular = max(dot(normalizedToLightVector, refractoredLight), 0);
-    vec3 specularHiglights = lightColor.rgb * pow(specular, shineDamper) * lightReflectivity;
+    float specular = max(dot(normalizedToLightVector, incidentRay), 0);
+    specular = pow(specular, shineDamper);
+    vec3 specularHiglights = lightColor.rgb * specular * lightReflectivity;
 
     outColor = texture(terrainTexture, textureCoordinates) + vec4(specularHiglights, 0);
 }

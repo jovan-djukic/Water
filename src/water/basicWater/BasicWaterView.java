@@ -150,7 +150,7 @@ public class BasicWaterView extends GLView {
 		public static final class LightRenderDecorator {
 			public static final String name  = "lightRenderDecorator";
 			public static final Light  light = new Light(
-					new Vector3f(20, 20, 20),
+					new Vector3f(0, 80, 0),
 					new Vector4f(1, 1, 1, 1)
 			);
 		}
@@ -166,9 +166,9 @@ public class BasicWaterView extends GLView {
 		public static class CausticsWaterSandTerrain {
 			public static final String name              = "causticsWaterSandTerrain";
 			public static final String imagesDirectory   = Constants.imagesDirectory + "terrainImages/";
-			public static final String textureFileName   = BasicWaterSandTerrainScene.imagesDirectory + "sand.png";
-			public static final float  shineDamper       = 40;
-			public static final float  lightReflectivity = 0.6f;
+			public static final String textureFileName   = CausticsWaterSandTerrain.imagesDirectory + "sand.png";
+			public static final float  shineDamper       = 1500;
+			public static final float  lightReflectivity = 0.4f;
 			
 			public static class ClippingPlaneRenderer {
 				public static final String   name          = BasicWaterSandTerrainScene.name + "clippingPlaneRenderer";
@@ -348,7 +348,7 @@ public class BasicWaterView extends GLView {
 								Constants.CausticsWaterSandTerrain.CullFaceRendererDecorator.face
 						)
 				},
-				Constants.BasicWaterSandTerrainScene.ClippingPlaneRenderer.clippingPlane,
+				Constants.CausticsWaterSandTerrain.ClippingPlaneRenderer.clippingPlane,
 				this.causticsWaterTerrainShaderProgram
 		);
 		
@@ -383,7 +383,8 @@ public class BasicWaterView extends GLView {
 				Constants.DistortionRenderDecorator.dudvTexture,
 				Constants.DistortionRenderDecorator.distortionSpeed,
 				Constants.DistortionRenderDecorator.distortionStrength,
-				this.waterTileShaderProgram
+				this.waterTileShaderProgram,
+				this.causticsWaterTerrainShaderProgram
 		);
 		
 		this.normalMapRenderDecorator = new NormalMapRenderDecorator(
@@ -394,7 +395,8 @@ public class BasicWaterView extends GLView {
 				this.getClass(),
 				Constants.NormalMapRenderDecorator.normalMapTexture,
 				Constants.NormalMapRenderDecorator.normalEqualizationFactor,
-				this.waterTileShaderProgram
+				this.waterTileShaderProgram,
+				this.causticsWaterTerrainShaderProgram
 		);
 		
 		this.lightRenderDecorator = new LightRenderDecorator(
@@ -403,7 +405,8 @@ public class BasicWaterView extends GLView {
 						this.normalMapRenderDecorator
 				},
 				Constants.LightRenderDecorator.light,
-				this.waterTileShaderProgram
+				this.waterTileShaderProgram,
+				this.causticsWaterTerrainShaderProgram
 		);
 		
 		this.basicWaterGrassTerrainClippingPlaneRenderDecorator = new ClippingPlaneRenderDecorator(
