@@ -27,7 +27,7 @@ void main() {
 
     vec3 refractedRay = vec3(0, -1, 0);
     float theta = dot(-normal, refractedRay);
-    vec3 incidentRay = eta * refractedRay + normal * (eta * theta - eta * sqrt(1 - eta * eta * sqrt(1 - theta * theta)));
+    vec3 incidentRay = eta * refractedRay + normal * (eta * theta - eta * sqrt(1 - eta * eta * (1 - theta * theta)));
     incidentRay = normalize(-incidentRay);
 
     vec3 normalizedToLightVector = normalize(lightPosition - waterSurfaceCoordinates);
