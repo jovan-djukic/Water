@@ -10,6 +10,8 @@ import org.joml.Vector3f;
 import org.joml.Vector4f;
 import skybox.Skybox;
 import terrain.perlinNoiseTerrain.PerlinNoiseTerrain;
+import tests.texturePreviewRenderer.TexturePreviewRenderer;
+import tests.texturePreviewRenderer.rgbaTexturePreviewRenderer.RGBATexturePreviewRenderer;
 import water.basicWater.rendererDecorators.ClippingPlaneRenderDecorator;
 import water.basicWater.waterTerrain.basicWaterTerrainScene.BasicWaterTerrainScene;
 import water.basicWater.waterTerrain.basicWaterTerrainScene.basicWaterTerrainShaderProgram.BasicWaterTerrainShaderProgram;
