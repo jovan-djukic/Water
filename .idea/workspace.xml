@@ -1,39 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fdca1d5e-5758-47c5-a254-1fbc2c6411e1" name="Default" comment="k">
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/RG2.odt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/RG2_rev1.pdf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/10rayTracingPseudoCode.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/11fourCasesOfRayTracing.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/12fifthCaseOfRayTracing.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/13projectedTriangles.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/14reflectionTexture.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/15refractionTexture.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/16reflectionAndRefractionTextureEffect.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/17dUdVTexture.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/18dUdvTextureWaves.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/19normalMapTexture.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/1reflectionAndRefraction.bmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/20uglyFresnelEffect.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/21improvedFresnel.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/22fresnelRefraction.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/23fresnelReflection.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/24specularHighlightsEffect.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/25noCaustics.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/26.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/2causticInNature.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/3cubicCurve.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/4twoDWaveEquationTexture.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/5directionalAndCircularWaves.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/6perlinNoise.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/7sumOfPerlinNoiseOctaves.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/8fftHeightMap.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/paper/pictures/9oneLevelRecursionRayTracing.jpg" />
+    <list default="true" id="fdca1d5e-5758-47c5-a254-1fbc2c6411e1" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java" afterPath="$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java" />
-      <change beforePath="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/BasicWaterTerrainScene.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/basicWaterTerrainShaderProgram/BasicWaterTerrainShaderProgram.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/paper/RG2.odt" afterPath="$PROJECT_DIR$/paper/RG2.odt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -165,47 +136,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Water" type="462c0819:PsiDirectoryNode" />
-              <item name="paper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 9.0 &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Water" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Water" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="Water" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Water" type="616d4139:PackageViewModuleNode" />
-              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -319,6 +249,47 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Water" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Water" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="Water" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Water" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Water" type="462c0819:PsiDirectoryNode" />
+              <item name="paper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="Water" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 9.0 &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -330,6 +301,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/water/basicWater/waterTerrain/causticsWaterTerrain/causticsWaterTerrainShaderProgram" />
+      <recent name="$PROJECT_DIR$/src/water/basicWater/waterTerrain" />
+      <recent name="$PROJECT_DIR$/src/water/basicWater/images/distortionImages" />
+      <recent name="$PROJECT_DIR$/src/tests/texturePreviewRenderer/depthTexturePreviewRenderer/rgbaTexturePreviewShaderProgram" />
+      <recent name="$PROJECT_DIR$/src/tests/texturePreviewRenderer/rgbaTexturePreviewRenderer/rgbaTexturePreviewShaderProgram" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="base.objects.renderer.textureRenderer" />
       <recent name="tests" />
@@ -337,24 +315,17 @@
       <recent name="shapes" />
       <recent name="basic" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/water/basicWater/waterTerrain/causticsWaterTerrain" />
-      <recent name="$PROJECT_DIR$/src/water/basicWater/images/waterTileImages" />
-      <recent name="$PROJECT_DIR$/src/water/basicWater/waterTile" />
-      <recent name="$PROJECT_DIR$/src/tests/texturePreviewRenderer/depthTexturePreviewRenderer" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="tests.texturePreviewRenderer.rgbaTexturePreviewRenderer.rgbaTexturePreviewShaderProgram" />
       <recent name="water.basicWater" />
       <recent name="terrain.perlinNoiseTerrain.shaderProgram" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/water/basicWater/waterTerrain/causticsWaterTerrain/causticsWaterTerrainShaderProgram" />
-      <recent name="$PROJECT_DIR$/src/water/basicWater/waterTerrain" />
-      <recent name="$PROJECT_DIR$/src/water/basicWater/images/distortionImages" />
-      <recent name="$PROJECT_DIR$/src/tests/texturePreviewRenderer/depthTexturePreviewRenderer/rgbaTexturePreviewShaderProgram" />
-      <recent name="$PROJECT_DIR$/src/tests/texturePreviewRenderer/rgbaTexturePreviewRenderer/rgbaTexturePreviewShaderProgram" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/paper" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/water/basicWater/waterTerrain/causticsWaterTerrain" />
+      <recent name="$PROJECT_DIR$/src/water/basicWater/images/waterTileImages" />
+      <recent name="$PROJECT_DIR$/src/water/basicWater/waterTile" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -433,22 +404,22 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-14" width="1368" height="783" extended-state="6" />
+    <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34918275" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20059435" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34918275" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20059435" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28380385" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -483,7 +454,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added a normal map and light processing for specular highlights." />
     <MESSAGE value="Added a normal equalization factor for refraction." />
     <MESSAGE value="Added a texture uit manager for dynamic texture unit allocation." />
     <MESSAGE value="Changed skybox. Now it uses texture unit manager for texture allocation." />
@@ -508,7 +478,8 @@
     <MESSAGE value="Fixed caustics. However the technique is not very precise but it gives somewhat good looking effects." />
     <MESSAGE value="Refraction texture now includes caustics." />
     <MESSAGE value="Found an error in incident vector calculation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Found an error in incident vector calculation." />
+    <MESSAGE value="Added my paper to the project along with every picture." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added my paper to the project along with every picture." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -861,7 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -869,10 +839,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
           <caret line="419" column="0" lean-forward="false" selection-start-line="419" selection-start-column="0" selection-end-line="419" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="class#Skybox#0;class#Constants#0;class#BasicWaterView#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -880,7 +846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="44" column="22" lean-forward="false" selection-start-line="39" selection-start-column="4" selection-end-line="45" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -888,7 +853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -896,7 +860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="12" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="38" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -904,7 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
