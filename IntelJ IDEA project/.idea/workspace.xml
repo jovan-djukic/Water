@@ -1,0 +1,1158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fdca1d5e-5758-47c5-a254-1fbc2c6411e1" name="Default" comment="kkkk">
+      <change beforePath="$PROJECT_DIR$/../.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/dictionaries/root.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/gluegen_rt_natives_linux_amd64.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Water.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../libs/PNGDecoder.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../libs/gluegen-rt-natives-linux-amd64.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../libs/gluegen-rt.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../libs/jogl-all-natives-linux-amd64.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../libs/jogl-all.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../libs/joml-1.8.5-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../libsrc/gluegen-java-src.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../libsrc/joal-java-src.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../libsrc/jocl-java-src.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../libsrc/jogl-java-src.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/Utilities.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/glsl/Shader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/glsl/ShaderProgram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/glsl/shaders/FragmentShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/glsl/shaders/GeometryShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/glsl/shaders/VertexShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/glsl/uniformSetter/Uniform1f.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/glsl/uniformSetter/Uniform1i.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/glsl/uniformSetter/Uniform1iv.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/glsl/uniformSetter/Uniform3f.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/glsl/uniformSetter/Uniform4f.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/glsl/uniformSetter/UniformMatrix4fv.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/glsl/uniformSetter/UniformSetter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/CompositeOpenGLObject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/OpenGLObject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/frameBuffer/FrameBuffer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/frameBuffer/RenderBuffer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/model/Model.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/model/loaders/IndicesLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/model/loaders/Loader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/model/loaders/TexelsLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/model/loaders/VerticesLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/CompositeRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/Renderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/RendererBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/rendererDecorators/CullFaceRendererDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/scene/Scene.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/scene/SceneShaderProgram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/scene/camera/Camera.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/scene/camera/OrthographicCamera.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/scene/camera/PerspectiveCamera.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/scene/camera/orbitingCamera/OrbitingCamera.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/scene/light/Light.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/scene/sceneModel/SceneModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/textureRenderer/TextureRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/textures/CubeMapTexture.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/textures/Texture.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/textures/TextureBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/textures/TextureData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/objects/textures/TextureUnitManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/views/GLView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/perlinNoise/perliNoiseGenerator/PerlinNoiseGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/perlinNoise/perlinNoiseTextureGenerator/PerlinNoiseModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/perlinNoise/perlinNoiseTextureGenerator/PerlinNoiseRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/perlinNoise/perlinNoiseTextureGenerator/PerlinNoiseTextureGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/perlinNoise/perlinNoiseTextureGenerator/shaderProgram/PerlinNoiseShaderProgram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/perlinNoise/perlinNoiseTextureGenerator/shaderProgram/fragmentShader.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/perlinNoise/perlinNoiseTextureGenerator/shaderProgram/vertexShader.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/shapes/Box.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/shapes/Mesh.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/shapes/Quad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/skybox/Skybox.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/skybox/shaderProgram/SkyboxShaderProgram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/skybox/shaderProgram/fragmentShader.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/skybox/shaderProgram/vertexShader.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/terrain/perlinNoiseTerrain/PerlinNoiseTerrain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/basic/BasicCamera.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/basic/BasicView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/basic/basicSceneShaderProgram/BasicSceneShaderProgram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/basic/basicSceneShaderProgram/fragmentShader.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/basic/basicSceneShaderProgram/vertexShader.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/basicMeshTest/BasicMeshTestView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/perlinNoiseTest/PerlinNoiseTestView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/perlinNoiseTest/PerlinNoiseTextureRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/perlinNoiseTest/twoDRShaderProgram/TwoDRShaderProgram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/perlinNoiseTest/twoDRShaderProgram/fragmentShader.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/perlinNoiseTest/twoDRShaderProgram/vertexShader.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/TexturePreviewModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/TexturePreviewRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/depthTexturePreviewRenderer/DepthTexturePreviewRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/depthTexturePreviewRenderer/depthTexturePreviewShaderProgram/DepthTexturePreviewShaderProgram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/depthTexturePreviewRenderer/depthTexturePreviewShaderProgram/depthFragmentShader.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/rgbaTexturePreviewRenderer/RGBATexturePreviewRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/rgbaTexturePreviewRenderer/rgbaTexturePreviewShaderProgram/RGBATexturePreviewShaderProgram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/rgbaTexturePreviewRenderer/rgbaTexturePreviewShaderProgram/rgbaFragmentShader.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/texturePreviewShaderProgram/TexturePreviewShaderProgram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/texturePreviewShaderProgram/vertexShader.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/BasicWaterCamera.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/BasicWaterView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/distortionImages/dudvTexture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/normalMapImages/normalMapTexture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/skyboxImages/back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/skyboxImages/bottom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/skyboxImages/front.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/skyboxImages/left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/skyboxImages/right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/skyboxImages/top.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/terrainImages/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/terrainImages/sand.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/rendererDecorators/ClippingPlaneRenderDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/rendererDecorators/DistortionRenderDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/rendererDecorators/LightRenderDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/rendererDecorators/NormalMapRenderDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/textureRenderer/ReflectionTextureRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/textureRenderer/RefractionTextureRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTerrain/basicWaterTerrainScene/BasicWaterTerrainScene.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTerrain/basicWaterTerrainScene/basicWaterTerrainShaderProgram/BasicWaterTerrainShaderProgram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTerrain/basicWaterTerrainScene/basicWaterTerrainShaderProgram/fragmentShader.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTerrain/basicWaterTerrainScene/basicWaterTerrainShaderProgram/vertexShader.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTerrain/causticsWaterTerrain/CausticsWaterTerrainScene.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTerrain/causticsWaterTerrain/causticsWaterTerrainShaderProgram/CausticsWaterTerrainShaderProgram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTerrain/causticsWaterTerrain/causticsWaterTerrainShaderProgram/fragmentShader.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTerrain/causticsWaterTerrain/causticsWaterTerrainShaderProgram/vertexShader.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTile/WaterTileModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTile/WaterTileRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTile/waterTileShaderProgram/WaterTileShaderProgram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTile/waterTileShaderProgram/fragmentShader.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTile/waterTileShaderProgram/vertexShader.glsl" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="autoscrollToSource" value="true" />
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/BasicWaterView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3536">
+              <caret line="234" selection-start-line="234" selection-end-line="234" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/skybox/shaderProgram/SkyboxShaderProgram.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="42" column="74" selection-start-line="42" selection-start-column="74" selection-end-line="42" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/base/glsl/Shader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="GLSL Shader" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>glTexImage</find>
+      <find>init</find>
+      <find>GL_TEXTURE_CUBE_MAP_NEGA</find>
+      <find>CUBE_MAP</find>
+      <find>JPEGDECODER</find>
+      <find>getB</find>
+      <find>getBu</find>
+      <find>getResourceAsStream</find>
+      <find>GL_COLOR_ATTACHMENT</find>
+      <find>GL_COLO</find>
+      <find>G</find>
+      <find>COLOR_ATTACHMENT</find>
+      <find>lerp</find>
+      <find>private Texture                        depthAttachment;</find>
+      <find>lllllll</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src/perlinNoise/perlinNoiseTextureGenerator/perliNoiseGenerator</dir>
+      <dir>$PROJECT_DIR$/src/base/objects/model</dir>
+      <dir>$PROJECT_DIR$/src/water/basicWater/waterTile</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/base/objects/renderer/scene/camera/PerspectiveCamera.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/BasicWaterCamera.java" />
+        <option value="$PROJECT_DIR$/src/tests/basic/BasicView.java" />
+        <option value="$PROJECT_DIR$/src/base/objects/renderer/scene/camera/panAndZoomCamera/PanAndZoomCamera.java" />
+        <option value="$PROJECT_DIR$/src/base/objects/renderer/scene/camera/panAndZoomCamera/OrbitingCamera.java" />
+        <option value="$PROJECT_DIR$/src/tests/basic/BasicCamera.java" />
+        <option value="$PROJECT_DIR$/src/base/objects/renderer/scene/camera/OrthographicCamera.java" />
+        <option value="$PROJECT_DIR$/src/base/objects/renderer/scene/camera/Camera.java" />
+        <option value="$PROJECT_DIR$/src/base/glsl/uniformSetter/Uniform3f.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/textureRenderer/ReflectionTextureRenderer.java" />
+        <option value="$PROJECT_DIR$/src/base/objects/renderer/scene/light/Light.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/normalMapRenderer/NormalMapRenderer.java" />
+        <option value="$PROJECT_DIR$/src/tests/perlinNoiseTest/PerlinNoiseTestView.java" />
+        <option value="$PROJECT_DIR$/src/base/glsl/uniformSetter/Uniform1i.java" />
+        <option value="$PROJECT_DIR$/src/base/objects/textures/TextureUnitManager.java" />
+        <option value="$PROJECT_DIR$/src/tests/perlinNoiseTest/PerlinNoiseTextureRenderer.java" />
+        <option value="$PROJECT_DIR$/src/tests/texturePreviewRenderer/rgbaTexturePreviewRenderer/RGBATexturePreviewRenderer.java" />
+        <option value="$PROJECT_DIR$/src/tests/texturePreviewRenderer/TexturePreviewRenderer.java" />
+        <option value="$PROJECT_DIR$/src/skybox/Skybox.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/basicWaterTerrainScene/BasicWaterTerrainScene.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/rendererDecorators/DistortionRenderDecorator.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/rendererDecorators/NormalMapRenderDecorator.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/rendererDecorators/LightRenderDecorator.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/WaterTileShaderProgram.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/waterTile/WaterTileRenderer.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/rendererDecorators/ClippingPlaneRenderer.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/waterTerrain/basicWaterTerrainScene/BasicWaterTerrainScene.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/waterTerrain/basicWaterTerrainScene/basicWaterTerrainShaderProgram/vertexShader.glsl" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/waterTerrain/basicWaterTerrainScene/basicWaterTerrainShaderProgram/fragmentShader.glsl" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/waterTerrain/causticsWaterTerrain/CasticsWaterTerrainScene.java" />
+        <option value="$PROJECT_DIR$/src/shapes/Mesh.java" />
+        <option value="$PROJECT_DIR$/src/shapes/Quad.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/rendererDecorators/ClippingPlaneRenderDecorator.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/waterTerrain/basicWaterTerrainScene/basicWaterTerrainShaderProgram/BasicWaterTerrainShaderProgram.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/waterTerrain/causticsWaterTerrain/causticsWaterTerrainShaderProgram/vertexShader.glsl" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/waterTerrain/causticsWaterTerrain/causticsWaterTerrainShaderProgram/CausticsWaterTerrainShaderProgram.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/waterTerrain/causticsWaterTerrain/CausticsWaterTerrainScene.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/BasicWaterView.java" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/fragmentShader.glsl" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/waterTile/waterTileShaderProgram/vertexShader.glsl" />
+        <option value="$PROJECT_DIR$/src/water/basicWater/waterTerrain/causticsWaterTerrain/causticsWaterTerrainShaderProgram/fragmentShader.glsl" />
+        <option value="$PROJECT_DIR$/src/main/java/base/objects/renderer/CompositeRenderer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/base/objects/CompositeOpenGLObject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/base/views/GLView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/base/objects/textures/CubeMapTexture.java" />
+        <option value="$PROJECT_DIR$/src/main/java/skybox/shaderProgram/SkyboxShaderProgram.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/base/glsl/Shader.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Water" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Water" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="-5" />
+    <option name="width" value="1370" />
+    <option name="height" value="775" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="IntelJ IDEA project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelJ IDEA project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IntelJ IDEA project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelJ IDEA project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IntelJ IDEA project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelJ IDEA project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IntelJ IDEA project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelJ IDEA project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IntelJ IDEA project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelJ IDEA project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Water" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Water" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="Water" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Water" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Water" type="cbb8eebc:String" user="Water" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Water" type="cbb8eebc:String" user="Water" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Water" type="cbb8eebc:String" user="Water" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="base" type="cbb8eebc:String" user="base" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Water" type="cbb8eebc:String" user="Water" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="base" type="cbb8eebc:String" user="base" />
+              <item name="objects" type="cbb8eebc:String" user="objects" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Water" type="cbb8eebc:String" user="Water" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="base" type="cbb8eebc:String" user="base" />
+              <item name="objects" type="cbb8eebc:String" user="objects" />
+              <item name="renderer" type="cbb8eebc:String" user="renderer" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Water" type="cbb8eebc:String" user="Water" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="base" type="cbb8eebc:String" user="base" />
+              <item name="objects" type="cbb8eebc:String" user="objects" />
+              <item name="textures" type="cbb8eebc:String" user="textures" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Water" type="cbb8eebc:String" user="Water" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="perlinNoise" type="cbb8eebc:String" user="perlinNoise" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Water" type="cbb8eebc:String" user="Water" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="perlinNoise" type="cbb8eebc:String" user="perlinNoise" />
+              <item name="perlinNoiseTextureGenerator" type="cbb8eebc:String" user="perlinNoiseTextureGenerator" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Water" type="cbb8eebc:String" user="Water" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="perlinNoise" type="cbb8eebc:String" user="perlinNoise" />
+              <item name="perlinNoiseTextureGenerator" type="cbb8eebc:String" user="perlinNoiseTextureGenerator" />
+              <item name="shaderProgram" type="cbb8eebc:String" user="shaderProgram" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Water" type="cbb8eebc:String" user="Water" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="shapes" type="cbb8eebc:String" user="shapes" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Water" type="cbb8eebc:String" user="Water" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="skybox" type="cbb8eebc:String" user="skybox" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Water" type="cbb8eebc:String" user="Water" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="terrain/perlinNoiseTerrain" type="cbb8eebc:String" user="terrain/perlinNoiseTerrain" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Water" type="cbb8eebc:String" user="Water" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="water/basicWater" type="cbb8eebc:String" user="water/basicWater" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Water" type="cbb8eebc:String" user="Water" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="water/basicWater" type="cbb8eebc:String" user="water/basicWater" />
+              <item name="basicWaterTerrainScene" type="cbb8eebc:String" user="basicWaterTerrainScene" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Water" type="cbb8eebc:String" user="Water" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="water/basicWater" type="cbb8eebc:String" user="water/basicWater" />
+              <item name="basicWaterTerrainScene" type="cbb8eebc:String" user="basicWaterTerrainScene" />
+              <item name="basicWaterTerrainShaderProgram" type="cbb8eebc:String" user="basicWaterTerrainShaderProgram" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Water" type="cbb8eebc:String" user="Water" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="water/basicWater" type="cbb8eebc:String" user="water/basicWater" />
+              <item name="textureRenderer" type="cbb8eebc:String" user="textureRenderer" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/PNGDecoder.jar!/" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="base.objects.renderer.textureRenderer" />
+      <recent name="tests" />
+      <recent name="" />
+      <recent name="shapes" />
+      <recent name="basic" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Water\IntelJ IDEA project\src\main\resources" />
+      <recent name="$PROJECT_DIR$/paper" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/water/basicWater/waterTerrain/causticsWaterTerrain" />
+      <recent name="$PROJECT_DIR$/src/water/basicWater/images/waterTileImages" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="tests.texturePreviewRenderer.rgbaTexturePreviewRenderer.rgbaTexturePreviewShaderProgram" />
+      <recent name="water.basicWater" />
+      <recent name="terrain.perlinNoiseTerrain.shaderProgram" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/water/basicWater/waterTerrain/causticsWaterTerrain/causticsWaterTerrainShaderProgram" />
+      <recent name="$PROJECT_DIR$/src/water/basicWater/waterTerrain" />
+      <recent name="$PROJECT_DIR$/src/water/basicWater/images/distortionImages" />
+      <recent name="$PROJECT_DIR$/src/tests/texturePreviewRenderer/depthTexturePreviewRenderer/rgbaTexturePreviewShaderProgram" />
+      <recent name="$PROJECT_DIR$/src/tests/texturePreviewRenderer/rgbaTexturePreviewRenderer/rgbaTexturePreviewShaderProgram" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="&lt;template&gt;" type="JUnit" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Water" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Water" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Water" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <created>1549915743020</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1549915743020</updated>
+      <workItem from="1549915745913" duration="138000" />
+      <workItem from="1549915939512" duration="1217000" />
+      <workItem from="1549917210557" duration="2789000" />
+      <workItem from="1549920184359" duration="1384000" />
+      <workItem from="1550054244246" duration="1737000" />
+      <workItem from="1550071447572" duration="1091000" />
+      <workItem from="1550079760968" duration="1304000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="9660000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.36442953" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Learn" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="UI Designer" order="5" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.6909361" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49707174" weight="0.37393767" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.28328612" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32986626" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50292826" side_tool="true" weight="0.34918275" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3286119" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24963397" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Maven" order="6" weight="0.21677852" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25402635" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Learn" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.08320951" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49707174" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.28380385" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.0" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50292826" side_tool="true" weight="0.34918275" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24963397" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+    </layout-to-restore>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="Changed skybox. Now it uses texture unit manager for texture allocation." />
+    <MESSAGE value="Changed perlin noise test. Now it uses texture unit manager." />
+    <MESSAGE value="TexturePreviewRenderer now uses texture unit manager." />
+    <MESSAGE value="Found a bug in texture unit manager. Fixed it." />
+    <MESSAGE value="Found a bug in texture unit manager, fixed it and fixed perlin noise texture renderer." />
+    <MESSAGE value="Found a bug in texture unit manager, fixed it and fixed skybox." />
+    <MESSAGE value="Found a bug in texture unit manager, fixed it and fixed texture preview renderer." />
+    <MESSAGE value="Refractored the code a little bit." />
+    <MESSAGE value="Basic water terrain now uses texture unit manager to allocate texture units." />
+    <MESSAGE value="Water tile renderer now uses texture unit manager." />
+    <MESSAGE value="Plan is to add a separate shader program for underground terrain in order to do caustics. Since it will need access to distortion and normal maps i plan to add decorators or rather composite renderers which will set these two textures and all required data." />
+    <MESSAGE value="Added a static class for distortion render decorator constants. Also added distortion render decorator instantiation." />
+    <MESSAGE value="Added a blue tint to the water and reduced the reflectivity." />
+    <MESSAGE value="Added a normal map render decorator." />
+    <MESSAGE value="Added a light render decorator." />
+    <MESSAGE value="Removed texture tiling." />
+    <MESSAGE value="Changed texture coordinates, now topLeft is 0,0." />
+    <MESSAGE value="Changed texture coordinates, now topLeft is 0, 0." />
+    <MESSAGE value="Added a caustics terrain, however it does not work properly." />
+    <MESSAGE value="Fixed caustics. However the technique is not very precise but it gives somewhat good looking effects." />
+    <MESSAGE value="Refraction texture now includes caustics." />
+    <MESSAGE value="Found an error in incident vector calculation." />
+    <MESSAGE value="Added my paper to the project along with every picture." />
+    <MESSAGE value="Updated paper." />
+    <MESSAGE value="Added new and improved paper." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new and improved paper." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/base/views/GLView.java</url>
+          <line>98</line>
+          <properties />
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/base/objects/textures/TextureUnitManager.java</url>
+          <line>34</line>
+          <properties />
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/base/glsl/Shader.java</url>
+          <line>28</line>
+          <properties />
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="GL4.GL_TEXTURE0" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>GL4.GL_TEXTURE0</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tests/texturePreviewRenderer/TexturePreviewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tests/texturePreviewRenderer/depthTexturePreviewRenderer/DepthTexturePreviewRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-201">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tests/texturePreviewRenderer/rgbaTexturePreviewRenderer/RGBATexturePreviewRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="39" lean-forward="true" selection-start-column="39" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tests/texturePreviewRenderer/TexturePreviewRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="46" column="86" selection-start-line="46" selection-start-column="86" selection-end-line="46" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/textureRenderer/RefractionTextureRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-269">
+          <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/base/objects/renderer/scene/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-391">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/waterTile/WaterTileModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/waterTile/waterTileShaderProgram/WaterTileShaderProgram.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="117" selection-start-line="117" selection-end-line="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/waterTile/WaterTileRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="87" column="24" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/waterTerrain/basicWaterTerrainScene/BasicWaterTerrainScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="96" column="4" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/waterTerrain/basicWaterTerrainScene/basicWaterTerrainShaderProgram/fragmentShader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/shapes/Mesh.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="167" selection-start-line="167" selection-end-line="167" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/waterTerrain/basicWaterTerrainScene/basicWaterTerrainShaderProgram/BasicWaterTerrainShaderProgram.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/rendererDecorators/DistortionRenderDecorator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-711">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/rendererDecorators/LightRenderDecorator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/rendererDecorators/NormalMapRenderDecorator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="68" column="29" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/waterTerrain/causticsWaterTerrain/causticsWaterTerrainShaderProgram/CausticsWaterTerrainShaderProgram.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="153" column="16" selection-start-line="153" selection-start-column="16" selection-end-line="153" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/waterTerrain/causticsWaterTerrain/CausticsWaterTerrainScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1462">
+          <caret line="97" selection-start-line="97" selection-end-line="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/images/distortionImages/dudvTexture.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/textureRenderer/ReflectionTextureRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="56" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/base/objects/renderer/textureRenderer/TextureRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="81" column="27" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/rendererDecorators/ClippingPlaneRenderDecorator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="614">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/base/objects/frameBuffer/FrameBuffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="55" column="23" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/waterTerrain/basicWaterTerrainScene/basicWaterTerrainShaderProgram/vertexShader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/waterTile/waterTileShaderProgram/fragmentShader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="44" column="22" selection-start-line="39" selection-start-column="4" selection-end-line="45" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/waterTile/waterTileShaderProgram/vertexShader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/waterTerrain/causticsWaterTerrain/causticsWaterTerrainShaderProgram/fragmentShader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" lean-forward="true" selection-end-line="38" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/waterTerrain/causticsWaterTerrain/causticsWaterTerrainShaderProgram/vertexShader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper/matlab/fresnelTexture.m" />
+    <entry file="file://$PROJECT_DIR$/Water.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/base/objects/OpenGLObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="34" column="23" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/base/objects/renderer/CompositeRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/base/views/GLView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+          <folding>
+            <element signature="e#1173#1174#0" expanded="true" />
+            <element signature="e#1204#1205#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/base/objects/CompositeOpenGLObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/base/objects/textures/CubeMapTexture.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/shapes/Quad.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/base/objects/textures/TextureData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/jdk/internal/loader/BootLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="152" column="47" selection-start-line="152" selection-start-column="47" selection-end-line="152" selection-end-column="47" />
+          <folding>
+            <element signature="e#4169#4170#0" expanded="true" />
+            <element signature="e#4236#4237#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/util/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="242" column="6" selection-start-line="242" selection-start-column="6" selection-end-line="242" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/vertexShader.glsl" />
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/lang/Class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="2604" selection-start-line="2604" selection-end-line="2604" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/lang/ClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="1386" selection-start-line="1386" selection-end-line="1386" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/jdk/internal/loader/BuiltinClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="264" selection-start-line="264" selection-end-line="264" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/skybox/shaderProgram/vertexShader.glsl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/skybox/Skybox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/BasicWaterView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3536">
+          <caret line="234" selection-start-line="234" selection-end-line="234" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#254#255#0" expanded="true" />
+            <element signature="e#281#282#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/skybox/shaderProgram/SkyboxShaderProgram.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="42" column="74" selection-start-line="42" selection-start-column="74" selection-end-line="42" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/base/glsl/Shader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Water</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>gluegen-rt-natives-linux-amd64</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
