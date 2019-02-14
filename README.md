@@ -11,6 +11,6 @@ You can compile the project either by opening it in IntelJ IDEA or using maven.
 If you choose to use maven you also need to download the dependencies (also using maven) and do not forget to include them in the classpath.
 Here are some pictures.
 
-(/paper/pcitures/30improvedFresnel.jpg)
-(/paper/pcitures/33specularHighlightsEffect.jpg)
-(/paper/pcitures/35withCaustics.jpg)
+![Picture 1](/paper/pictures/30improvedFresnel.jpg)
+![Picture 2](/paper/pictures/33specularHighlightsEffect.jpg)
+![Picture 3](/paper/pictures/35withCaustics.jpg)
