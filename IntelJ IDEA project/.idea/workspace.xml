@@ -2,133 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdca1d5e-5758-47c5-a254-1fbc2c6411e1" name="Default" comment="kkkk">
-      <change beforePath="$PROJECT_DIR$/../.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/dictionaries/root.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/gluegen_rt_natives_linux_amd64.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Water.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/PNGDecoder.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/gluegen-rt-natives-linux-amd64.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/gluegen-rt.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/jogl-all-natives-linux-amd64.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/jogl-all.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/joml-1.8.5-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libsrc/gluegen-java-src.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libsrc/joal-java-src.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libsrc/jocl-java-src.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libsrc/jogl-java-src.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/Utilities.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/glsl/Shader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/glsl/ShaderProgram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/glsl/shaders/FragmentShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/glsl/shaders/GeometryShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/glsl/shaders/VertexShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/glsl/uniformSetter/Uniform1f.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/glsl/uniformSetter/Uniform1i.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/glsl/uniformSetter/Uniform1iv.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/glsl/uniformSetter/Uniform3f.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/glsl/uniformSetter/Uniform4f.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/glsl/uniformSetter/UniformMatrix4fv.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/glsl/uniformSetter/UniformSetter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/CompositeOpenGLObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/OpenGLObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/frameBuffer/FrameBuffer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/frameBuffer/RenderBuffer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/model/Model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/model/loaders/IndicesLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/model/loaders/Loader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/model/loaders/TexelsLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/model/loaders/VerticesLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/CompositeRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/Renderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/RendererBase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/rendererDecorators/CullFaceRendererDecorator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/scene/Scene.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/scene/SceneShaderProgram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/scene/camera/Camera.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/scene/camera/OrthographicCamera.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/scene/camera/PerspectiveCamera.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/scene/camera/orbitingCamera/OrbitingCamera.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/scene/light/Light.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/scene/sceneModel/SceneModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/renderer/textureRenderer/TextureRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/textures/CubeMapTexture.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/textures/Texture.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/textures/TextureBase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/textures/TextureData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/objects/textures/TextureUnitManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/views/GLView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/perlinNoise/perliNoiseGenerator/PerlinNoiseGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/perlinNoise/perlinNoiseTextureGenerator/PerlinNoiseModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/perlinNoise/perlinNoiseTextureGenerator/PerlinNoiseRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/perlinNoise/perlinNoiseTextureGenerator/PerlinNoiseTextureGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/perlinNoise/perlinNoiseTextureGenerator/shaderProgram/PerlinNoiseShaderProgram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/perlinNoise/perlinNoiseTextureGenerator/shaderProgram/fragmentShader.glsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/perlinNoise/perlinNoiseTextureGenerator/shaderProgram/vertexShader.glsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/shapes/Box.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/shapes/Mesh.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/shapes/Quad.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/skybox/Skybox.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/skybox/shaderProgram/SkyboxShaderProgram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/skybox/shaderProgram/fragmentShader.glsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/skybox/shaderProgram/vertexShader.glsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/terrain/perlinNoiseTerrain/PerlinNoiseTerrain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/basic/BasicCamera.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/basic/BasicView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/basic/basicSceneShaderProgram/BasicSceneShaderProgram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/basic/basicSceneShaderProgram/fragmentShader.glsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/basic/basicSceneShaderProgram/vertexShader.glsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/basicMeshTest/BasicMeshTestView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/perlinNoiseTest/PerlinNoiseTestView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/perlinNoiseTest/PerlinNoiseTextureRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/perlinNoiseTest/twoDRShaderProgram/TwoDRShaderProgram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/perlinNoiseTest/twoDRShaderProgram/fragmentShader.glsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/perlinNoiseTest/twoDRShaderProgram/vertexShader.glsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/TexturePreviewModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/TexturePreviewRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/depthTexturePreviewRenderer/DepthTexturePreviewRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/depthTexturePreviewRenderer/depthTexturePreviewShaderProgram/DepthTexturePreviewShaderProgram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/depthTexturePreviewRenderer/depthTexturePreviewShaderProgram/depthFragmentShader.glsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/rgbaTexturePreviewRenderer/RGBATexturePreviewRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/rgbaTexturePreviewRenderer/rgbaTexturePreviewShaderProgram/RGBATexturePreviewShaderProgram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/rgbaTexturePreviewRenderer/rgbaTexturePreviewShaderProgram/rgbaFragmentShader.glsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/texturePreviewShaderProgram/TexturePreviewShaderProgram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/tests/texturePreviewRenderer/texturePreviewShaderProgram/vertexShader.glsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/BasicWaterCamera.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/BasicWaterView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/distortionImages/dudvTexture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/normalMapImages/normalMapTexture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/skyboxImages/back.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/skyboxImages/bottom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/skyboxImages/front.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/skyboxImages/left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/skyboxImages/right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/skyboxImages/top.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/terrainImages/grass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/images/terrainImages/sand.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/rendererDecorators/ClippingPlaneRenderDecorator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/rendererDecorators/DistortionRenderDecorator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/rendererDecorators/LightRenderDecorator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/rendererDecorators/NormalMapRenderDecorator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/textureRenderer/ReflectionTextureRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/textureRenderer/RefractionTextureRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTerrain/basicWaterTerrainScene/BasicWaterTerrainScene.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTerrain/basicWaterTerrainScene/basicWaterTerrainShaderProgram/BasicWaterTerrainShaderProgram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTerrain/basicWaterTerrainScene/basicWaterTerrainShaderProgram/fragmentShader.glsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTerrain/basicWaterTerrainScene/basicWaterTerrainShaderProgram/vertexShader.glsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTerrain/causticsWaterTerrain/CausticsWaterTerrainScene.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTerrain/causticsWaterTerrain/causticsWaterTerrainShaderProgram/CausticsWaterTerrainShaderProgram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTerrain/causticsWaterTerrain/causticsWaterTerrainShaderProgram/fragmentShader.glsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTerrain/causticsWaterTerrain/causticsWaterTerrainShaderProgram/vertexShader.glsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTile/WaterTileModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTile/WaterTileRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTile/waterTileShaderProgram/WaterTileShaderProgram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTile/waterTileShaderProgram/fragmentShader.glsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/water/basicWater/waterTile/waterTileShaderProgram/vertexShader.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -144,19 +18,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="374">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/BasicWaterView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3536">
+            <state relative-caret-position="3259">
               <caret line="234" selection-start-line="234" selection-end-line="234" />
             </state>
           </provider>
@@ -174,7 +48,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/base/glsl/Shader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
+            <state relative-caret-position="357">
               <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
             </state>
           </provider>
@@ -313,57 +187,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="IntelJ IDEA project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IntelJ IDEA project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IntelJ IDEA project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IntelJ IDEA project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IntelJ IDEA project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IntelJ IDEA project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IntelJ IDEA project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IntelJ IDEA project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IntelJ IDEA project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IntelJ IDEA project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Water" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Water" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="Water" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Water" type="616d4139:PackageViewModuleNode" />
-              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -476,6 +299,57 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Water" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Water" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="Water" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Water" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="IntelJ IDEA project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelJ IDEA project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IntelJ IDEA project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelJ IDEA project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IntelJ IDEA project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelJ IDEA project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IntelJ IDEA project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelJ IDEA project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IntelJ IDEA project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelJ IDEA project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -580,16 +454,17 @@
       <workItem from="1550054244246" duration="1737000" />
       <workItem from="1550071447572" duration="1091000" />
       <workItem from="1550079760968" duration="1304000" />
+      <workItem from="1550095004792" duration="747000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9660000" />
+    <option name="totallyTimeSpent" value="10407000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.36442953" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.36979866" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Learn" order="3" />
@@ -1011,20 +886,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/BasicWaterView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3536">
-          <caret line="234" selection-start-line="234" selection-end-line="234" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/test.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test.txt" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1032,6 +894,13 @@
             <element signature="e#254#255#0" expanded="true" />
             <element signature="e#281#282#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
@@ -1044,15 +913,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/base/glsl/Shader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
+        <state relative-caret-position="357">
           <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/water/basicWater/BasicWaterView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="3259">
+          <caret line="234" selection-start-line="234" selection-end-line="234" />
         </state>
       </provider>
     </entry>
