@@ -1,4 +1,4 @@
-# Water
+# Water rendering techniques
 This repository contains an implementation which demonstrates a set of basic rendering techniques used for water rendering. 
 The implementaion covers the following:
 1.	Reflection and refraction
